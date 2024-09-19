@@ -1,0 +1,28 @@
+# Unityのビルドファイル
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# ユーザー設定ファイル
+[Uu]serSettings/
+
+# バージョン管理に含めたくないファイル
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+*.tmp
+*.swp
+*.bak
+
+# マシン固有のファイル
+*.userprefs
+*.csproj
+*.sln
+*.suo
+
+# Visual Studio関連
+.vscode/
+.vs/
