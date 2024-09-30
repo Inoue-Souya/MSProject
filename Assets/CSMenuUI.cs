@@ -6,6 +6,8 @@ public class CSMenuUI : MonoBehaviour
 {
     public GameObject contextMenu; // コンテキストメニュー用のUIパネル
 
+    private RectTransform panelRect;
+
     private void Start()
     {
         contextMenu.SetActive(false);
@@ -56,7 +58,21 @@ public class CSMenuUI : MonoBehaviour
         }
 
         // 左クリックまたはESCキーでメニューを閉じる
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(0))
+        {
+            // マウスの位置を取得
+            Vector2 mousePosition = Input.mousePosition;
+
+            // パネルの範囲内にマウスがあるかを確認
+            if (!RectTransformUtility.RectangleContainsScreenPoint(panelRect, mousePosition, null))
+            {
+                // 範囲外ならパネルを閉じる
+                contextMenu.SetActive(false);
+            }
+        }
+
+        // ESCキーでメニューを閉じる
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             contextMenu.SetActive(false);
         }

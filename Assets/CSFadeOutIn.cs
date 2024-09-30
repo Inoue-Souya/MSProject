@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CSFadeOutIn : MonoBehaviour
 {
+    public int task;
     public CanvasGroup canvasGroup; // フェードするオブジェクトのCanvasGroup
     public CanvasGroup textGroup;
     public float fadeDuration = 1.0f; // フェードにかかる時間
@@ -14,20 +15,27 @@ public class CSFadeOutIn : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    // ボタンをクリックしたらフェードアウト→フェードインを行う
-    public void OnButtonClick()
+
+    private void Update()
     {
-        if (!isFading)
+        if (isFading)
         {
             gameObject.SetActive(true);
             StartCoroutine(FadeOutIn());
         }
     }
+    // ボタンをクリックしたらフェードアウト→フェードインを行う
+    public void OnButtonClick()
+    {
+        task -= 1;
+        Debug.Log("タスクあと" + task);
+        if (task <= 0)
+            isFading = true;
+
+    }
 
     private IEnumerator FadeOutIn()
     {
-        isFading = true;
-
         // フェードアウト
         yield return StartCoroutine(Fade(0, 1, canvasGroup));
 
@@ -40,6 +48,7 @@ public class CSFadeOutIn : MonoBehaviour
 
         yield return StartCoroutine(Fade(1, 0, canvasGroup));
 
+        // フェードインアウト終了処理
         isFading = false;
         gameObject.SetActive(false);
     }
