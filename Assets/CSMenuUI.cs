@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems; // 必要な名前空間を追加
 
 public class CSMenuUI : MonoBehaviour
 {
     public GameObject contextMenu; // コンテキストメニュー用のUIパネル
+
+    private RectTransform panelRect;
 
     private void Start()
     {
@@ -55,10 +58,36 @@ public class CSMenuUI : MonoBehaviour
             panelRect.anchoredPosition += new Vector2(panelSize.x / 2, -panelSize.y / 2); // Y軸方向にパネルの高さを追加
         }
 
-        // 左クリックまたはESCキーでメニューを閉じる
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Escape))
+        // 左クリックでメニューを閉じる
+        if (Input.GetMouseButtonDown(0))
+        {
+            // クリックしたオブジェクトがUI要素（ボタンなど）かどうかを確認
+            if (!IsPointerOverUIElement())
+            {
+                // UI要素（ボタンなど）以外がクリックされた場合にメニューを閉じる
+                contextMenu.SetActive(false);
+            }
+        }
+
+        // ESCキーでメニューを閉じる
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             contextMenu.SetActive(false);
         }
+    }
+
+    // クリックされた場所がUI要素かどうかを判定するメソッド
+    private bool IsPointerOverUIElement()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // クリックした場所にUI要素があるかどうかを判定
+        return results.Count > 0;
     }
 }

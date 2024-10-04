@@ -8,25 +8,21 @@ public class CSFadeOutIn : MonoBehaviour
     public CanvasGroup canvasGroup; // フェードするオブジェクトのCanvasGroup
     public CanvasGroup textGroup;
     public float fadeDuration = 1.0f; // フェードにかかる時間
-    private bool isFading = false; // フェード中かどうか
 
     private void Start()
     {
         gameObject.SetActive(false);
     }
-    // ボタンをクリックしたらフェードアウト→フェードインを行う
-    public void OnButtonClick()
+
+    public void StartFadeOutIn()
     {
-        if (!isFading)
-        {
-            gameObject.SetActive(true);
-            StartCoroutine(FadeOutIn());
-        }
+        gameObject.SetActive(true);
+        StartCoroutine(FadeOutIn());
     }
 
     private IEnumerator FadeOutIn()
     {
-        isFading = true;
+        // フェードインアウト開始
 
         // フェードアウト
         yield return StartCoroutine(Fade(0, 1, canvasGroup));
@@ -40,11 +36,11 @@ public class CSFadeOutIn : MonoBehaviour
 
         yield return StartCoroutine(Fade(1, 0, canvasGroup));
 
-        isFading = false;
+        // フェードインアウト終了処理
         gameObject.SetActive(false);
     }
 
-    // フェード処理（from:開始alpha, to:終了alpha）
+    // フェード処理（from:開始alpha, to:終了alpha, フェードするUI）
     private IEnumerator Fade(float from, float to, CanvasGroup group)
     {
         float elapsed = 0.0f;
