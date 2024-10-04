@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetPoint : MonoBehaviour
+public class CS_TargetPoint : MonoBehaviour
 {
     //À•W—p‚Ì•Ï”
     Vector3 mousePos, worldPos;

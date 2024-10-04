@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /// ダイアログのアニメーション
 /// </summary>
 
-public class AnimatedDialog : MonoBehaviour
+public class CS_AnimatedDialog : MonoBehaviour
 {
     // アニメーター
     [SerializeField] private Animator _animator;
