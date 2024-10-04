@@ -9,7 +9,7 @@ public class CStaskManager : MonoBehaviour
     private int Max_task;           // タスク量の最大値
     public CSFadeOutIn FadeOutIn;   // フェードインアウト関数呼び出し用変数
     public Text taskCount;          // タスク量表示テキスト
-    public GameObject Panel;
+    public GameObject Panel;        // タスク終了時に表示をオフにするパネル
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class CStaskManager : MonoBehaviour
         Max_task = task;
 
         // タスク量表示初期設定
-        taskCount.text = "タスク量：" + task;
+        taskCount.text = "タスク量：" + task + " / " + Max_task;
     }
 
     // Update is called once per frame
@@ -33,11 +33,11 @@ public class CStaskManager : MonoBehaviour
         if (task <= 0)
         {
             Panel.SetActive(false);
+            taskCount.gameObject.SetActive(false);
 
-            // フェードインアウト開始
-            FadeOutIn.StartFadeOutIn();
+            // フェードインアウト開始～終了
+            StartCoroutine(StartFade());
 
-            // タスク量リセット
             taskReset();
         }
     }
@@ -46,16 +46,21 @@ public class CStaskManager : MonoBehaviour
     {
         task -= 1;
         Debug.Log("タスクあと" + task);
-        taskCount.text = "タスク量：" + task;
+        taskCount.text = "タスク量：" + task + " / " + Max_task;
     }
 
-    private void taskReset()
-    { 
-        task = Max_task;
-    }
-
-    public int GetTask()
+    private IEnumerator StartFade()
     {
-        return task;
+        // フェードインアウト開始
+        FadeOutIn.StartFadeOutIn();
+
+        yield return new WaitUntil(() => FadeOutIn.gameObject.activeSelf == false);
+
+        taskCount.text = "タスク量：" + task + " / " + Max_task;
+        taskCount.gameObject.SetActive(true);
+    }
+    private void taskReset()
+    {
+        task = Max_task; 
     }
 }
