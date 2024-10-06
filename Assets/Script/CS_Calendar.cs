@@ -38,6 +38,9 @@ public class CS_Calendar : MonoBehaviour
 
     void CreateCalendar()
     {
+        //// セルの色をランダムに設定
+        //SetRandomColorCells();
+
         if (dayPrefab == null)
         {
             Debug.LogError("dayPrefab is not assigned!");
@@ -53,11 +56,27 @@ public class CS_Calendar : MonoBehaviour
         int rows = 6; // 行数
         int columns = 7; // 列数
         int totalCells = rows * columns; // 総セル数
+
+        // 既存のプレハブ数を考慮して調整
+        int existingChildren = gridLayout.childCount;
+
+        // 必要なセル数 - 既存のセル数分だけ新たに生成
+        int cellsToGenerate = totalCells - existingChildren;
         cells = new Image[totalCells]; // Imageコンポーネントの配列を初期化
 
         for (int i = 0; i < totalCells; i++)
         {
-            GameObject day = Instantiate(dayPrefab, gridLayout);
+            GameObject day;
+
+            // 既存のプレハブを再利用するか、新たに生成する
+            if (i < existingChildren)
+            {
+                day = gridLayout.GetChild(i).gameObject; // 既存のセルを再利用
+            }
+            else
+            {
+                day = Instantiate(dayPrefab, gridLayout); // 新たにセルを生成
+            }
 
             // 子オブジェクトからTextコンポーネントを取得
             Text dayText = day.GetComponentInChildren<Text>();
