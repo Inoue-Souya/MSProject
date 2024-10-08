@@ -29,11 +29,45 @@ public class CS_Calendar : MonoBehaviour
         }
 
         // 次のセルを黄色にするロジック
-        currentYellowCellIndex = (currentYellowCellIndex + 1); // 7セルは曜日名用なので、それ以外をループ
-        cells[currentYellowCellIndex].color = Color.yellow; // 次のセルを黄色に設定
+        currentYellowCellIndex = (currentYellowCellIndex + 1) % cells.Length; // セルをループさせる
 
-        DayText.text="あと"+(currentRedCellIndex - currentYellowCellIndex)+"日";
-        //% (cells.Length - 7)
+        // 黄色セルと赤色セルが重なった場合に新しいセルを再度設定
+        if (currentYellowCellIndex == currentRedCellIndex)
+        {
+            // 赤色セルを新しい場所に移動または再生成
+            SetNewRedCell();
+        }
+
+        // 次のセルを黄色に設定
+        cells[currentYellowCellIndex].color = Color.yellow;
+
+        // 日数テキストを更新
+        DayText.text = "あと" + (currentRedCellIndex - currentYellowCellIndex) + "日";
+    }
+
+    void SetNewRedCell()
+    {
+        // 赤色セルを現在の黄色セルの7つ後に設定
+        int newRedCellIndex = currentYellowCellIndex + 7;
+
+        // セル数を超えた場合
+        if (newRedCellIndex >= cells.Length)
+        {
+            // 現在の赤色セルを白に戻す
+            if (currentRedCellIndex != -1 && currentRedCellIndex < cells.Length)
+            {
+                cells[currentRedCellIndex].color = Color.white;
+            }
+
+            // ランダムに黄色と赤色セルを再設定
+            SetRandomColorCells();
+        }
+        else
+        {
+            // 新しい赤色セルを設定
+            currentRedCellIndex = newRedCellIndex;
+            cells[currentRedCellIndex].color = Color.red;
+        }
     }
 
     void CreateCalendar()
