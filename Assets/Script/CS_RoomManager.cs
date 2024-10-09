@@ -13,7 +13,7 @@ public class CS_RoomManager : MonoBehaviour
     public float EmptyRoom; //空き部屋の数
     public Text RoomText; // UIのTextコンポーネント
     public float Cost;    //維持費の変数
-    public CS_MoneyManager MoneyManager; //お金の管理変数
+    //public CS_MoneyManager MoneyManager; //お金の管理変数
     public Button MButton; //入居ボタン
     public Button IButton; //増築ボタン
     //public Button LButton; //退去ボタン
@@ -62,7 +62,7 @@ public class CS_RoomManager : MonoBehaviour
     {
         currentRoom += amount;
         EmptyRoom += amount;
-        MoneyManager.DecreaseMoney(ICost);  //増築費用
+        //MoneyManager.DecreaseMoney(ICost);  //増築費用
         Cost += 1000;                      //維持費用
         UpdateRoomText();
     }
@@ -78,34 +78,34 @@ public class CS_RoomManager : MonoBehaviour
     private void Update()
     {
         // 入居ボタンの有効化/無効化
-        if (MButton != null)
-        {
-            if (EmptyRoom <= 0)
-            {
-                Button bt = MButton.GetComponent<Button>();
-                bt.interactable = false;
-            }
-            else
-            {
-                Button bt = MButton.GetComponent<Button>();
-                bt.interactable = true;
-            }
-        }
+        //if (MButton != null)
+        //{
+        //    if (EmptyRoom <= 0)
+        //    {
+        //        Button bt = MButton.GetComponent<Button>();
+        //        bt.interactable = false;
+        //    }
+        //    else
+        //    {
+        //        Button bt = MButton.GetComponent<Button>();
+        //        bt.interactable = true;
+        //    }
+        //}
 
         // 入居ボタンの有効化/無効化
-        if (IButton != null)
-        {
-            if (MoneyManager.GetMoney() < ICost)
-            {
-                Button bt = IButton.GetComponent<Button>();
-                bt.interactable = false;
-            }
-            else
-            {
-                Button bt = IButton.GetComponent<Button>();
-                bt.interactable = true;
-            }
-        }
+        //if (IButton != null)
+        //{
+        //    if (MoneyManager.GetMoney() < ICost)
+        //    {
+        //        Button bt = IButton.GetComponent<Button>();
+        //        bt.interactable = false;
+        //    }
+        //    else
+        //    {
+        //        Button bt = IButton.GetComponent<Button>();
+        //        bt.interactable = true;
+        //    }
+        //}
         // 退去ボタンの有効化/無効化
         //if (LButton != null)
         //{
