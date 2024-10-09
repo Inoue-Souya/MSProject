@@ -8,7 +8,7 @@ public class CS_MoneyManager : MonoBehaviour
 {
     public static CS_MoneyManager Instance { get; private set; }
 
-    public float currentMoney;
+    private float currentMoney;
     public Text moneyText; // UIのTextコンポーネント
 
     private void Start()
@@ -60,6 +60,10 @@ public class CS_MoneyManager : MonoBehaviour
         }
     }
 
+    public float GetMoney()
+    {
+        return currentMoney;
+    }
     
 
     // 1000, 5000, 10000のいずれかをランダムに返すメソッド
