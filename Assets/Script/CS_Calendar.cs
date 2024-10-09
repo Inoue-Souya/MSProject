@@ -17,11 +17,19 @@ public class CS_Calendar : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("CreateCalendar is called.");
         CreateCalendar();
     }
 
     public void NextDay()
     {
+        // cells 配列が初期化されているか確認
+        if (cells == null || cells.Length == 0)
+        {
+            Debug.LogError("cells array is not initialized.");
+            return;
+        }
+
         // 現在の黄色のセルを白色に戻し、次のセルを黄色にする
         if (currentYellowCellIndex != -1 && currentYellowCellIndex < cells.Length)
         {

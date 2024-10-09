@@ -48,7 +48,7 @@ public class CS_TaskManager : MonoBehaviour
     public void OnButtonClick()
     {
         task -= 1;
-        Calendar.NextDay();
+        //Calendar.NextDay();
         Debug.Log("タスクあと" + task);
         taskCount.text = "タスク量：" + task + " / " + Max_task;
     }
