@@ -55,23 +55,6 @@ public class CS_NewResidentManager : MonoBehaviour
         DisplayResidentInfo(currentIndex);
     }
 
-    public float EvaluateResident(Resident resident, ResidentRequest request)
-    {
-        float score = 0;
-
-        // 性格の一致
-        if (resident.personality == request.personality) score += 1;
-        // 年齢の範囲のチェック
-        if (resident.age >= request.age - 5 && resident.age <= request.age + 5) score += 1;
-        // 性別の一致
-        if (resident.gender == request.gender) score += 1;
-
-        //// スコアに基づいてお金を増やす処理
-        //CS_MoneyManager.Instance.AddMoney(score * 10000); // スコアに応じてお金を増加（例: 1点ごとに10000円増える）
-
-        return score; // スコアを返す
-    }
-
     public void NextResident()
     {
         currentIndex++;

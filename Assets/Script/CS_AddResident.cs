@@ -23,19 +23,19 @@ public class CS_AddResident : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int tilePos = tilemap.WorldToCell(mousePos);
 
-            //if (IsVacantTile(tilePos)) // タイルが空いているか確認
-            //{
-            //    selectedPosition = tilePos; // 空き部屋の位置を保存
-            //    ShowConfirmationDialog(); // 確認ダイアログを表示
-            //}
+            if (IsVacantTile(tilePos)) // タイルが空いているか確認
+            {
+                selectedPosition = tilePos; // 空き部屋の位置を保存
+                ShowConfirmationDialog(); // 確認ダイアログを表示
+            }
         }
     }
 
-    //private bool IsVacantTile(Vector3Int position)
-    //{
-    //    TileBase tile = tilemap.GetTile(position);
-    //    //return tile == CS_ResidentsManager.Instance.vacantTile; // vacantTileを事前に設定
-    //}
+    private bool IsVacantTile(Vector3Int position)
+    {
+        TileBase tile = tilemap.GetTile(position);
+        return tile == CS_ResidentsManager.Instance.vacantTile; // vacantTileを事前に設定
+    }
 
     private void ShowConfirmationDialog()
     {
@@ -46,7 +46,7 @@ public class CS_AddResident : MonoBehaviour
     {
         if (selectedResident != null)
         {
-            //CS_ResidentsManager.Instance.AddResident(selectedPosition, selectedResident); // 住民を追加
+            CS_ResidentsManager.Instance.AddResident(selectedPosition, selectedResident); // 住民を追加
             confirmationDialog.SetActive(false); // ダイアログを閉じる
         }
     }
