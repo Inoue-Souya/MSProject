@@ -9,10 +9,9 @@ public class CS_NewResidentManager : MonoBehaviour
     private int currentIndex = 0;
 
     public Text name;
-    //public Text age;
-    //public Text gender;
-    //public Text personality;
-    //public Text info;
+    public Text age;
+    public Text gender;
+    public Text personality;
     public Image portraitImage;
 
     void Start()
@@ -25,7 +24,6 @@ public class CS_NewResidentManager : MonoBehaviour
                 age = 25,
                 gender = "’j",
                 personality = "‘P",
-                info = "101‚ÌZ–¯",
                 portrait = Resources.Load<Sprite>("Images/RImage01")
             },
             new Resident
@@ -34,7 +32,6 @@ public class CS_NewResidentManager : MonoBehaviour
                 age = 28,
                 gender = "’j",
                 personality = "ˆ«",
-                info = "102‚ÌZ–¯",
                 portrait = Resources.Load<Sprite>("Images/RImage02")
             },
             new Resident
@@ -43,16 +40,14 @@ public class CS_NewResidentManager : MonoBehaviour
                 age = 25,
                 gender = "—",
                 personality = "‘P",
-                info = "103‚ÌZ–¯",
                 portrait = Resources.Load<Sprite>("Images/RImage03")
             },
             new Resident
             {
-                name = "R–{",
-                age = 25,
+                name = "—é–Ø",
+                age = 30,
                 gender = "—",
-                personality = "‘P",
-                info = "103‚ÌZ–¯",
+                personality = "ˆ«",
                 portrait = Resources.Load<Sprite>("Images/RImage04")
             }
         };
@@ -74,10 +69,9 @@ public class CS_NewResidentManager : MonoBehaviour
     {
         Resident resident = residents[index];
         name.text = resident.name;
-        //age.text = resident.age.ToString();
-        //gender.text = resident.gender;
-        //personality.text = resident.personality;
-        //info.text = resident.info;
+        age.text = resident.age.ToString();
+        gender.text = resident.gender;
+        personality.text = resident.personality;
         portraitImage.sprite = resident.portrait;
     }
 }
