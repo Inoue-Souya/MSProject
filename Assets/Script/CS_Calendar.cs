@@ -42,7 +42,7 @@ public class CS_Calendar : MonoBehaviour
         cells[currentYellowCellIndex].color = Color.yellow;
 
         // 日数テキストを更新
-        DayText.text = "あと" + (currentRedCellIndex - currentYellowCellIndex) + "日";
+        DayText.text = "決済日";
     }
 
     void SetNewRedCell()
