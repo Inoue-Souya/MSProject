@@ -10,11 +10,11 @@ public class CS_ResidentUI : MonoBehaviour
     public Text infoText;
     public Image portraitImage;
 
-    public void SetResidentData(CS_CreateResident resident)
-    {
-        nameText.text = resident.name;
-        ageText.text = resident.age.ToString();
-        infoText.text = resident.info;
-        portraitImage.sprite = resident.portrait;
-    }
+    //public void SetResidentData(CS_CreateResident resident)
+    //{
+    //    nameText.text = resident.name;
+    //    ageText.text = resident.age.ToString();
+    //    infoText.text = resident.info;
+    //    portraitImage.sprite = resident.portrait;
+    //}
 }
