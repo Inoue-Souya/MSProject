@@ -169,6 +169,7 @@ public class CS_NewResidentManager : MonoBehaviour
 
     public Button addButton; // ボタンをインスペクタから設定
     public Button nextButton;
+    private ResidentRequest[] requests;
 
     void Start()
     {
@@ -226,12 +227,12 @@ public class CS_NewResidentManager : MonoBehaviour
     public void OnButtonClick()
     {
         // 新しい居住者を追加
-        AddNewResident("山田", 21, "男", "善", "Images/RImage04");
+        AddNewResident("山田", 21, "男", "善", "Images/RImage01");
 
         // Residentリストの情報を表示
         ListResidents();
 
-       
+
         UnityEngine.Debug.Log("ボタンが押されました");
     }
 
@@ -240,6 +241,20 @@ public class CS_NewResidentManager : MonoBehaviour
         NextResident();
     }
 
+    public void RemoveCurrentResident()
+    {
+        if (residents.Count == 0) return; // 住民がいない場合は何もしない
+
+        // 現在の住民を削除
+        Resident selectedResident = residents[currentIndex];
+
+        // 住民を削除
+        RemoveResidentAt(currentIndex);
+
+        // 次の住民を表示
+        NextResident();
+
+    }
 
     // 新しい居住者をリストに追加する関数
     void AddNewResident(string residentName, int residentAge, string residentGender, string residentPersonality, string portraitPath)
@@ -273,7 +288,7 @@ public class CS_NewResidentManager : MonoBehaviour
         if (resident.gender == request.gender) score += 1;
 
         //// スコアに基づいてお金を増やす処理（必要に応じて）
-        //CS_MoneyManager.Instance.AddMoney(score * 10000);
+        CS_MoneyManager.Instance.AddMoney(score * 10000);
 
         return score; // スコアを返す
     }
@@ -281,7 +296,7 @@ public class CS_NewResidentManager : MonoBehaviour
     // 次の居住者を表示
     public void NextResident()
     {
-      
+
         currentIndex++;
         if (currentIndex >= residents.Count) // .Length から .Count に変更
         {
@@ -304,5 +319,29 @@ public class CS_NewResidentManager : MonoBehaviour
         gender.text = resident.gender;
         personality.text = resident.personality;
         portraitImage.sprite = resident.portrait;
+    }
+
+    public void RemoveResidentAt(int index)
+    {
+        // 新しいリストを作成
+        List<Resident> newResidents = new List<Resident>();
+
+        // 住民を削除
+        for (int i = 0; i < residents.Count; i++)
+        {
+            if (i != index)
+            {
+                newResidents.Add(residents[i]);
+            }
+        }
+
+        // residentsを新しいリストに更新
+        residents = newResidents;
+        currentIndex = Mathf.Clamp(currentIndex, 0, residents.Count - 1); // インデックスを調整    }
+    }
+
+    public Resident GetCurrentResident()
+    {
+        return residents[currentIndex];
     }
 }

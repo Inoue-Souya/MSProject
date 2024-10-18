@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CS_Calendar : MonoBehaviour
 {
-    public GameObject dayPrefab; // プレハブとして設定されたテキストUI要素
+    //public GameObject dayPrefab; // プレハブとして設定されたテキストUI要素
     public Transform gridLayout; // グリッドレイアウト
     public Text DayText;// 日数テキスト
     private Image[] cells; // セルのImageコンポーネントを保持する配列
@@ -15,21 +15,13 @@ public class CS_Calendar : MonoBehaviour
     private int currentYellowCellIndex = -1; // 現在の黄色のセルのインデックスを保持
     private int currentRedCellIndex = -1; // 現在の赤色のセルのインデックスを保持
 
-    void Start()
-    {
-        Debug.Log("CreateCalendar is called.");
-        CreateCalendar();
-    }
+    //void Start()
+    //{
+    //    CreateCalendar();
+    //}
 
     public void NextDay()
     {
-        // cells 配列が初期化されているか確認
-        if (cells == null || cells.Length == 0)
-        {
-            Debug.LogError("cells array is not initialized.");
-            return;
-        }
-
         // 現在の黄色のセルを白色に戻し、次のセルを黄色にする
         if (currentYellowCellIndex != -1 && currentYellowCellIndex < cells.Length)
         {
@@ -50,7 +42,7 @@ public class CS_Calendar : MonoBehaviour
         cells[currentYellowCellIndex].color = Color.yellow;
 
         // 日数テキストを更新
-        DayText.text = "決済日";
+        DayText.text = "あと" + (currentRedCellIndex - currentYellowCellIndex) + "日";
     }
 
     void SetNewRedCell()
@@ -78,74 +70,74 @@ public class CS_Calendar : MonoBehaviour
         }
     }
 
-    void CreateCalendar()
-    {
-        //// セルの色をランダムに設定
-        //SetRandomColorCells();
+    //void CreateCalendar()
+    //{
+    //    //// セルの色をランダムに設定
+    //    //SetRandomColorCells();
 
-        if (dayPrefab == null)
-        {
-            Debug.LogError("dayPrefab is not assigned!");
-            return;
-        }
+    //    if (dayPrefab == null)
+    //    {
+    //        Debug.LogError("dayPrefab is not assigned!");
+    //        return;
+    //    }
 
-        if (gridLayout == null)
-        {
-            Debug.LogError("gridLayout is not assigned!");
-            return;
-        }
+    //    if (gridLayout == null)
+    //    {
+    //        Debug.LogError("gridLayout is not assigned!");
+    //        return;
+    //    }
 
-        int rows = 6; // 行数
-        int columns = 7; // 列数
-        int totalCells = rows * columns; // 総セル数
+    //    int rows = 6; // 行数
+    //    int columns = 7; // 列数
+    //    int totalCells = rows * columns; // 総セル数
 
-        // 既存のプレハブ数を考慮して調整
-        int existingChildren = gridLayout.childCount;
+    //    // 既存のプレハブ数を考慮して調整
+    //    int existingChildren = gridLayout.childCount;
 
-        // 必要なセル数 - 既存のセル数分だけ新たに生成
-        int cellsToGenerate = totalCells - existingChildren;
-        cells = new Image[totalCells]; // Imageコンポーネントの配列を初期化
+    //    // 必要なセル数 - 既存のセル数分だけ新たに生成
+    //    int cellsToGenerate = totalCells - existingChildren;
+    //    cells = new Image[totalCells]; // Imageコンポーネントの配列を初期化
 
-        for (int i = 0; i < totalCells; i++)
-        {
-            GameObject day;
+    //    for (int i = 0; i < totalCells; i++)
+    //    {
+    //        GameObject day;
 
-            // 既存のプレハブを再利用するか、新たに生成する
-            if (i < existingChildren)
-            {
-                day = gridLayout.GetChild(i).gameObject; // 既存のセルを再利用
-            }
-            else
-            {
-                day = Instantiate(dayPrefab, gridLayout); // 新たにセルを生成
-            }
+    //        // 既存のプレハブを再利用するか、新たに生成する
+    //        if (i < existingChildren)
+    //        {
+    //            day = gridLayout.GetChild(i).gameObject; // 既存のセルを再利用
+    //        }
+    //        else
+    //        {
+    //            day = Instantiate(dayPrefab, gridLayout); // 新たにセルを生成
+    //        }
 
-            // 子オブジェクトからTextコンポーネントを取得
-            Text dayText = day.GetComponentInChildren<Text>();
-            if (dayText == null)
-            {
-                Debug.LogError("Text component not found in dayPrefab!");
-                continue; // エラーメッセージを表示し、次のループへ
-            }
+    //        // 子オブジェクトからTextコンポーネントを取得
+    //        Text dayText = day.GetComponentInChildren<Text>();
+    //        if (dayText == null)
+    //        {
+    //            Debug.LogError("Text component not found in dayPrefab!");
+    //            continue; // エラーメッセージを表示し、次のループへ
+    //        }
 
-            // Imageコンポーネントを取得
-            Image dayImage = day.GetComponent<Image>();
-            cells[i] = dayImage; // 取得したImageを配列に保存
+    //        // Imageコンポーネントを取得
+    //        Image dayImage = day.GetComponent<Image>();
+    //        cells[i] = dayImage; // 取得したImageを配列に保存
 
-            // 最初の7セルには曜日名を割り当てる
-            if (i < columns)
-            {
-                dayText.text = daysOfWeek[i]; // 曜日の配列を使用
-            }
-            else
-            {
-                dayText.text = ""; // その他は空白
-            }
-        }
+    //        // 最初の7セルには曜日名を割り当てる
+    //        if (i < columns)
+    //        {
+    //            dayText.text = daysOfWeek[i]; // 曜日の配列を使用
+    //        }
+    //        else
+    //        {
+    //            dayText.text = ""; // その他は空白
+    //        }
+    //    }
 
-        // セルの色をランダムに設定
-        SetRandomColorCells();
-    }
+    //    // セルの色をランダムに設定
+    //    SetRandomColorCells();
+    //}
 
     void SetRandomColorCells()
     {

@@ -19,11 +19,5 @@ public class ResidentRequest
     public string personality; // «Ši
     public int age; // ”N—î
     public string gender; // «•Ê
-
-    public ResidentRequest(string personality, int age, string gender)
-    {
-        this.personality = personality;
-        this.age = age;
-        this.gender = gender;
-    }
+    public string info; // ‚»‚Ì‘¼‚Ìî•ñ
 }

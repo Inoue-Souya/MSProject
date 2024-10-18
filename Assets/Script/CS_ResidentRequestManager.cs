@@ -14,12 +14,12 @@ public class CS_ResidentRequestManager : MonoBehaviour
     void Start()
     {
         // ƒTƒ“ƒvƒ‹‚Ì—v–]‚ğì¬
-        requests = new ResidentRequest[]
-        {
-            new ResidentRequest("‘P", 25, "’j"),
-            new ResidentRequest("ˆ«", 28, "’j"),
-            new ResidentRequest("‘P", 30, "—")
-        };
+        //requests = new ResidentRequest[]
+        //{
+        //    new ResidentRequest("‘P", 25, "’j"),
+        //    new ResidentRequest("ˆ«", 28, "’j"),
+        //    new ResidentRequest("‘P", 30, "—")
+        //};
 
         // Å‰‚Ì—v–]‚ğ•\¦
         DisplayRequest(currentIndex);
@@ -34,7 +34,7 @@ public class CS_ResidentRequestManager : MonoBehaviour
         requestText.text = $"«Ši: {request.personality}\n”N—î: {request.age}\n«•Ê: {request.gender}";
     }
 
-    private void NextRequest()
+    public void NextRequest()
     {
         currentIndex++;
         if (currentIndex >= requests.Length)
@@ -42,5 +42,30 @@ public class CS_ResidentRequestManager : MonoBehaviour
             currentIndex = 0; // Å‰‚É–ß‚é
         }
         DisplayRequest(currentIndex);
+    }
+
+    private int CalculateScore(Resident resident, ResidentRequest request)
+    {
+        int score = 0;
+
+        // «Ši‚ÌÆ‡
+        if (resident.personality == request.personality)
+        {
+            score += 1; // «Ši‚ª‡’v
+        }
+
+        // ”N—î‚ÌÆ‡
+        if (resident.age == request.age)
+        {
+            score += 1; // ”N—î‚ª‡’v
+        }
+
+        // «•Ê‚ÌÆ‡
+        if (resident.gender == request.gender)
+        {
+            score += 1; // «•Ê‚ª‡’v
+        }
+
+        return score; // ‡’v‚µ‚½•ª‚ÌƒXƒRƒA‚ğ•Ô‚·
     }
 }

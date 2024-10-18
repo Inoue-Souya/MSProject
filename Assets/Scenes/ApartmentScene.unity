@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -302, y: 158}
+  m_AnchoredPosition: {x: -246, y: 134}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &122025354
@@ -2816,9 +2816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defb15a2399151347baad6dc47c2d847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 468609220}
-  vacantTile: {fileID: 11400000, guid: 5c6f22c39c4a6a44ba389ce0d245ff18, type: 2}
-  occupiedTile: {fileID: 11400000, guid: fc9f9a0cd3b744c4eb38871f23fa20a4, type: 2}
 --- !u!1 &979271125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,12 +3098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3de14a344f7944fbd373a9cb680e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 468609220}
-  dialog: {fileID: 1691192009}
-  residentName: {fileID: 554387496}
-  residentInfo: {fileID: 2125366742}
-  residentPortrait: {fileID: 979271127}
-  residentManager: {fileID: 959288918}
 --- !u!4 &1162259634
 Transform:
   m_ObjectHideFlags: 0

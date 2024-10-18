@@ -8,12 +8,12 @@ public class CS_RoomManager : MonoBehaviour
 {
     //public CS_RoomManager Instance { get; private set; }
 
-    private float ICost;          //増築費用
+    //private float ICost;          //増築費用
     public float currentRoom;     // 現在の最大部屋数
     public float EmptyRoom; //空き部屋の数
     public Text RoomText; // UIのTextコンポーネント
     public float Cost;    //維持費の変数
-    //public CS_MoneyManager MoneyManager; //お金の管理変数
+    public CS_MoneyManager MoneyManager; //お金の管理変数
     public Button MButton; //入居ボタン
     public Button IButton; //増築ボタン
     //public Button LButton; //退去ボタン
@@ -38,7 +38,7 @@ public class CS_RoomManager : MonoBehaviour
 
         Cost = 8000;                //維持費の変数
 
-        ICost = 1000f;               //増築費用
+        //ICost = 1000f;               //増築費用
 
         RoomText.text = $"部屋: {EmptyRoom}";
     }

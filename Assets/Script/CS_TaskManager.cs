@@ -15,7 +15,7 @@ public class CS_TaskManager : MonoBehaviour
     void Start()
     {
         // タスク量初期値
-        task = 7;
+        task = 3;
         Max_task = task;
 
         // タスク量表示初期設定
@@ -39,7 +39,7 @@ public class CS_TaskManager : MonoBehaviour
             // フェードインアウト開始～終了
             StartCoroutine(StartFade());
 
-            //Calendar.NextDay();
+            Calendar.NextDay();
 
             taskReset();
         }
@@ -48,7 +48,6 @@ public class CS_TaskManager : MonoBehaviour
     public void OnButtonClick()
     {
         task -= 1;
-        //Calendar.NextDay();
         Debug.Log("タスクあと" + task);
         taskCount.text = "タスク量：" + task + " / " + Max_task;
     }
