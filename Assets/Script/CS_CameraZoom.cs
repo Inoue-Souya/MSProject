@@ -1,42 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
-////////////////////////////////////// ////////////////
-//・機能説明・
-//マウスホイールでのズームイン・アウト
-//左クリックドラッグでのカメラ移動
-//Rキーでカメラの位置とズームを初期状態に戻す機能
-/// ///////////////////////////////////////////////////
 public class CS_CameraZoom : MonoBehaviour
 {
     public Camera mainCamera;  // メインカメラ
-    public float zoomSpeed = 1f;  // ズーム速度
+    public float zoomSpeed = 0.5f;  // ズーム速度
     public float minZoom = 2f;  // 最小ズーム
-    public float maxZoom = 5f;  // 最大ズーム
+    public float maxZoom = 10f;  // 最大ズーム
 
-    private Vector3 dragOrigin;  // ドラッグ開始位置
+    private Vector3 dragOrigin;  // ドラッグ開始位置（ワールド空間）
     private Vector3 initialPosition;  // カメラの初期位置
     private float initialZoom;  // カメラの初期ズーム
 
+    public Vector2 minBounds = new Vector2(-10f, -10f);  // 最小移動範囲
+    public Vector2 maxBounds = new Vector2(10f, 10f);  // 最大移動範囲
+
     void Start()
     {
-        // 初期位置とズームを保存
-        initialPosition = mainCamera.transform.position;
-        initialZoom = mainCamera.orthographicSize;
+        initialPosition = mainCamera.transform.position;  // 初期位置を保存
+        initialZoom = mainCamera.orthographicSize;  // 初期ズームを保存
     }
 
     void Update()
     {
         HandleZoom();  // ズーム処理
         HandleDrag();  // ドラッグ処理
-        HandleReset();  // カメラのリセット処理
+        HandleReset();  // リセット処理
     }
 
-    // マウスホイールによるズーム処理
     void HandleZoom()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -53,28 +43,51 @@ public class CS_CameraZoom : MonoBehaviour
         }
     }
 
-    // 左クリックでのドラッグ移動処理
     void HandleDrag()
     {
-        if (Input.GetMouseButtonDown(0))  // 左クリックを押したとき
+        if (Input.GetMouseButtonDown(0))  // ドラッグ開始時にワールド座標を記録
         {
-            dragOrigin = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            dragOrigin = GetMouseWorldPosition();
         }
 
-        if (Input.GetMouseButton(0))  // 左クリックをホールドしている間
+        if (Input.GetMouseButton(0))  // ドラッグ中
         {
-            Vector3 difference = dragOrigin - mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mainCamera.transform.position += difference;
+            Vector3 difference = dragOrigin - GetMouseWorldPosition();  // 差分を計算
+            Vector3 newPosition = mainCamera.transform.position + difference;
+
+            // 移動範囲を制限してから位置を適用
+            mainCamera.transform.position = ClampPosition(newPosition);
         }
     }
 
-    // Rキーでカメラを初期位置に戻す処理
     void HandleReset()
     {
-        if (Input.GetKeyDown(KeyCode.R))  // Rキーが押されたら
+        if (Input.GetKeyDown(KeyCode.R))  // Rキーでリセット
         {
             mainCamera.transform.position = initialPosition;
             mainCamera.orthographicSize = initialZoom;
         }
+    }
+
+    // マウスのワールド座標を取得するヘルパーメソッド
+    Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = -mainCamera.transform.position.z;  // カメラのZ軸を考慮
+        return mainCamera.ScreenToWorldPoint(mousePosition);
+    }
+
+    // カメラの位置を指定された範囲内に制限する
+    Vector3 ClampPosition(Vector3 targetPosition)
+    {
+        float cameraHeight = mainCamera.orthographicSize;
+        float cameraWidth = cameraHeight * mainCamera.aspect;
+
+        float clampedX = Mathf.Clamp(targetPosition.x,
+                                     minBounds.x + cameraWidth, maxBounds.x - cameraWidth);
+        float clampedY = Mathf.Clamp(targetPosition.y,
+                                     minBounds.y + cameraHeight, maxBounds.y - cameraHeight);
+
+        return new Vector3(clampedX, clampedY, targetPosition.z);
     }
 }

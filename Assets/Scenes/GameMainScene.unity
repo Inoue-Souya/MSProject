@@ -450,9 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61818eb4ae084b246978f0396f285fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObjects:
-  - {fileID: 222527720}
-  proximityDistance: 27300
 --- !u!1 &646743939
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,4 +850,6 @@ MonoBehaviour:
   mainCamera: {fileID: 1971130413}
   zoomSpeed: 1
   minZoom: 2
-  maxZoom: 5
+  maxZoom: 8
+  minBounds: {x: -15, y: -10}
+  maxBounds: {x: 15, y: 15}
