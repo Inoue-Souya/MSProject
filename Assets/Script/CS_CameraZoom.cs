@@ -45,12 +45,12 @@ public class CS_CameraZoom : MonoBehaviour
 
     void HandleDrag()
     {
-        if (Input.GetMouseButtonDown(0))  // ドラッグ開始時にワールド座標を記録
+        if (Input.GetMouseButtonDown(1))  // ドラッグ開始時にワールド座標を記録
         {
             dragOrigin = GetMouseWorldPosition();
         }
 
-        if (Input.GetMouseButton(0))  // ドラッグ中
+        if (Input.GetMouseButton(1))  // ドラッグ中
         {
             Vector3 difference = dragOrigin - GetMouseWorldPosition();  // 差分を計算
             Vector3 newPosition = mainCamera.transform.position + difference;
