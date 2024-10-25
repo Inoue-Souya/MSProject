@@ -20,7 +20,9 @@ public class CS_Room : MonoBehaviour
 
     private void Start()
     {
+        // 初期スコア設定
         totalScore = 0;
+        scoreDisplay.UpdateScore(totalScore);   // 画面に表示
     }
 
 
