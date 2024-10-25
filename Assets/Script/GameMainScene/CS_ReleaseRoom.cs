@@ -50,14 +50,8 @@ public class CS_ReleaseRoom : MonoBehaviour
                     // パネルを表示
                     panel.SetActive(true);
 
-                    // パネルをクリック位置に移動（CanvasのRenderModeに応じて変換）
-                    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                        canvas.transform as RectTransform,
-                        Input.mousePosition,
-                        canvas.worldCamera,
-                        out Vector2 localPoint);
-
-                    panel.transform.localPosition = localPoint;
+                    // パネルを画面の中央に移動
+                    panel.transform.localPosition = Vector3.zero; // (0, 0, 0) で中央に配置
 
                     // 右クリックした部屋の情報を取得
                     clickedObject.TryGetComponent<CS_Room>(out selectedRoom);
@@ -69,7 +63,7 @@ public class CS_ReleaseRoom : MonoBehaviour
                     yesText.text = "はい(" + releaseCost + "怨)";
 
                     // スコアが解放コスト以上でボタンを有効化
-                    panelButton.interactable = scoreManager.currentScore >= releaseCost;
+                    panelButton.interactable = (scoreManager.currentScore >= releaseCost) && (selectedRoom.isUnlocked == false);
                 }
                 else
                 {
@@ -83,9 +77,20 @@ public class CS_ReleaseRoom : MonoBehaviour
                 panel.SetActive(false);
             }
         }
-        else if (Input.GetMouseButtonDown(0))
+
+        // パネルが表示されているときの左クリック処理
+        if (panel.activeSelf && Input.GetMouseButtonDown(0))
         {
-           // panel.SetActive(false);
+            // パネル内でクリックされた場合は何もしない
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            else
+            {
+                // パネル以外でクリックされた場合は非表示にする
+                panel.SetActive(false);
+            }
         }
     }
 
@@ -105,6 +110,7 @@ public class CS_ReleaseRoom : MonoBehaviour
             }
         }
 
+        // 解放済みにする
         selectedRoom.InitializeRoom(true);
 
         // パネルを非表示にする
