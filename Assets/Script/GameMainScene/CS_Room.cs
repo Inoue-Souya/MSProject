@@ -6,7 +6,8 @@ using UnityEngine;
 public class CS_Room : MonoBehaviour
 {
     public List<RoomAttribute> attributes; // 部屋の特性リスト
-    public CS_ScoreDisplay scoreDisplay; // ScoreDisplayへの参照
+    public CS_ScoreManager scoreManager;
+    //public CS_ScoreDisplay scoreDisplay; // ScoreDisplayへの参照
     public int unlockCost = 10; // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
 
@@ -21,8 +22,7 @@ public class CS_Room : MonoBehaviour
     private void Start()
     {
         // 初期スコア設定
-        totalScore = 0;
-        scoreDisplay.UpdateScore(totalScore);   // 画面に表示
+        scoreManager.Init();
     }
 
 
@@ -42,30 +42,14 @@ public class CS_Room : MonoBehaviour
                 if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
                     totalScore += roomAttribute.matchScore * 100; // マッチした場合スコアを加算
+                    if (scoreManager != null)
+                    {
+                        scoreManager.AddScore(totalScore);
+                    }
                 }
             }
         }
 
         Debug.Log($"{character.name} matched with room {gameObject.name}, score: {totalScore}");
-
-        // スコアを表示する
-        if (scoreDisplay != null)
-        {
-            scoreDisplay.UpdateScore(totalScore);
-        }
-
-    }
-    public void UnlockRoom(int score)
-    {
-        if (score >= unlockCost)
-        {
-            isUnlocked = true;
-            Debug.Log($"{gameObject.name} is now unlocked!");
-            // スコアからコストを引く処理を追加
-        }
-        else
-        {
-            Debug.Log("Not enough score to unlock the room.");
-        }
     }
 }

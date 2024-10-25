@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CS_ScoreManager : MonoBehaviour
 {
-    public int currentScore = 0;
+    public int currentScore;
 
+    public Text scoreText; // Textコンポーネントへの参照
+
+    public void Init()
+    {
+        // 初期スコア設定
+        UpdateScoreUI(); // UIの更新メソッドを呼び出す
+    }
     public void AddScore(int score)
     {
         currentScore += score;
@@ -23,9 +31,10 @@ public class CS_ScoreManager : MonoBehaviour
         return false; // スコアが足りない場合
     }
 
-    private void UpdateScoreUI()
+    public void UpdateScoreUI()
     {
         // スコア表示の更新処理
         Debug.Log("Current Score: " + currentScore);
+        scoreText.text = "現在: " + currentScore + "怨"; // スコアを更新
     }
 }

@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1976119237276639047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6810276540373940205}
+  - component: {fileID: 2600444148258134862}
+  m_Layer: 0
+  m_Name: scoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6810276540373940205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976119237276639047}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 311, y: 175, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3281551854070645672}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2600444148258134862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976119237276639047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd50d06815ce664b8300ef4d4ee9123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScore: 0
+  scoreText: {fileID: 0}
 --- !u!1 &2722100610765273184
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +75,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 629359555055012817}
+  - {fileID: 6810276540373940205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &697413014877368683
@@ -332,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1014960844605756618
@@ -453,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1044937702043757454
@@ -574,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1148852934523335606
@@ -693,7 +740,7 @@ MonoBehaviour:
   attributes:
   - attributeName: AB
     matchScore: 10
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1667262987867799179
@@ -814,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1721063985180232890
@@ -935,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1871747640394941528
@@ -1056,7 +1103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &1928784253942722723
@@ -1175,7 +1222,7 @@ MonoBehaviour:
   attributes:
   - attributeName: C
     matchScore: 15
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &2719411368846955522
@@ -1296,7 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &2901806443001141964
@@ -1417,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &2916106031318834068
@@ -1538,7 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &3060237947831763767
@@ -1659,7 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &3620166703025757923
@@ -1776,7 +1823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &3749331991833562657
@@ -1897,7 +1944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &4086992607684105343
@@ -2018,7 +2065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &4133429253778317100
@@ -2139,7 +2186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!1001 &5368667358002217776
@@ -2251,7 +2298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &6092613029644033978 stripped
@@ -2372,7 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &5676694255302859005 stripped
@@ -2493,7 +2540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &5558385326357800422 stripped
@@ -2610,7 +2657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &5565327717910755466 stripped
@@ -2731,7 +2778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &5341964126812916150 stripped
@@ -2852,7 +2899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &4705828755643057428 stripped
@@ -2973,7 +3020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &4739512159619785282 stripped
@@ -3094,7 +3141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &8973012296654065266 stripped
@@ -3215,7 +3262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &8699080317268091227 stripped
@@ -3336,7 +3383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &8485917417756085440 stripped
@@ -3457,7 +3504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &8083727696198586217 stripped
@@ -3578,7 +3625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &7148919271745965106 stripped
@@ -3699,7 +3746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: []
-  scoreDisplay: {fileID: 0}
+  scoreManager: {fileID: 2600444148258134862}
   unlockCost: 10
   isUnlocked: 0
 --- !u!4 &6953643647602796743 stripped
