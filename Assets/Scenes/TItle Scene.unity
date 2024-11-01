@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208547108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b5c526411a45404a859568d931f115a, type: 3}
   m_Name: 
@@ -4971,8 +4971,8 @@ MonoBehaviour:
   fadeGroup: {fileID: 233912577}
   titleLogo: {fileID: 1253255130}
   titleText: {fileID: 749084311}
-  rainBGM: {fileID: 0}
-  thunderSFX: {fileID: 0}
+  rainBGM: {fileID: 1226584528}
+  thunderSFX: {fileID: 1444552456}
   fadeDuration: 1
   logoDropDuration: 2
   logoDisplayTime: 2
@@ -5429,8 +5429,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973428436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7159, y: 1.7159, z: 1.7159}
+  m_LocalPosition: {x: -0.013, y: -0.0351, z: 0}
+  m_LocalScale: {x: 1.7322507, y: 1.7403522, z: 1.7159}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -28,7 +28,7 @@ public class TitleScreenManager : MonoBehaviour
         // Enterキーまたは右クリックでシーン遷移
         if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1)) && !isFading)
         {
-            StartCoroutine(FadeOutAndLoadScene("SampleScene"));  // フェードアウトとシーン遷移
+            StartCoroutine(FadeOutAndLoadScene("GameMainScene"));  // フェードアウトとシーン遷移
         }
     }
 

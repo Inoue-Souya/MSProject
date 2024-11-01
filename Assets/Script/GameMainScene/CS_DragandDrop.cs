@@ -247,7 +247,7 @@ public class CS_DragandDrop : MonoBehaviour
     {
         Destroy(gaugeInstance); // ゲージを削除
         transform.position = originalPosition; // オブジェクトを元の位置に戻す
-        transform.localScale = new Vector3(1.0f, 1.0f, 1f);
+        //transform.localScale = new Vector3(1.0f, 1.0f, 1f);
         // Destroy(this); // 現在のインスタンスを破棄
     }
 }
