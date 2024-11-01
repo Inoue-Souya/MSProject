@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class CS_ScoreManager : MonoBehaviour
 {
+    public Sprite[] numberSprites; // 数字のスプライトを入れる配列
     public int currentScore;
-
-    public Text scoreText; // Textコンポーネントへの参照
+    public Image[] scoreImages; // スコアを表示するImageの配列
 
     public void Init()
     {
         // 初期スコア設定
-        UpdateScoreUI(); // UIの更新メソッドを呼び出す
+        UpdateScoreDisplay();
     }
     public void AddScore(int score)
     {
         currentScore += score;
-        UpdateScoreUI(); // UIの更新メソッドを呼び出す
+        UpdateScoreDisplay();
     }
 
     public bool SpendScore(int cost)
@@ -25,15 +25,29 @@ public class CS_ScoreManager : MonoBehaviour
         if (currentScore >= cost)
         {
             currentScore -= cost;
-            UpdateScoreUI(); // UIの更新メソッドを呼び出す
+            UpdateScoreDisplay();
             return true;
         }
         return false; // スコアが足りない場合
     }
 
-    public void UpdateScoreUI()
+    public void UpdateScoreDisplay()
     {
-        // スコア表示の更新処理
-        scoreText.text = "現在: " + currentScore + "怨"; // スコアを更新
+        // 現在のスコアを数字の画像に変換する
+        string scoreString = currentScore.ToString();
+        for (int i = 0; i < scoreImages.Length; i++)
+        {
+            if (i < scoreString.Length)
+            {
+                // 数字に応じたスプライトを表示
+                int number = int.Parse(scoreString[i].ToString());
+                scoreImages[i].sprite = numberSprites[number];
+                scoreImages[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                scoreImages[i].gameObject.SetActive(false); // スコアの桁が少ない場合は非表示
+            }
+        }
     }
 }
