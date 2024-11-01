@@ -1,16 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class MouseHoverDisplayText : MonoBehaviour
 {
-    // 表示したい文字列
-    public string message = "Hello!";
-    // テキストを表示するためのUI Textコンポーネント
-    public Text displayText;
+    public Text displayText; // テキストを表示するためのUI Textコンポーネント
+    private CS_Room room; // CS_Room スクリプトの参照
+    public Vector3 textOffset = new Vector3(0, 1f, 0); // y軸方向に1.0のオフセット
 
     private void Start()
     {
-        // 初めは文字を非表示にする
+        // CS_Roomコンポーネントを取得
+        room = GetComponent<CS_Room>();
+
+        // 初めはテキストを非表示にする
         if (displayText != null)
         {
             displayText.gameObject.SetActive(false);
@@ -26,20 +31,15 @@ public class MouseHoverDisplayText : MonoBehaviour
         Collider2D collider = Physics2D.OverlapPoint(mousePosition);
         if (collider != null && collider == GetComponent<BoxCollider2D>())
         {
-            // マウスがコライダーに当たっている場合
+            // マウスがコライダーに当たっている場合にテキストを表示
             if (displayText != null)
             {
-                // マウスがクリックまたはホールドされている場合、テキストを非表示にする
-                if (Input.GetMouseButton(0)) // 左クリックが押されているか
-                {
-                    displayText.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // マウスが当たっているが、クリックされていない場合のみ表示
-                    displayText.text = message;
-                    displayText.gameObject.SetActive(true);
-                }
+                // attributesの内容を表示用テキストに変換
+                displayText.text = GetRoomAttributesText();
+                displayText.gameObject.SetActive(true);
+
+                Vector3 displayPosition = transform.position + textOffset;
+                displayText.transform.position = Camera.main.WorldToScreenPoint(displayPosition);
             }
         }
         else
@@ -51,4 +51,27 @@ public class MouseHoverDisplayText : MonoBehaviour
             }
         }
     }
+
+
+    private string GetRoomAttributesText()
+    {
+        // `attributes` リストが null の場合に空の文字列を返す
+        if (room.attributes == null)
+        {
+            return "";
+        }
+
+        string attributesText = ""; // 空の文字列で初期化
+
+        // 各属性を一行ずつテキストに追加
+        foreach (var attribute in room.attributes)
+        {
+            attributesText += $"{attribute.attributeName}: {attribute.matchScore}\n";
+        }
+
+        return attributesText.TrimEnd(); // 最後の改行を削除してから返す
+    }
+
 }
+
+
