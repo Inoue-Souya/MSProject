@@ -112,12 +112,14 @@ public class CS_DragandDrop : MonoBehaviour
     private Vector3 offset;
     private Camera mainCamera;
     private bool isDragging;
+    private bool inRoomflag;
     private Vector3 originalPosition;
     public GameObject gaugePrefab; // ゲージのプレハブ
     private GameObject gaugeInstance; // ゲージのインスタンス
     private Slider gaugeSlider; // ゲージのスライダーコンポーネント
     public float gaugeDuration = 5f; // ゲージの持続時間
     private float gaugeTimer;
+    private CS_Room cp_room;// 判定をとった部屋情報を保存
 
     public List<RoomAttribute> characterAttributes;
 
@@ -127,6 +129,7 @@ public class CS_DragandDrop : MonoBehaviour
         originalPosition = transform.position;
         characterAttributes = new List<RoomAttribute>();
         characterAttributes.Add(new RoomAttribute { attributeName = "AB", matchScore = 10 });
+        inRoomflag = false;
     }
 
     void OnMouseDown()
@@ -155,7 +158,7 @@ public class CS_DragandDrop : MonoBehaviour
         //    OnMouseUp();
         //}
 
-        if (isDragging)
+        if (isDragging && !inRoomflag)
         {
             transform.position = GetMouseWorldPosition() + offset;
         }
@@ -168,7 +171,10 @@ public class CS_DragandDrop : MonoBehaviour
 
             if (gaugeTimer <= 0f)
             {
+                // 作業終了時にリセットとお金の増加
                 ResetToOriginalPosition();
+                cp_room.AddResident(this);
+                inRoomflag = false;
             }
         }
     }
@@ -189,9 +195,11 @@ public class CS_DragandDrop : MonoBehaviour
             if (collider.CompareTag("Room"))
             {
                 CS_Room room = collider.GetComponent<CS_Room>();
+                cp_room = room;
                 if (room.isUnlocked)
                 {
-                    room.AddResident(this);
+                    inRoomflag = true;
+                    //room.AddResident(this);
                     PlaceSmallImage(room.transform.position);
                     StartGaugeCountdown(room.transform.position);
                     //Destroy(gameObject);
