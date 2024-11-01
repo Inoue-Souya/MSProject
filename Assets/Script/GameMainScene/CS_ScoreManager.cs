@@ -34,7 +34,6 @@ public class CS_ScoreManager : MonoBehaviour
     public void UpdateScoreUI()
     {
         // スコア表示の更新処理
-        Debug.Log("Current Score: " + currentScore);
         scoreText.text = "現在: " + currentScore + "怨"; // スコアを更新
     }
 }

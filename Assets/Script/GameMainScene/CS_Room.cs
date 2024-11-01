@@ -28,6 +28,7 @@ public class CS_Room : MonoBehaviour
 
     public void AddResident(CS_DragandDrop character)
     {
+        
         if (!isUnlocked)
         {
             Debug.Log("This room is locked.");
@@ -41,7 +42,8 @@ public class CS_Room : MonoBehaviour
             {
                 if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
-                    totalScore += roomAttribute.matchScore * 100; // マッチした場合スコアを加算
+                    Debug.Log("matchScore:" + roomAttribute.matchScore);
+                    totalScore = roomAttribute.matchScore * 100; // マッチした場合スコアを加算
                     if (scoreManager != null)
                     {
                         scoreManager.AddScore(totalScore);
