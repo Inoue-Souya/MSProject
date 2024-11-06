@@ -123,6 +123,7 @@ public class CS_DragandDrop : MonoBehaviour
 
     public List<RoomAttribute> characterAttributes;
 
+    public CS_Effect effectController;//パーティクル用
     void Start()
     {
         mainCamera = Camera.main;
@@ -222,7 +223,17 @@ public class CS_DragandDrop : MonoBehaviour
         gameObject.transform.position = position;
         //GameObject smallImage = Instantiate(smallImagePrefab, position, Quaternion.identity);
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-        
+
+
+        // エフェクト再生
+        if (effectController != null)
+        {
+            effectController.PlayPlacementEffect(position);
+        }
+        else
+        {
+            Debug.LogWarning("Effect controller is not assigned in CS_DragandDrop.");
+        }
     }
 
     private void StartGaugeCountdown(Vector3 position)
@@ -258,4 +269,6 @@ public class CS_DragandDrop : MonoBehaviour
         //transform.localScale = new Vector3(1.0f, 1.0f, 1f);
         // Destroy(this); // 現在のインスタンスを破棄
     }
+
+   
 }
