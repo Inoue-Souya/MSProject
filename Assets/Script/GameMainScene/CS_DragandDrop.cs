@@ -9,7 +9,7 @@ public class CS_DragandDrop : MonoBehaviour
     private Vector3 offset;
     private Camera mainCamera;
     private bool isDragging;
-    private bool inRoomflag;
+    private bool inRoom;
     private Vector3 originalPosition;
     public GameObject gaugePrefab; // ゲージのプレハブ
     private GameObject gaugeInstance; // ゲージのインスタンス
@@ -25,7 +25,7 @@ public class CS_DragandDrop : MonoBehaviour
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
-        inRoomflag = false;
+        inRoom = false;
     }
 
     void OnMouseDown()
@@ -44,17 +44,7 @@ public class CS_DragandDrop : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    OnMouseDown();
-        //}
-
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    OnMouseUp();
-        //}
-
-        if (isDragging && !inRoomflag)
+        if (isDragging && !inRoom)
         {
             transform.position = GetMouseWorldPosition() + offset;
         }
@@ -69,8 +59,8 @@ public class CS_DragandDrop : MonoBehaviour
             {
                 // 作業終了時にリセットとお金の増加
                 ResetToOriginalPosition();
-                cp_room.AddResident(this);
-                inRoomflag = false;
+                cp_room.finishPhase();
+                inRoom = false;
             }
         }
     }
@@ -92,13 +82,13 @@ public class CS_DragandDrop : MonoBehaviour
             {
                 CS_Room room = collider.GetComponent<CS_Room>();
                 cp_room = room;
-                if (room.isUnlocked)
+                if (room.isUnlocked && !cp_room.GettinRoom())
                 {
-                    inRoomflag = true;
-                    //room.AddResident(this);
+                    cp_room.AddResident(this);      // 妖怪情報を記録
+                    inRoom = true;                  // 入室フラグを立てる
+                    cp_room.setinRoomflag(inRoom);  // 部屋の限界使用時間の消費フラグを立てる
                     PlaceSmallImage(room.transform.position);
                     StartGaugeCountdown(room.transform.position);
-                    //Destroy(gameObject);
                 }
                 else
                 {

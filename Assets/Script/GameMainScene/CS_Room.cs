@@ -10,11 +10,14 @@ public class CS_Room : MonoBehaviour
     //public CS_ScoreDisplay scoreDisplay; // ScoreDisplayへの参照
     public int unlockCost = 10; // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
+    private bool inRoomflag;
+    private int cp_score;
 
     [SerializeField]
     private float roomHP;
 
     private int totalScore;
+    private float elapsedTime = 0f;
 
     // 新しいメソッドを追加
     public void InitializeRoom(bool unlockStatus)
@@ -27,12 +30,32 @@ public class CS_Room : MonoBehaviour
         // 初期スコア設定
         scoreManager.Init();
         roomHP = 100.0f;
+        inRoomflag = false;
     }
 
+    private void Update()
+    {
+        if (inRoomflag)
+        {
+            // Increase elapsed time by the time since the last frame
+            elapsedTime += Time.deltaTime;
 
+            // Calculate the HP decrease rate
+            float hpDecreaseRate = cp_score / 5f; // cp_score reduced over 5 seconds
+
+            // Decrease roomHP gradually
+            roomHP -= hpDecreaseRate * Time.deltaTime;
+
+            // After 5 seconds, stop decreasing and reset the flag
+            if (elapsedTime >= 5f)
+            {
+                inRoomflag = false;
+                elapsedTime = 0f; // Reset timer
+            }
+        }
+    }
     public void AddResident(CS_DragandDrop character)
     {
-        
         if (!isUnlocked)
         {
             Debug.Log("This room is locked.");
@@ -46,17 +69,31 @@ public class CS_Room : MonoBehaviour
             {
                 if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
-                    roomHP -= roomAttribute.matchScore;
+                    // 値を代入するのみ
+                    cp_score = roomAttribute.matchScore;
                     Debug.Log("matchScore:" + roomAttribute.matchScore);
                     totalScore = roomAttribute.matchScore * 100; // マッチした場合スコアを加算
-                    if (scoreManager != null)
-                    {
-                        scoreManager.AddScore(totalScore);
-                    }
                 }
             }
         }
-
         Debug.Log($"{character.name} matched with room {gameObject.name}, score: {totalScore}");
+    }
+
+    public void finishPhase()
+    {
+        if (scoreManager != null)
+        {
+            scoreManager.AddScore(totalScore);
+        }
+    }
+
+    public void setinRoomflag(bool room)
+    {
+        inRoomflag = room;
+    }
+
+    public bool GettinRoom()
+    {
+        return inRoomflag;
     }
 }
