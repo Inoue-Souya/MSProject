@@ -11,6 +11,9 @@ public class CS_Room : MonoBehaviour
     public int unlockCost = 10; // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
 
+    [SerializeField]
+    private float roomHP;
+
     private int totalScore;
 
     // 新しいメソッドを追加
@@ -23,6 +26,7 @@ public class CS_Room : MonoBehaviour
     {
         // 初期スコア設定
         scoreManager.Init();
+        roomHP = 100.0f;
     }
 
 
@@ -42,6 +46,7 @@ public class CS_Room : MonoBehaviour
             {
                 if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
+                    roomHP -= roomAttribute.matchScore;
                     Debug.Log("matchScore:" + roomAttribute.matchScore);
                     totalScore = roomAttribute.matchScore * 100; // マッチした場合スコアを加算
                     if (scoreManager != null)
