@@ -7,6 +7,7 @@ public class CS_Room : MonoBehaviour
 {
     public List<RoomAttribute> attributes; // 部屋の特性リスト
     public CS_ScoreManager scoreManager;
+    public CS_NewRoomManager roomManager;
     //public CS_ScoreDisplay scoreDisplay; // ScoreDisplayへの参照
     public int unlockCost = 10; // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
@@ -53,7 +54,14 @@ public class CS_Room : MonoBehaviour
                 elapsedTime = 0f; // Reset timer
             }
         }
+
+        if(roomHP <= 0f)
+        {
+            roomManager.stopRooms++;
+            Destroy(this);
+        }
     }
+
     public void AddResident(CS_DragandDrop character)
     {
         if (!isUnlocked)

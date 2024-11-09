@@ -20,18 +20,15 @@ public class CS_Changescene : MonoBehaviour
 
         switch (currentScene)
         {
-            //case "TitleScene":
-            //    SceneManager.LoadScene("GameScene"); // TitleScene‚©‚çGameScene‚Ö
-            //     break;
-            case "GameScene":
-                SceneManager.LoadScene("ApartmentScene"); // GameScene‚©‚çApartmentScene‚Ö
+            case "TitleScene":
+                SceneManager.LoadScene("GameMainScene"); // TitleScene‚©‚çGameScene‚Ö
                 break;
-            case "ApartmentScene":
-                SceneManager.LoadScene("GameScene"); // ApartmentScene‚©‚çGameScene‚Ö
+            case "GameMainScene":
+                SceneManager.LoadScene("ResultScene"); // GameScene‚©‚çApartmentScene‚Ö
                 break;
-            //case "ResultScene":
-            //    SceneManager.LoadScene("TitleScene"); // ResultScene‚©‚çTitleScene‚Ö
-            //    break;
+            case "ResultScene":
+                SceneManager.LoadScene("TitleScene"); // ResultScene‚©‚çTitleScene‚Ö
+                break;
             default:
                 Debug.LogWarning("Unhandled scene: " + currentScene);
                 break;

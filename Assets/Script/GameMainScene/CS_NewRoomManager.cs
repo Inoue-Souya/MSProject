@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CS_NewRoomManager : MonoBehaviour
 {
     public CS_Room[] rooms; // ƒV[ƒ““à‚Ì•”‰®‚Ì”z—ñ
+    public int stopRooms;
 
     void Start()
     {
+        stopRooms = 0;
         InitializeRooms();
     }
 
@@ -24,6 +27,14 @@ public class CS_NewRoomManager : MonoBehaviour
             {
                 rooms[i].InitializeRoom(false);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(stopRooms > 2)
+        {
+            SceneManager.LoadScene("ResultScene");
         }
     }
 }
