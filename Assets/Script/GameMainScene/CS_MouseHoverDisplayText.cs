@@ -10,26 +10,32 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
     public Text sharedDisplayText;
     public RectTransform sharedPanel;
     public Vector3 offset = new Vector3(0, 1.2f, 0);
+    public static bool isOtherPanelActive = false;  // 他のパネルが表示中かを示すフラグ
 
-    private static CS_MouseHoverDisplayText currentHover; // 現在表示されているオブジェクトの参照
+    private static CS_MouseHoverDisplayText currentHover;
 
     private void Start()
     {
         room = GetComponent<CS_Room>();
         dragAndDrop = GetComponent<CS_DragandDrop>();
 
-        if (sharedDisplayText != null) sharedDisplayText.gameObject.SetActive(false);
+        if (sharedDisplayText != null)
+        {
+            sharedDisplayText.gameObject.SetActive(false);
+            sharedDisplayText.alignment = TextAnchor.MiddleCenter;
+        }
         if (sharedPanel != null) sharedPanel.gameObject.SetActive(false);
     }
 
     private void OnMouseEnter()
     {
+        if (isOtherPanelActive) return;  // 他のパネルが表示中の場合は表示しない
+
         if (currentHover != null && currentHover != this)
         {
-            currentHover.HideDisplay();  // 他のオブジェクトの表示を消す
+            currentHover.HideDisplay();
         }
 
-        // 現在のオブジェクトをcurrentHoverとして設定
         currentHover = this;
 
         if (sharedDisplayText != null && sharedPanel != null)
@@ -51,7 +57,7 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
         }
     }
 
-    private void HideDisplay()
+    public void HideDisplay()
     {
         if (sharedDisplayText != null && sharedPanel != null)
         {
@@ -73,21 +79,28 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
     {
         if (gameObject.CompareTag("yo-kai") && dragAndDrop != null)
         {
-            return FormatAttributesText(dragAndDrop.characterAttributes);
+            return FormatAttributesText(dragAndDrop.characterAttributes, excludeMatchScore: true);
         }
         else if (room != null)
         {
-            return FormatAttributesText(room.attributes);
+            return FormatAttributesText(room.attributes, excludeMatchScore: false);
         }
         return "";
     }
 
-    private string FormatAttributesText(List<RoomAttribute> attributes)
+    private string FormatAttributesText(List<RoomAttribute> attributes, bool excludeMatchScore)
     {
         string text = "";
         foreach (var attribute in attributes)
         {
-            text += $"{attribute.attributeName}: {attribute.matchScore}\n";
+            if (excludeMatchScore)
+            {
+                text += $"{attribute.attributeName}\n";
+            }
+            else
+            {
+                text += $"{attribute.attributeName}: {attribute.matchScore}\n";
+            }
         }
         return text.TrimEnd();
     }
@@ -98,5 +111,11 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
         {
             UpdatePanelAndTextPosition();
         }
+    }
+
+    // 他のパネルの表示/非表示を管理するメソッド
+    public static void SetOtherPanelActive(bool isActive)
+    {
+        isOtherPanelActive = isActive;
     }
 }

@@ -20,6 +20,11 @@ public class CS_Room : MonoBehaviour
     private int totalScore;
     private float elapsedTime = 0f;
 
+    public GameObject childObject;      // 子オブジェクトの参照
+    public SpriteRenderer childSpriteRenderer;      // 子オブジェクトのスプライトRenderer
+    public Sprite oldSprite;        // 変更前のスプライト
+    public Sprite newSprite;        // 変更後のスプライト
+
     // 新しいメソッドを追加
     public void InitializeRoom(bool unlockStatus)
     {
@@ -60,7 +65,58 @@ public class CS_Room : MonoBehaviour
             roomManager.stopRooms++;
             Destroy(this);
         }
+
+        // IsUnlocked が true であれば、子オブジェクトをアクティブにする
+        if (isUnlocked)
+        {
+            if (childObject != null)
+            {
+                childObject.SetActive(true); // 子オブジェクトをアクティブにする
+            }
+        }
+        else
+        {
+            if (childObject != null)
+            {
+                childObject.SetActive(false); // IsUnlocked が false なら、子オブジェクトを非アクティブにする
+            }
+        }
+
+        if (inRoomflag && childSpriteRenderer != null && newSprite != null)
+        {
+            childSpriteRenderer.sprite = newSprite;
+        }
+        else
+        {
+            childSpriteRenderer.sprite = oldSprite;
+        }
+
     }
+
+    //public void AddResident(CS_DragandDrop character)
+    //{
+    //    if (!isUnlocked)
+    //    {
+    //        Debug.Log("This room is locked.");
+    //        return; // 部屋が解放されていない場合は何もしない
+    //    }
+
+    //    // キャラクターの特性とマッチするスコアを計算
+    //    foreach (var roomAttribute in attributes)
+    //    {
+    //        foreach (var characterAttribute in character.characterAttributes)
+    //        {
+    //            if (roomAttribute.attributeName == characterAttribute.attributeName)
+    //            {
+    //                // 値を代入するのみ
+    //                cp_score = roomAttribute.matchScore;
+    //                Debug.Log("matchScore:" + roomAttribute.matchScore);
+    //                totalScore = roomAttribute.matchScore; // マッチした場合スコアを加算
+    //            }
+    //        }
+    //    }
+    //    Debug.Log($"{character.name} matched with room {gameObject.name}, score: {totalScore}");
+    //}
 
     public void AddResident(CS_DragandDrop character)
     {
@@ -70,6 +126,10 @@ public class CS_Room : MonoBehaviour
             return; // 部屋が解放されていない場合は何もしない
         }
 
+        // 初期化しておく
+        cp_score = 0; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
+        totalScore = 0;
+
         // キャラクターの特性とマッチするスコアを計算
         foreach (var roomAttribute in attributes)
         {
@@ -77,14 +137,18 @@ public class CS_Room : MonoBehaviour
             {
                 if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
-                    // 値を代入するのみ
-                    cp_score = roomAttribute.matchScore;
-                    Debug.Log("matchScore:" + roomAttribute.matchScore);
-                    totalScore = roomAttribute.matchScore * 100; // マッチした場合スコアを加算
+                    // マッチした場合、スコアを累積する
+                    cp_score += roomAttribute.matchScore;  // cp_score に加算
+                    totalScore += roomAttribute.matchScore;  // totalScore に加算
+
+                    Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
+                    Debug.Log("Match Score: " + roomAttribute.matchScore);
                 }
             }
         }
-        Debug.Log($"{character.name} matched with room {gameObject.name}, score: {totalScore}");
+
+        // 結果をログに表示
+        Debug.Log($"{character.name} matched with room {gameObject.name}, total score: {totalScore}");
     }
 
     public void finishPhase()

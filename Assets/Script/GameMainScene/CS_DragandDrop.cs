@@ -11,6 +11,7 @@ public class CS_DragandDrop : MonoBehaviour
     private bool isDragging;
     private bool inRoom;
     private Vector3 originalPosition;
+
     public GameObject gaugePrefab; // ゲージのプレハブ
     private GameObject gaugeInstance; // ゲージのインスタンス
     private Slider gaugeSlider; // ゲージのスライダーコンポーネント
@@ -21,11 +22,25 @@ public class CS_DragandDrop : MonoBehaviour
     public List<RoomAttribute> characterAttributes;
 
     public CS_Effect effectController;//パーティクル用
+
+    public AudioClip soundEffect;  // 効果音のAudioClip
+    public GameObject audioSourceObject;  // SEを再生するためのAudioSourceがアタッチされたゲームオブジェクト
+
+    private AudioSource audioSource;  // AudioSourceコンポーネント
+
+
     void Start()
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
         inRoom = false;
+
+        // 指定されたゲームオブジェクトからAudioSourceコンポーネントを取得
+        if (audioSourceObject != null)
+        {
+            audioSource = audioSourceObject.GetComponent<AudioSource>();
+        }
+
     }
 
     void OnMouseDown()
@@ -33,6 +48,11 @@ public class CS_DragandDrop : MonoBehaviour
         isDragging = true;
         offset = transform.position - GetMouseWorldPosition();
         Debug.Log("Dragging started on: " + gameObject.name);
+        // 音を再生
+        if (audioSource != null && soundEffect != null)
+        {
+            audioSource.PlayOneShot(soundEffect);
+        }
     }
 
     void OnMouseUp()
@@ -40,6 +60,7 @@ public class CS_DragandDrop : MonoBehaviour
         isDragging = false;
         CheckRoom();
         Debug.Log("Dragging ended on: " + gameObject.name);
+        audioSource.Stop();
     }
 
     void Update()

@@ -16,4 +16,5 @@ public class CS_TargetPoint : MonoBehaviour
         //ワールド座標を自身の座標に設定
         transform.position = worldPos;
     }
+
 }

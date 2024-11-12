@@ -25,6 +25,42 @@ public class CS_ReleaseRoom : MonoBehaviour
         panel.SetActive(false);
     }
 
+    public class OtherPanelController : MonoBehaviour
+    {
+        public GameObject otherPanel;
+
+        // 他のパネルを表示するメソッド
+        public void ShowOtherPanel()
+        {
+            otherPanel.SetActive(true);
+            CS_MouseHoverDisplayText.SetOtherPanelActive(true); // Hover Displayを無効化
+        }
+
+        // 他のパネルを非表示にするメソッド
+        public void HideOtherPanel()
+        {
+            otherPanel.SetActive(false);
+            CS_MouseHoverDisplayText.SetOtherPanelActive(false); // Hover Displayを再度有効化
+        }
+
+        private void Update()
+        {
+            // 例：キー入力などでパネルを表示・非表示を切り替える
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                if (otherPanel.activeSelf)
+                {
+                    HideOtherPanel();
+                }
+                else
+                {
+                    ShowOtherPanel();
+                }
+            }
+        }
+    }
+
+
     void Update()
     {
         // 右クリックが押されたとき
@@ -47,6 +83,8 @@ public class CS_ReleaseRoom : MonoBehaviour
                 GameObject clickedObject = hit.collider.gameObject;
                 if (clickedObject.CompareTag("Room"))
                 {
+                    CS_MouseHoverDisplayText.SetOtherPanelActive(true);
+
                     // パネルを表示
                     panel.SetActive(true);
 
@@ -113,7 +151,14 @@ public class CS_ReleaseRoom : MonoBehaviour
         // 解放済みにする
         selectedRoom.InitializeRoom(true);
 
+        CS_MouseHoverDisplayText.SetOtherPanelActive(false);
+
         // パネルを非表示にする
         panel.SetActive(false);
+    }
+
+    public void NobuttonClick()
+    {
+        CS_MouseHoverDisplayText.SetOtherPanelActive(false);
     }
 }
