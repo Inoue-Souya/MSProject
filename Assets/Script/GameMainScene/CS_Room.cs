@@ -12,6 +12,7 @@ public class CS_Room : MonoBehaviour
     public bool isUnlocked = false; // 部屋が解放されているか
     private bool inRoomflag;        // 部屋の占有フラグ
     private int bonus_score;        // 特徴一致で得られるボーナス
+    private bool bonus_flag;        // ボーナスを得られるフラグ
     public int default_Point;       // 最低限得られるお金
     private float DurationTime;     // 部屋の占有時間を保存する変数
 
@@ -37,6 +38,7 @@ public class CS_Room : MonoBehaviour
         // 初期スコア設定
         scoreManager.Init();
         inRoomflag = false;
+        bonus_flag = false;
     }
 
     private void Update()
@@ -115,6 +117,7 @@ public class CS_Room : MonoBehaviour
         // 初期化しておく
         bonus_score = default_Point; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
         totalScore = default_Point;
+        bonus_flag = false;
 
         // 妖怪の部屋占有時間を記録
         DurationTime = Duration;
@@ -130,6 +133,8 @@ public class CS_Room : MonoBehaviour
                     bonus_score += roomAttribute.matchScore;  // cp_score に加算
                     totalScore += roomAttribute.matchScore;  // totalScore に加算
 
+                    bonus_flag = true;
+
                     Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
                     Debug.Log("Match Score: " + roomAttribute.matchScore);
                 }
@@ -144,7 +149,7 @@ public class CS_Room : MonoBehaviour
     {
         if (scoreManager != null)
         {
-            scoreManager.AddScore(totalScore);
+            scoreManager.AddScore(totalScore, bonus_flag);
         }
     }
 
