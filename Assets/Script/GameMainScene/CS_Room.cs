@@ -13,6 +13,7 @@ public class CS_Room : MonoBehaviour
     public bool isUnlocked = false; // 部屋が解放されているか
     private bool inRoomflag;
     private int cp_score;
+    private float DurationTime;// 部屋の占有時間を保存する変数
 
     [SerializeField]
     private float roomHP;
@@ -47,13 +48,13 @@ public class CS_Room : MonoBehaviour
             elapsedTime += Time.deltaTime;
 
             // Calculate the HP decrease rate
-            float hpDecreaseRate = cp_score / 5f; // cp_score reduced over 5 seconds
+            float hpDecreaseRate = cp_score / DurationTime; // cp_score reduced over 5 seconds
 
             // Decrease roomHP gradually
             roomHP -= hpDecreaseRate * Time.deltaTime;
 
             // After 5 seconds, stop decreasing and reset the flag
-            if (elapsedTime >= 5f)
+            if (elapsedTime >= DurationTime)
             {
                 inRoomflag = false;
                 elapsedTime = 0f; // Reset timer
@@ -62,8 +63,16 @@ public class CS_Room : MonoBehaviour
 
         if(roomHP <= 0f)
         {
+            // 限界部屋数を増やす
             roomManager.stopRooms++;
-            Destroy(this);
+
+            // 部屋の当たり判定を消去する
+            Collider2D collider = GetComponent<Collider2D>();
+            Destroy(collider);
+
+            // 一度だけ実行したいので
+            // roomHPを1以上にして通らないようにする
+            roomHP = 1;
         }
 
         // IsUnlocked が true であれば、子オブジェクトをアクティブにする
@@ -93,32 +102,7 @@ public class CS_Room : MonoBehaviour
 
     }
 
-    //public void AddResident(CS_DragandDrop character)
-    //{
-    //    if (!isUnlocked)
-    //    {
-    //        Debug.Log("This room is locked.");
-    //        return; // 部屋が解放されていない場合は何もしない
-    //    }
-
-    //    // キャラクターの特性とマッチするスコアを計算
-    //    foreach (var roomAttribute in attributes)
-    //    {
-    //        foreach (var characterAttribute in character.characterAttributes)
-    //        {
-    //            if (roomAttribute.attributeName == characterAttribute.attributeName)
-    //            {
-    //                // 値を代入するのみ
-    //                cp_score = roomAttribute.matchScore;
-    //                Debug.Log("matchScore:" + roomAttribute.matchScore);
-    //                totalScore = roomAttribute.matchScore; // マッチした場合スコアを加算
-    //            }
-    //        }
-    //    }
-    //    Debug.Log($"{character.name} matched with room {gameObject.name}, score: {totalScore}");
-    //}
-
-    public void AddResident(CS_DragandDrop character)
+    public void AddResident(CS_DragandDrop character, float Duration)
     {
         if (!isUnlocked)
         {
@@ -129,6 +113,9 @@ public class CS_Room : MonoBehaviour
         // 初期化しておく
         cp_score = 0; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
         totalScore = 0;
+
+        // 妖怪の部屋占有時間を記録
+        DurationTime = Duration;
 
         // キャラクターの特性とマッチするスコアを計算
         foreach (var roomAttribute in attributes)

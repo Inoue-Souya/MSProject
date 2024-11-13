@@ -105,11 +105,11 @@ public class CS_DragandDrop : MonoBehaviour
                 cp_room = room;
                 if (room.isUnlocked && !cp_room.GettinRoom())
                 {
-                    cp_room.AddResident(this);      // 妖怪情報を記録
+                    cp_room.AddResident(this, gaugeDuration);      // 妖怪情報を記録
                     inRoom = true;                  // 入室フラグを立てる
                     cp_room.setinRoomflag(inRoom);  // 部屋の限界使用時間の消費フラグを立てる
                     PlaceSmallImage(room.transform.position);
-                    StartGaugeCountdown(room.transform.position);
+                    StartGaugeCountdown(this.transform.position);
                 }
                 else
                 {
@@ -127,7 +127,6 @@ public class CS_DragandDrop : MonoBehaviour
     private void PlaceSmallImage(Vector3 position)
     {
         gameObject.transform.position = position;
-        //GameObject smallImage = Instantiate(smallImagePrefab, position, Quaternion.identity);
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
 
@@ -146,11 +145,36 @@ public class CS_DragandDrop : MonoBehaviour
     {
         if (gaugePrefab != null && gaugeInstance == null) // すでにゲージがない場合のみ生成
         {
-            gaugeInstance = Instantiate(gaugePrefab, position, Quaternion.identity);
+            gaugeInstance = Instantiate(gaugePrefab);
             gaugeInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
 
-            gaugeSlider = gaugeInstance.GetComponentInChildren<Slider>();
+            Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
+            // ゲージの位置を調整
+            Vector3 offset = new Vector3(0, 80, 0); // ここでオフセット値を調整（例: y方向に50）
+
+            // ゲージの位置の設定
+            if (canvas.renderMode == RenderMode.WorldSpace)
+            {
+                gaugeInstance.transform.position = position + offset;
+            }
+            else
+            {
+                gaugeInstance.transform.position = mainCamera.WorldToScreenPoint(position) + offset;
+            }
+
+            // ゲージサイズの設定
+            RectTransform gaugeRect = gaugeInstance.GetComponent<RectTransform>();
+            if (gaugeRect != null)
+            {
+                gaugeRect.sizeDelta = new Vector2(100, 20); // 幅100、高さ20（好みに合わせて調整）
+            }
+            else
+            {
+                Debug.LogWarning("RectTransform not found on gauge instance.");
+            }
+
+            gaugeSlider = gaugeInstance.GetComponentInChildren<Slider>();
             if (gaugeSlider != null)
             {
                 gaugeSlider.value = 1f;
@@ -172,9 +196,5 @@ public class CS_DragandDrop : MonoBehaviour
     {
         Destroy(gaugeInstance); // ゲージを削除
         transform.position = originalPosition; // オブジェクトを元の位置に戻す
-        //transform.localScale = new Vector3(1.0f, 1.0f, 1f);
-        // Destroy(this); // 現在のインスタンスを破棄
     }
-
-   
 }
