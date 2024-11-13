@@ -8,12 +8,12 @@ public class CS_Room : MonoBehaviour
     public List<RoomAttribute> attributes; // 部屋の特性リスト
     public CS_ScoreManager scoreManager;
     public CS_NewRoomManager roomManager;
-    //public CS_ScoreDisplay scoreDisplay; // ScoreDisplayへの参照
-    public int unlockCost = 10; // 部屋を解放するためのスコアコスト
+    public int unlockCost = 10;     // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
-    private bool inRoomflag;
-    private int cp_score;
-    private float DurationTime;// 部屋の占有時間を保存する変数
+    private bool inRoomflag;        // 部屋の占有フラグ
+    private int bonus_score;        // 特徴一致で得られるボーナス
+    public int default_Point;       // 最低限得られるお金
+    private float DurationTime;     // 部屋の占有時間を保存する変数
 
     [SerializeField]
     private float roomHP;
@@ -48,7 +48,7 @@ public class CS_Room : MonoBehaviour
             elapsedTime += Time.deltaTime;
 
             // Calculate the HP decrease rate
-            float hpDecreaseRate = cp_score / DurationTime; // cp_score reduced over 5 seconds
+            float hpDecreaseRate = bonus_score / DurationTime; // cp_score reduced over 5 seconds
 
             // Decrease roomHP gradually
             roomHP -= hpDecreaseRate * Time.deltaTime;
@@ -114,8 +114,8 @@ public class CS_Room : MonoBehaviour
         }
 
         // 初期化しておく
-        cp_score = 0; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
-        totalScore = 0;
+        bonus_score = default_Point; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
+        totalScore = default_Point;
 
         // 妖怪の部屋占有時間を記録
         DurationTime = Duration;
@@ -125,10 +125,18 @@ public class CS_Room : MonoBehaviour
         {
             foreach (var characterAttribute in character.characterAttributes)
             {
-                if (roomAttribute.attributeName == characterAttribute.attributeName)
+                if (roomAttribute.attributeName == "素点")
                 {
                     // マッチした場合、スコアを累積する
-                    cp_score += roomAttribute.matchScore;  // cp_score に加算
+                    bonus_score += roomAttribute.matchScore;  // cp_score に加算
+                    totalScore += roomAttribute.matchScore;  // totalScore に加算
+
+                    Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
+                }
+                else if (roomAttribute.attributeName == characterAttribute.attributeName)
+                {
+                    // マッチした場合、スコアを累積する
+                    bonus_score += roomAttribute.matchScore;  // cp_score に加算
                     totalScore += roomAttribute.matchScore;  // totalScore に加算
 
                     Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
