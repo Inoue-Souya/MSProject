@@ -36,7 +36,6 @@ public class CS_Room : MonoBehaviour
     {
         // ‰ŠúƒXƒRƒAİ’è
         scoreManager.Init();
-        roomHP = 100.0f;
         inRoomflag = false;
     }
 
