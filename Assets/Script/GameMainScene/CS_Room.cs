@@ -70,6 +70,9 @@ public class CS_Room : MonoBehaviour
             Collider2D collider = GetComponent<Collider2D>();
             Destroy(collider);
 
+            // Z–¯‚ğÁ‹‚µ‚½‚¢‚Ì‚ÅAisUnlocked‚ğfalse‚É‚·‚é
+            isUnlocked = false;
+
             // ˆê“x‚¾‚¯Às‚µ‚½‚¢‚Ì‚Å
             // roomHP‚ğ1ˆÈã‚É‚µ‚Ä’Ê‚ç‚È‚¢‚æ‚¤‚É‚·‚é
             roomHP = 1;
