@@ -125,15 +125,7 @@ public class CS_Room : MonoBehaviour
         {
             foreach (var characterAttribute in character.characterAttributes)
             {
-                if (roomAttribute.attributeName == "素点")
-                {
-                    // マッチした場合、スコアを累積する
-                    bonus_score += roomAttribute.matchScore;  // cp_score に加算
-                    totalScore += roomAttribute.matchScore;  // totalScore に加算
-
-                    Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
-                }
-                else if (roomAttribute.attributeName == characterAttribute.attributeName)
+                if (roomAttribute.attributeName == characterAttribute.attributeName)
                 {
                     // マッチした場合、スコアを累積する
                     bonus_score += roomAttribute.matchScore;  // cp_score に加算
