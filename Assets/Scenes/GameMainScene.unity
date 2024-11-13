@@ -958,19 +958,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 1
-  - attributeName: "\u5973\u6027"
-    matchScore: 1
-  - attributeName: "\u81C6\u75C5"
-    matchScore: 2
-  - attributeName: "\u52D5\u7269"
-    matchScore: 2
+  - attributeName: "\u4EBA\u578B"
+    matchScore: 50
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
   unlockCost: 10
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 500
   childObject: {fileID: 1230527998}
   childSpriteRenderer: {fileID: 1230527999}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -1138,12 +1133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 600
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 100
+  unlockCost: 50000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 400
+  roomHP: 2000
   childObject: {fileID: 738633787}
   childSpriteRenderer: {fileID: 738633789}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -1226,13 +1222,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u975E\u9053"
+    matchScore: 5000
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 1000
+  unlockCost: 150000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 1000
+  roomHP: 20000
   childObject: {fileID: 1943766282}
   childSpriteRenderer: {fileID: 1943766284}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -1361,12 +1358,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 1500
+  - attributeName: "\u7570\u5F62"
+    matchScore: 1500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 500
+  unlockCost: 100000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 600
+  roomHP: 8800
   childObject: {fileID: 1412557236}
   childSpriteRenderer: {fileID: 1412557238}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -1817,12 +1817,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 1500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 500
+  unlockCost: 100000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 500
+  roomHP: 4800
   childObject: {fileID: 3082499}
   childSpriteRenderer: {fileID: 3082501}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -1984,19 +1985,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 1
-  - attributeName: "\u5973\u6027"
-    matchScore: 1
-  - attributeName: "\u81C6\u75C5"
-    matchScore: 1
-  - attributeName: "\u4EBA\u578B"
-    matchScore: 1
+  - attributeName: "\u52D5\u7269"
+    matchScore: 50
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
   unlockCost: 10
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 500
   childObject: {fileID: 2111305014}
   childSpriteRenderer: {fileID: 2111305015}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -2155,19 +2151,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 1
-  - attributeName: "\u5973\u6027"
-    matchScore: 1
-  - attributeName: "\u77ED\u6C17"
-    matchScore: 3
-  - attributeName: "\u4EBA\u7269"
-    matchScore: 3
+  - attributeName: "\u7570\u5F62"
+    matchScore: 150
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 10
+  unlockCost: 1000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 700
   childObject: {fileID: 1743651155}
   childSpriteRenderer: {fileID: 1743651157}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -2337,19 +2328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 1
-  - attributeName: "\u5973\u6027"
-    matchScore: 1
-  - attributeName: "\u81C6\u75C5"
-    matchScore: 2
-  - attributeName: "\u7570\u5F62"
-    matchScore: 2
+  - attributeName: "\u77ED\u6C17"
+    matchScore: 50
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
   unlockCost: 10
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 500
   childObject: {fileID: 1715706182}
   childSpriteRenderer: {fileID: 1872295281}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -2511,13 +2497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u52D5\u7269"
+    matchScore: 500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 50
+  unlockCost: 5000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 200
+  roomHP: 800
   childObject: {fileID: 1331615752}
   childSpriteRenderer: {fileID: 1331615754}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -2669,13 +2656,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u975E\u9053"
+    matchScore: 600
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 100
+  unlockCost: 50000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 400
+  roomHP: 2000
   childObject: {fileID: 1410974890}
   childSpriteRenderer: {fileID: 1410974892}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -3281,13 +3269,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u7570\u5F62"
+    matchScore: 5000
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 1000
+  unlockCost: 150000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 1000
+  roomHP: 17000
   childObject: {fileID: 526052921}
   childSpriteRenderer: {fileID: 526052923}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -3504,17 +3493,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537"
-    matchScore: 3
-  - attributeName: "\u81C6\u75C5"
-    matchScore: 3
-  - attributeName: "\u52D5\u7269"
-    matchScore: 3
+  - attributeName: "\u5973\u6027"
+    matchScore: 100
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 10
+  unlockCost: 1000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 700
   childObject: {fileID: 1194482800}
   childSpriteRenderer: {fileID: 1194482802}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -3621,6 +3607,7 @@ MonoBehaviour:
   roomManager: {fileID: 72089058}
   unlockCost: 5000
   isUnlocked: 0
+  default_Point: 0
   roomHP: 0
   childObject: {fileID: 72089057}
   childSpriteRenderer: {fileID: 585234929}
@@ -4194,11 +4181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gaugePrefab: {fileID: 7912101039040381350, guid: c8edf2c3169f498419d7b8fe2f48f70c, type: 3}
-  gaugeDuration: 13
+  gaugeDuration: 5
   characterAttributes:
   - attributeName: "\u5973\u6027"
-    matchScore: 0
-  - attributeName: "\u81C6\u75C5"
     matchScore: 0
   - attributeName: "\u4EBA\u578B"
     matchScore: 0
@@ -4415,12 +4400,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 1500
+  - attributeName: "\u52D5\u7269"
+    matchScore: 1500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 500
+  unlockCost: 100000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 500
+  roomHP: 4800
   childObject: {fileID: 334182637}
   childSpriteRenderer: {fileID: 334182639}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -4504,12 +4492,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 500
+  - attributeName: "\u52D5\u7269"
+    matchScore: 500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 100
+  unlockCost: 50000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 400
+  roomHP: 2800
   childObject: {fileID: 1312237244}
   childSpriteRenderer: {fileID: 1312237246}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -4672,13 +4663,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u52D5\u7269"
+    matchScore: 5000
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 1000
+  unlockCost: 150000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 1000
+  roomHP: 20000
   childObject: {fileID: 952763522}
   childSpriteRenderer: {fileID: 952763524}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -4775,13 +4767,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
+  - attributeName: "\u7570\u5F62"
+    matchScore: 5000
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 5000
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 1000
+  unlockCost: 150000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 1000
+  roomHP: 20000
   childObject: {fileID: 2055611602}
   childSpriteRenderer: {fileID: 2055611604}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -5292,7 +5287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874513657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0076, y: -4.023, z: 0}
+  m_LocalPosition: {x: 0.0076, y: -4.07, z: 0}
   m_LocalScale: {x: 27.776876, y: 3.406973, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5507,13 +5502,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u4EBA\u578B"
+    matchScore: 500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 50
+  unlockCost: 5000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 200
+  roomHP: 800
   childObject: {fileID: 1433959065}
   childSpriteRenderer: {fileID: 1433959067}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -5676,16 +5672,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 3
-  - attributeName: "\u975E\u9053"
-    matchScore: 3
-  - attributeName: "\u4EBA\u578B"
-    matchScore: 3
+    matchScore: 100
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 10
+  unlockCost: 1000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 700
   childObject: {fileID: 561648295}
   childSpriteRenderer: {fileID: 561648297}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -6598,13 +6591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gaugePrefab: {fileID: 7912101039040381350, guid: c8edf2c3169f498419d7b8fe2f48f70c, type: 3}
-  gaugeDuration: 10
+  gaugeDuration: 5
   characterAttributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 0
-  - attributeName: "\u975E\u9053"
-    matchScore: 0
-  - attributeName: "\u7570\u5F62"
+  - attributeName: "\u52D5\u7269"
     matchScore: 0
   effectController: {fileID: 229199023}
   soundEffect: {fileID: 8300000, guid: 022c42d776e58b04db6e0e6ed5a5b83c, type: 3}
@@ -6862,11 +6851,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gaugePrefab: {fileID: 7912101039040381350, guid: c8edf2c3169f498419d7b8fe2f48f70c, type: 3}
-  gaugeDuration: 15
+  gaugeDuration: 5
   characterAttributes:
   - attributeName: "\u5973\u6027"
     matchScore: 0
-  - attributeName: "\u975E\u9053"
+  - attributeName: "\u77ED\u6C17"
     matchScore: 0
   - attributeName: "\u7570\u5F62"
     matchScore: 0
@@ -7274,6 +7263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345163182}
   - component: {fileID: 1345163181}
+  - component: {fileID: 1345163183}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -7304,7 +7294,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 66cab8efdcec883408ef610c47f52431, type: 3}
   - {fileID: 21300000, guid: d9eee76b312b455499c80e2e736098d6, type: 3}
   - {fileID: 21300000, guid: f2c1488dd823280418131816b49db1d6, type: 3}
-  currentScore: 2000
+  currentScore: 0
   scoreImages:
   - {fileID: 710662746}
   - {fileID: 368732404}
@@ -7313,6 +7303,9 @@ MonoBehaviour:
   - {fileID: 1739265722}
   - {fileID: 525435384}
   - {fileID: 1559507806}
+  audioSourceObject: {fileID: 1345163180}
+  soundEffect1: {fileID: 8300000, guid: 891ebc328b46bdc4492bdc90c0a49971, type: 3}
+  soundEffect2: {fileID: 8300000, guid: f99b0b4adfd371542ad781a52de478c0, type: 3}
 --- !u!4 &1345163182
 Transform:
   m_ObjectHideFlags: 0
@@ -7328,6 +7321,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1345163183
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345163180}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1366153267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7563,13 +7652,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u77ED\u6C17"
+    matchScore: 500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 50
+  unlockCost: 5000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 200
+  roomHP: 800
   childObject: {fileID: 1451288232}
   childSpriteRenderer: {fileID: 1451288234}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -8145,13 +8235,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u5973\u6027"
+    matchScore: 1000
+  - attributeName: "\u7570\u5F62"
+    matchScore: 1000
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 100
+  unlockCost: 50000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 400
+  roomHP: 2800
   childObject: {fileID: 80824987}
   childSpriteRenderer: {fileID: 80824989}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -8234,13 +8327,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u5973\u6027"
+    matchScore: 1500
+  - attributeName: "\u7570\u5F62"
+    matchScore: 1500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 500
+  unlockCost: 100000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 600
+  roomHP: 8800
   childObject: {fileID: 1018632612}
   childSpriteRenderer: {fileID: 1018632614}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -8547,17 +8643,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u5973\u6027"
-    matchScore: 2
-  - attributeName: "\u77ED\u6C17"
-    matchScore: 2
-  - attributeName: "\u52D5\u7269"
-    matchScore: 2
+  - attributeName: "\u7537\u6027"
+    matchScore: 50
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
   unlockCost: 10
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 500
   childObject: {fileID: 1844121391}
   childSpriteRenderer: {fileID: 1844121392}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -8778,17 +8871,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 2
-  - attributeName: "\u81C6\u75C5"
-    matchScore: 2
-  - attributeName: "\u4EBA\u578B"
-    matchScore: 2
+  - attributeName: "\u5973\u6027"
+    matchScore: 50
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
   unlockCost: 10
   isUnlocked: 0
-  roomHP: 100
+  default_Point: 50
+  roomHP: 500
   childObject: {fileID: 395846269}
   childSpriteRenderer: {fileID: 395846270}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -8871,19 +8961,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 1
-  - attributeName: "\u5973\u6027"
-    matchScore: 1
-  - attributeName: "\u77ED\u6C17"
-    matchScore: 3
-  - attributeName: "\u7570\u5F62"
-    matchScore: 3
+  - attributeName: "\u81C6\u75C5"
+    matchScore: 150
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 10
+  unlockCost: 1000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 700
   childObject: {fileID: 915018892}
   childSpriteRenderer: {fileID: 915018894}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -9134,13 +9219,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u5973\u6027"
+    matchScore: 1500
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 500
+  unlockCost: 100000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 500
+  roomHP: 4800
   childObject: {fileID: 1535649679}
   childSpriteRenderer: {fileID: 1535649681}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -9300,13 +9386,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u5973\u6027"
+    matchScore: 600
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 100
+  unlockCost: 50000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 400
+  roomHP: 2000
   childObject: {fileID: 579709618}
   childSpriteRenderer: {fileID: 579709620}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -9399,13 +9486,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 10
+  - attributeName: "\u5973\u6027"
+    matchScore: 250
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 50
+  unlockCost: 5000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 200
+  roomHP: 800
   childObject: {fileID: 262996969}
   childSpriteRenderer: {fileID: 262996971}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -9708,17 +9796,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: "\u5973\u6027"
-    matchScore: 3
   - attributeName: "\u77ED\u6C17"
-    matchScore: 3
-  - attributeName: "\u7570\u5F62"
-    matchScore: 3
+    matchScore: 100
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 10
+  unlockCost: 1000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 50
+  roomHP: 700
   childObject: {fileID: 1177543616}
   childSpriteRenderer: {fileID: 1177543618}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -10130,7 +10215,7 @@ MonoBehaviour:
     matchScore: 0
   - attributeName: "\u81C6\u75C5"
     matchScore: 0
-  - attributeName: "\u4EBA\u578B"
+  - attributeName: "\u7570\u5F62"
     matchScore: 0
   effectController: {fileID: 229199023}
   soundEffect: {fileID: 8300000, guid: 022c42d776e58b04db6e0e6ed5a5b83c, type: 3}
@@ -10307,12 +10392,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes:
   - attributeName: "\u7537\u6027"
-    matchScore: 10
+    matchScore: 250
   scoreManager: {fileID: 1345163181}
   roomManager: {fileID: 72089058}
-  unlockCost: 50
+  unlockCost: 5000
   isUnlocked: 0
-  roomHP: 0
+  default_Point: 200
+  roomHP: 800
   childObject: {fileID: 429334256}
   childSpriteRenderer: {fileID: 429334258}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
@@ -10794,13 +10880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gaugePrefab: {fileID: 7912101039040381350, guid: c8edf2c3169f498419d7b8fe2f48f70c, type: 3}
-  gaugeDuration: 3
+  gaugeDuration: 5
   characterAttributes:
-  - attributeName: "\u7537\u6027"
-    matchScore: 0
-  - attributeName: "\u975E\u9053"
-    matchScore: 0
-  - attributeName: "\u4EBA\u578B"
+  - attributeName: "\u5973\u6027"
     matchScore: 0
   effectController: {fileID: 229199023}
   soundEffect: {fileID: 8300000, guid: 022c42d776e58b04db6e0e6ed5a5b83c, type: 3}

@@ -95,7 +95,7 @@ public class CS_ReleaseRoom : MonoBehaviour
                     clickedObject.TryGetComponent<CS_Room>(out selectedRoom);
 
                     // 解放コストを保存
-                    releaseCost = selectedRoom.unlockCost * 100;
+                    releaseCost = selectedRoom.unlockCost;
 
                     // 解放コストを選択肢（はい）に表示
                     yesText.text = "はい(" + releaseCost + "怨)";
