@@ -34,7 +34,7 @@ public class CS_TitleScreenManager : MonoBehaviour
         {
             rainBGM.Stop();  // ‰JBGM‚ğ’â~
             thunderSFX.Play();  // —‹‰¹‚ğÄ¶
-            StartCoroutine(FadeToLogoAndLoadScene("GameMainScene"));
+            StartCoroutine(FadeToLogoAndLoadScene("StorySwitch"));
         }
     }
 

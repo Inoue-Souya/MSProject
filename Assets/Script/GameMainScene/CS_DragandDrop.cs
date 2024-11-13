@@ -127,7 +127,7 @@ public class CS_DragandDrop : MonoBehaviour
     private void PlaceSmallImage(Vector3 position)
     {
         gameObject.transform.position = position;
-        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        //gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
 
         // エフェクト再生
@@ -151,7 +151,7 @@ public class CS_DragandDrop : MonoBehaviour
             Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
             // ゲージの位置を調整
-            Vector3 offset = new Vector3(0, 80, 0); // ここでオフセット値を調整（例: y方向に50）
+            Vector3 offset = new Vector3(0, 60, 0); // ここでオフセット値を調整（例: y方向に50）
 
             // ゲージの位置の設定
             if (canvas.renderMode == RenderMode.WorldSpace)
