@@ -2,6 +2,7 @@ using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // 追加
 
 public class CS_StorySwitch : MonoBehaviour
 {
@@ -14,9 +15,10 @@ public class CS_StorySwitch : MonoBehaviour
     private AudioSource bgmSource;
     private AudioSource clickSource;
     private int currentIndex = 0;
-    private bool isSliding = false;
+    private bool isSliding = false; // スライド中かどうかを管理するフラグ
     public float fadeDuration = 1f;
     private bool isFading = false;
+    public string nextSceneName = "NextScene"; // 次のシーン名
 
     void Start()
     {
@@ -66,7 +68,6 @@ public class CS_StorySwitch : MonoBehaviour
         {
             clickSource.Play(); // クリック音を再生
         }
-       
     }
 
     void StartSliding()
@@ -74,23 +75,25 @@ public class CS_StorySwitch : MonoBehaviour
         if (currentIndex < images.Length)
         {
             images[currentIndex].transform.localPosition = Vector3.zero;
-            isSliding = true;
+            isSliding = true; // スライディングを開始
         }
     }
 
     void SlideCurrentImage()
     {
         UnityEngine.UI.Image currentImage = images[currentIndex];
+        float imageWidth = currentImage.rectTransform.rect.width; // 画像の幅を取得
+
         if (currentIndex < images.Length - 1)
         {
-            if (currentImage.transform.localPosition.x > -Screen.width)
+            if (currentImage.transform.localPosition.x > -imageWidth)
             {
                 currentImage.transform.localPosition += Vector3.left * slideSpeed * Time.deltaTime;
             }
             else
             {
                 currentIndex++;
-                isSliding = false;
+                isSliding = false; // スライディング終了
             }
         }
         else
@@ -118,9 +121,21 @@ public class CS_StorySwitch : MonoBehaviour
             currentColor.a
         );
 
-        if (currentImage.color.r <= 0f && currentImage.color.g <= 0f && currentImage.color.b <= 0f)
+        // フェード進行状況をログで確認
+        UnityEngine.Debug.Log("フェード進行中: " + currentImage.color);
+        if (currentImage.color.r <= 0.1f && currentImage.color.g <= 0.1f && currentImage.color.b <= 0.1f)
         {
             isFading = false;
+            UnityEngine.Debug.Log("フェードが完了しました。次のシーンに移動します。");
+            LoadNextScene();
         }
+    }
+
+
+    void LoadNextScene()
+    {
+        UnityEngine.Debug.Log("シーン遷移: " + nextSceneName);
+        // 次のシーンをロード
+        SceneManager.LoadScene("GameMainScene");
     }
 }
