@@ -14,6 +14,9 @@ public class CS_TitleScreenManager : MonoBehaviour
     public AudioSource rainBGM;
     public AudioSource thunderSFX;
 
+    // 連続再生用の追加サウンドフィールド
+    public AudioSource ambientSound;
+
     public float fadeDuration = 1.0f;
     public float logoDropDuration = 2.0f;
     public float logoDisplayTime = 2.0f;
@@ -24,8 +27,12 @@ public class CS_TitleScreenManager : MonoBehaviour
     {
         fadeGroup.alpha = 0;
         titleLogo.gameObject.SetActive(false);
+
         rainBGM.loop = true;
         rainBGM.Play();  // 雨BGMを再生
+
+        ambientSound.loop = true;
+        ambientSound.Play();  // 常時再生されるサウンドを再生
     }
 
     void Update()
