@@ -970,6 +970,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1230527999}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &187436777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1147,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 738633789}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &216812304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,6 +1240,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1943766284}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &222255009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1380,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1412557238}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &249464477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,6 +1840,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 3082501}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &312329857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,6 +2012,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 2111305015}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &347141133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,6 +2181,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1743651157}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &374725280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,6 +2361,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1872295281}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &410299525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2509,6 +2533,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1331615754}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &475150478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,6 +2695,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1410974892}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &483846491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3280,6 +3310,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 526052923}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &540858730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,6 +3537,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1194482802}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &550319100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3612,6 +3648,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 585234929}
   oldSprite: {fileID: 21300000, guid: 71b546413d82dbb4ea22df2d9cc7e789, type: 3}
   newSprite: {fileID: 21300000, guid: 71b546413d82dbb4ea22df2d9cc7e789, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &585234927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,7 +4179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 1.2, z: 0}
 --- !u!61 &719936006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4270,6 +4309,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: 5333d74aaff763a4aa01e260c3bdb16f, type: 3}
   audioSourceObject: {fileID: 1104468344}
+--- !u!1 &722353737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722353738}
+  - component: {fileID: 722353739}
+  m_Layer: 0
+  m_Name: JingleSE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722353738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722353737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1002103590}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &722353739
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722353737}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &738633787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -4412,6 +4579,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 334182639}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &775689375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4504,6 +4674,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1312237246}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &788322910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4674,6 +4847,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 952763524}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &850177475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4780,6 +4956,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 2055611604}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &850632697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5513,6 +5692,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1433959067}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &937816934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5682,6 +5864,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 561648297}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &973385983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5742,6 +5927,7 @@ Transform:
   - {fileID: 1011959651}
   - {fileID: 1104468345}
   - {fileID: 1461421006}
+  - {fileID: 722353738}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6550,7 +6736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 1.2, z: 0}
 --- !u!61 &1189385708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6810,7 +6996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 1.2, z: 0}
 --- !u!61 &1254736856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7583,6 +7769,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1451288234}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1412702022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8168,6 +8357,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 80824989}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1505711948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8260,6 +8452,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1018632614}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1506280378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8574,6 +8769,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1844121392}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1563109354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8802,6 +9000,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 395846270}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1610710896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8892,6 +9093,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 915018894}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1659836318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9150,6 +9354,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1535649681}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1754075081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9317,6 +9524,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 579709620}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1838367987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9417,6 +9627,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 262996971}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1869931660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9727,6 +9940,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 1177543618}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &1914452718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10094,6 +10310,8 @@ MonoBehaviour:
   minZoom: 2
   minY: 0
   maxY: 11
+  edgeScrollSpeed: 8
+  edgeThreshold: 10
 --- !u!1 &1992698070
 GameObject:
   m_ObjectHideFlags: 0
@@ -10322,6 +10540,9 @@ MonoBehaviour:
   childSpriteRenderer: {fileID: 429334258}
   oldSprite: {fileID: 21300000, guid: a671790d073b3d34b8842dd7f9011b6c, type: 3}
   newSprite: {fileID: 21300000, guid: 1a662867c8c3fb345b96da4488faf5c7, type: 3}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
+  soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
 --- !u!114 &2006083565
 MonoBehaviour:
   m_ObjectHideFlags: 0
