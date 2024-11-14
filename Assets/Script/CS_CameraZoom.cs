@@ -14,6 +14,9 @@ public class CS_CameraZoom : MonoBehaviour
     public float minY;  // Y軸の下限（調整可能）
     public float maxY;  // Y軸の上限（調整可能）
 
+    public float edgeScrollSpeed = 2f;  // 画面端のスクロール速度
+    public float edgeThreshold = 10f;   // 画面端のスクロールを開始する距離（ピクセル）
+
     void Start()
     {
         initialPosition = mainCamera.transform.position;  // 初期位置を保存
@@ -26,7 +29,8 @@ public class CS_CameraZoom : MonoBehaviour
     void Update()
     {
         HandleZoom();  // ズーム処理
-        HandleDrag();  // ドラッグ処理
+        //HandleDrag();  // ドラッグ処理
+        HandleMouseEdgeScroll();  // 画面端のスクロール処理
         HandleReset();  // リセット処理
     }
 
@@ -58,21 +62,41 @@ public class CS_CameraZoom : MonoBehaviour
         }
     }
 
-    void HandleDrag()
+    //void HandleDrag()
+    //{
+    //    if (Input.GetMouseButtonDown(0))  // ドラッグ開始時にワールド座標を記録
+    //    {
+    //        dragOrigin = GetMouseWorldPosition();
+    //    }
+
+    //    if (Input.GetMouseButton(0))  // ドラッグ中
+    //    {
+    //        Vector3 difference = dragOrigin - GetMouseWorldPosition();
+    //        Vector3 newPosition = mainCamera.transform.position + new Vector3(difference.x, difference.y, 0);
+
+    //        // X軸とY軸の移動範囲を制限
+    //        mainCamera.transform.position = ClampPosition(newPosition);
+    //    }
+    //}
+
+    void HandleMouseEdgeScroll()
     {
-        if (Input.GetMouseButtonDown(0))  // ドラッグ開始時にワールド座標を記録
+        Vector3 cameraPosition = mainCamera.transform.position;
+        Vector2 mousePosition = Input.mousePosition;
+
+        if (mousePosition.y >= Screen.height - edgeThreshold)
         {
-            dragOrigin = GetMouseWorldPosition();
+            // マウスが画面上端付近にある場合、上方向に移動
+            cameraPosition.y += edgeScrollSpeed * Time.deltaTime;
+        }
+        else if (mousePosition.y <= edgeThreshold)
+        {
+            // マウスが画面下端付近にある場合、下方向に移動
+            cameraPosition.y -= edgeScrollSpeed * Time.deltaTime;
         }
 
-        if (Input.GetMouseButton(0))  // ドラッグ中
-        {
-            Vector3 difference = dragOrigin - GetMouseWorldPosition();
-            Vector3 newPosition = mainCamera.transform.position + new Vector3(difference.x, difference.y, 0);
-
-            // X軸とY軸の移動範囲を制限
-            mainCamera.transform.position = ClampPosition(newPosition);
-        }
+        // 移動後の位置を範囲内に制限
+        mainCamera.transform.position = ClampPosition(cameraPosition);
     }
 
     void HandleReset()
