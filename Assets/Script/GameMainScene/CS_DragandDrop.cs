@@ -28,6 +28,8 @@ public class CS_DragandDrop : MonoBehaviour
 
     private AudioSource audioSource;  // AudioSourceコンポーネント
 
+    public CS_Yo_kaiChange ChangeManager;// 妖怪補充用
+
 
     void Start()
     {
@@ -79,7 +81,14 @@ public class CS_DragandDrop : MonoBehaviour
             if (gaugeTimer <= 0f)
             {
                 // 作業終了時にリセットとお金の増加
-                ResetToOriginalPosition();
+
+                // 妖怪の補充システムを入れる-----------------------
+                ChangeManager.SwapRandomObject(this.name);
+
+                //ResetToOriginalPosition();
+                // --------------------------------------------------
+
+                Destroy(gaugeInstance); // ゲージを削除
                 cp_room.finishPhase();
                 inRoom = false;
             }
@@ -132,7 +141,7 @@ public class CS_DragandDrop : MonoBehaviour
         // エフェクト再生
         if (effectController != null)
         {
-            effectController.PlayPlacementEffect(position);
+            effectController.PlayPlacementEffect(gameObject.transform.position);
         }
         else
         {
@@ -195,5 +204,10 @@ public class CS_DragandDrop : MonoBehaviour
     {
         Destroy(gaugeInstance); // ゲージを削除
         transform.position = originalPosition; // オブジェクトを元の位置に戻す
+    }
+
+    public void SetPosition(Vector3 vector)
+    {
+        originalPosition = vector;
     }
 }
