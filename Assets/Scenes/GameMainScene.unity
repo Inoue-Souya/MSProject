@@ -7143,16 +7143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yo_kaies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 884094910}
+  - {fileID: 408850014}
+  - {fileID: 1278525081}
+  - {fileID: 617315038}
+  - {fileID: 265577093}
+  - {fileID: 1392572370}
+  - {fileID: 309284629}
+  - {fileID: 1842929056}
+  - {fileID: 1454458668}
+  - {fileID: 814625818}
   spacing: 3
   startPosition: {x: -6.5, y: -4, z: 0}
 --- !u!4 &1053748783
