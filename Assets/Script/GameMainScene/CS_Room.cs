@@ -34,6 +34,7 @@ public class CS_Room : MonoBehaviour
     public GameObject audioSourceObject;  // SEを再生するためのAudioSourceがアタッチされたゲームオブジェクト
     public AudioClip soundEffect1;  // 効果音のAudioClip(ボーナスなし)
     public AudioClip soundEffect2;  // 効果音のAudioClip(ボーナスあり)
+    public AudioClip soundEffect3;  // 効果音のAudioClip(部屋使用不可)
     private AudioSource audioSource;  // AudioSourceコンポーネント
 
     // 新しいメソッドを追加
@@ -98,6 +99,13 @@ public class CS_Room : MonoBehaviour
             // 一度だけ実行したいので
             // roomHPを1以上にして通らないようにする
             roomHP = 1;
+            inRoomflag = false;
+
+            // サウンドを流す
+            if (audioSource != null && soundEffect3 != null)
+            {
+                audioSource.PlayOneShot(soundEffect3);
+            }
         }
 
         // IsUnlocked が true であれば、子オブジェクトをアクティブにする

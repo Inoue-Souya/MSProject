@@ -7,6 +7,8 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
     private CS_Room room;
     private CS_DragandDrop dragAndDrop;
 
+    public CS_CameraZoom mainCamera;
+
     public Text sharedDisplayText;
     public RectTransform sharedPanel;
     public Vector3 offset = new Vector3(0, 1.2f, 0);
@@ -107,9 +109,12 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
 
     private void Update()
     {
-        if (currentHover == this && sharedDisplayText != null && sharedDisplayText.gameObject.activeSelf)
+        if (mainCamera.startPhase)// 最初の開始フラグが立ってからUI表示機能開始
         {
-            UpdatePanelAndTextPosition();
+            if (currentHover == this && sharedDisplayText != null && sharedDisplayText.gameObject.activeSelf)
+            {
+                UpdatePanelAndTextPosition();
+            }
         }
     }
 

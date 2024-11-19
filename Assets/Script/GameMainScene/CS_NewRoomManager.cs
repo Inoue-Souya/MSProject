@@ -32,7 +32,8 @@ public class CS_NewRoomManager : MonoBehaviour
 
     private void Update()
     {
-        if(stopRooms > 2)
+        gameObject.SetActive(true);
+        if (stopRooms > 2)
         {
             SceneManager.LoadScene("ResultScene");
         }

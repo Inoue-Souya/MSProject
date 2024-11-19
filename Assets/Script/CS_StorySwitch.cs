@@ -20,6 +20,8 @@ public class CS_StorySwitch : MonoBehaviour
     private bool isFading = false;
     public string nextSceneName = "NextScene"; // 次のシーン名
 
+    public CS_FadeIn fade;
+
     void Start()
     {
         // BGM用のAudioSourceを作成し、初期設定
@@ -37,28 +39,31 @@ public class CS_StorySwitch : MonoBehaviour
 
     void Update()
     {
-        // 左クリックが押されたとき
-        if (Input.GetMouseButtonDown(0) && currentIndex < images.Length && !isSliding && !isFading)
+        if (fade.fadeFinish)
         {
-            PlayClickSound();
-            if (currentIndex == images.Length - 1)
+            // 左クリックが押されたとき
+            if (Input.GetMouseButtonDown(0) && currentIndex < images.Length && !isSliding && !isFading)
             {
-                StartFadeOut();
+                PlayClickSound();
+                if (currentIndex == images.Length - 1)
+                {
+                    StartFadeOut();
+                }
+                else
+                {
+                    StartSliding();
+                }
             }
-            else
+
+            if (isSliding)
             {
-                StartSliding();
+                SlideCurrentImage();
             }
-        }
 
-        if (isSliding)
-        {
-            SlideCurrentImage();
-        }
-
-        if (isFading)
-        {
-            FadeOutCurrentImage();
+            if (isFading)
+            {
+                FadeOutCurrentImage();
+            }
         }
     }
 

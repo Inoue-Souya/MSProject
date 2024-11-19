@@ -26,6 +26,9 @@ public class CS_Yo_kaiChange : MonoBehaviour
 
     private List<YoKai> movedObjects = new List<YoKai>();  // 移動済みオブジェクトのリスト
 
+    [Header("召喚時のエフェクト")]
+    public CS_Effect effectController;//パーティクル用
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +118,25 @@ public class CS_Yo_kaiChange : MonoBehaviour
         movedObjects.Remove(specifiedObject);       // specifiedObjectをリストから削除
         movedObjects.Add(randomOtherYoKai);         // 新たに選択されたオブジェクトを追加
 
+        // 新しい妖怪の位置のエフェクトを出す
+        PlaceSmallImage(randomOtherObject.transform.position);
+
         Debug.Log("交換しました：" + randomOtherObject.name + " と " + specifiedObject.gameObject.name);
+    }
+
+    private void PlaceSmallImage(Vector3 position)
+    {
+        Vector3 offsetPos = new Vector3(0.0f, 0.0f, 0.0f);
+        gameObject.transform.position = position + offsetPos;
+
+        // エフェクト再生
+        if (effectController != null)
+        {
+            effectController.PlayPlacementEffect(gameObject.transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("Effect controller is not assigned in CS_DragandDrop.");
+        }
     }
 }

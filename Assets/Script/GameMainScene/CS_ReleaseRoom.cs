@@ -20,9 +20,20 @@ public class CS_ReleaseRoom : MonoBehaviour
     private CS_Room selectedRoom; // ヒットしたRoomオブジェクトの参照
     public Material defaultMaterial; // デフォルトのマテリアル
 
+    [Header("サウンド関連")]
+    public GameObject audioSourceObject;  // SEを再生するためのAudioSourceがアタッチされたゲームオブジェクト
+    public AudioClip soundEffect1;  // 効果音のAudioClip(部屋開放)
+    private AudioSource audioSource;  // AudioSourceコンポーネント
+
     private void Start()
     {
         panel.SetActive(false);
+
+        // 指定されたゲームオブジェクトからAudioSourceコンポーネントを取得
+        if (audioSourceObject != null)
+        {
+            audioSource = audioSourceObject.GetComponent<AudioSource>();
+        }
     }
 
     public class OtherPanelController : MonoBehaviour
@@ -152,6 +163,12 @@ public class CS_ReleaseRoom : MonoBehaviour
         selectedRoom.InitializeRoom(true);
 
         CS_MouseHoverDisplayText.SetOtherPanelActive(false);
+
+        // サウンドを流す
+        if (audioSource != null && soundEffect1 != null)
+        {
+            audioSource.PlayOneShot(soundEffect1);
+        }
 
         // パネルを非表示にする
         panel.SetActive(false);

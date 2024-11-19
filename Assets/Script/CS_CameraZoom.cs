@@ -17,21 +17,66 @@ public class CS_CameraZoom : MonoBehaviour
     public float edgeScrollSpeed = 2f;  // 画面端のスクロール速度
     public float edgeThreshold = 10f;   // 画面端のスクロールを開始する距離（ピクセル）
 
+    public CS_FadeIn fade;
+    public bool startPhase;
+
+    private float moveSpeed; // カメラの移動速度（秒数から計算）
+
+    private Vector3 targetPosition;  // カメラが移動するターゲット位置
+    public float moveDuration = 2f;  // 指定の秒数で移動する
+    private bool isMoving = false;  // カメラ移動中かどうか
+
     void Start()
     {
-        initialPosition = mainCamera.transform.position;  // 初期位置を保存
+        initialPosition = mainCamera.transform.position;    // 初期位置を保存
+        targetPosition = initialPosition;                   // カメラの移動先を初期位置に設定
+
+        mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, maxY, mainCamera.transform.position.z);
         initialZoom = mainCamera.orthographicSize;  // 初期ズームを基準とする
+
+        startPhase = false;
 
         // 初期位置でのカメラのX軸の可視範囲を計算
         CalculateBounds();
     }
+    public void StartCameraMove(Vector3 newTargetPosition, float moveDuration)
+    {
+        targetPosition = newTargetPosition; // 移動先を設定
+        moveSpeed = Vector3.Distance(mainCamera.transform.position, targetPosition) / moveDuration; // 移動速度を計算
+        isMoving = true; // 移動を開始
+    }
 
     void Update()
     {
-        HandleZoom();  // ズーム処理
-        //HandleDrag();  // ドラッグ処理
-        HandleMouseEdgeScroll();  // 画面端のスクロール処理
-        HandleReset();  // リセット処理
+        if (fade.fadeFinish && !startPhase && !isMoving)
+        {
+            // 移動先を設定して移動開始
+            StartCameraMove(new Vector3(0, 0, mainCamera.transform.position.z), moveDuration);
+        }
+
+        if (isMoving) // カメラ移動処理
+        {
+            mainCamera.transform.position = Vector3.MoveTowards(
+                mainCamera.transform.position,
+                targetPosition,
+                moveSpeed * Time.deltaTime
+            );
+
+            // 移動が完了したら処理を終了
+            if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.01f)
+            {
+                mainCamera.transform.position = targetPosition; // 最終位置を正確に設定
+                isMoving = false;
+                startPhase = true;  // フェーズを開始
+            }
+        }
+
+        if (startPhase)
+        {
+            HandleZoom();  // ズーム処理
+            HandleMouseEdgeScroll();  // 画面端のスクロール処理
+            HandleReset();  // リセット処理
+        }
     }
 
     // カメラの初期位置とズームを基準に、X軸の表示範囲を計算

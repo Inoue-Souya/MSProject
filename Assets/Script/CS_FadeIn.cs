@@ -8,6 +8,7 @@ public class CS_FadeIn : MonoBehaviour
 {
     public UnityEngine.UI.Image fadeImage;  // フェード用のImageコンポーネント
     public float fadeDuration = 2f;  // フェードインにかかる時間
+    public bool fadeFinish;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class CS_FadeIn : MonoBehaviour
             UnityEngine.Debug.Log("Fade image is not assigned!");
             return;
         }
+
+        fadeFinish = false;
 
         // フェードインを開始
         StartCoroutine(FadeInCoroutine());
@@ -44,5 +47,7 @@ public class CS_FadeIn : MonoBehaviour
 
         // フェードイン完了時に透明度を完全に0にする
         fadeImage.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
+        fadeImage.gameObject.SetActive(false);
+        fadeFinish = true;
     }
 }
