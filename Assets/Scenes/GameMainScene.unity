@@ -340,82 +340,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
---- !u!1 &72089057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 72089059}
-  - component: {fileID: 72089058}
-  m_Layer: 0
-  m_Name: RoomManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &72089058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72089057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe9d3e6858ebe74591d90f3b6780014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 1610710894}
-  - {fileID: 1563109352}
-  - {fileID: 347141131}
-  - {fileID: 187436775}
-  - {fileID: 410299523}
-  - {fileID: 550319098}
-  - {fileID: 973385981}
-  - {fileID: 1914452716}
-  - {fileID: 374725278}
-  - {fileID: 1659836316}
-  - {fileID: 1869931658}
-  - {fileID: 2006083563}
-  - {fileID: 1412702020}
-  - {fileID: 475150476}
-  - {fileID: 937816932}
-  - {fileID: 1838367985}
-  - {fileID: 216812302}
-  - {fileID: 483846489}
-  - {fileID: 788322908}
-  - {fileID: 1505711946}
-  - {fileID: 312329855}
-  - {fileID: 1754075079}
-  - {fileID: 775689373}
-  - {fileID: 1506280376}
-  - {fileID: 249464475}
-  - {fileID: 540858728}
-  - {fileID: 222255007}
-  - {fileID: 850177473}
-  - {fileID: 850632695}
-  - {fileID: 585234925}
-  stopRooms: 0
---- !u!4 &72089059
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72089057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28636652, y: 0.5464127, z: 0.6153936}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &80824987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -894,6 +818,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1971130413}
   scoreManager: {fileID: 1345163181}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  audioSourceObject: {fileID: 722353737}
+  soundEffect1: {fileID: 8300000, guid: 428505070a2b1564981fe553f58df0d5, type: 3}
 --- !u!4 &183661844
 Transform:
   m_ObjectHideFlags: 0
@@ -907,7 +833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187436771 stripped
 GameObject:
@@ -961,7 +887,7 @@ MonoBehaviour:
   - attributeName: "\u4EBA\u578B"
     matchScore: 50
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 10
   isUnlocked: 0
   default_Point: 50
@@ -973,21 +899,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
---- !u!114 &187436777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187436771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedDisplayText: {fileID: 0}
-  sharedPanel: {fileID: 0}
-  offset: {x: 0, y: 1.2, z: 0}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &187436778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -1138,7 +1051,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 600
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 50000
   isUnlocked: 0
   default_Point: 400
@@ -1150,6 +1063,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &216812304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -1231,7 +1146,7 @@ MonoBehaviour:
   - attributeName: "\u975E\u9053"
     matchScore: 5000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 150000
   isUnlocked: 0
   default_Point: 1000
@@ -1243,6 +1158,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &222255009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,6 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -1315,7 +1232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &249464471 stripped
 GameObject:
@@ -1371,7 +1288,7 @@ MonoBehaviour:
   - attributeName: "\u7570\u5F62"
     matchScore: 1500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 100000
   isUnlocked: 0
   default_Point: 600
@@ -1383,6 +1300,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &249464477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -1615,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -1728,13 +1648,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265577089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -8, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.7136335, y: -8.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &270515083
 PrefabInstance:
@@ -1994,6 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2107,13 +2028,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309284625}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -11, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.2863665, y: -11.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312329851 stripped
 GameObject:
@@ -2167,7 +2088,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 1500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 100000
   isUnlocked: 0
   default_Point: 500
@@ -2179,6 +2100,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &312329857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,6 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2339,7 +2262,7 @@ MonoBehaviour:
   - attributeName: "\u52D5\u7269"
     matchScore: 50
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 10
   isUnlocked: 0
   default_Point: 50
@@ -2351,6 +2274,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &347141133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2363,6 +2287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2508,7 +2433,7 @@ MonoBehaviour:
   - attributeName: "\u7570\u5F62"
     matchScore: 150
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 1000
   isUnlocked: 0
   default_Point: 50
@@ -2520,6 +2445,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &374725280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2532,6 +2458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2549,6 +2476,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: 5333d74aaff763a4aa01e260c3bdb16f, type: 3}
   audioSourceObject: {fileID: 1104468344}
+--- !u!1 &384332820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384332821}
+  m_Layer: 0
+  m_Name: AddManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384332821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384332820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.2560306, y: 3.5174544, z: 0.035223812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1055340909}
+  - {fileID: 427974070}
+  - {fileID: 1285540071}
+  - {fileID: 1550933239}
+  - {fileID: 1642644813}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395360538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2683,6 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2703,7 +2667,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.26, y: 1.7}
+    oldSize: {x: 1.26, y: 1.41}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2792,13 +2756,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408850010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -8, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.2863665, y: -8.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410299519 stripped
 GameObject:
@@ -2852,7 +2816,7 @@ MonoBehaviour:
   - attributeName: "\u77ED\u6C17"
     matchScore: 50
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 10
   isUnlocked: 0
   default_Point: 50
@@ -2864,6 +2828,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &410299525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2876,6 +2841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -2962,6 +2928,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
+--- !u!1 &427974069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 427974070}
+  - component: {fileID: 427974071}
+  m_Layer: 0
+  m_Name: 3Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427974070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427974069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384332821}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427974071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427974069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8b84c09b5b3fc4fb7f9715ba0c93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 1869931658}
+  - {fileID: 2006083563}
+  - {fileID: 1412702020}
+  - {fileID: 475150476}
+  - {fileID: 937816932}
+  Yo_KaiChange: {fileID: 1053748782}
+  NewYo_kai: {fileID: 309284629}
 --- !u!1 &429334256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -3024,7 +3042,7 @@ MonoBehaviour:
   - attributeName: "\u52D5\u7269"
     matchScore: 500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 200
@@ -3036,6 +3054,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &475150478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,6 +3067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -3186,7 +3206,7 @@ MonoBehaviour:
   - attributeName: "\u975E\u9053"
     matchScore: 600
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 50000
   isUnlocked: 0
   default_Point: 400
@@ -3198,6 +3218,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &483846491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3210,6 +3231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -3801,7 +3823,7 @@ MonoBehaviour:
   - attributeName: "\u7570\u5F62"
     matchScore: 5000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 150000
   isUnlocked: 0
   default_Point: 1000
@@ -3813,6 +3835,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &540858730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3825,6 +3848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -4028,7 +4052,7 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 100
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 1000
   isUnlocked: 0
   default_Point: 50
@@ -4040,6 +4064,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &550319100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4052,6 +4077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -4141,18 +4167,19 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 10000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 0
   roomHP: 1000
-  childObject: {fileID: 72089057}
+  childObject: {fileID: 0}
   childSpriteRenderer: {fileID: 585234929}
   oldSprite: {fileID: 21300000, guid: 71b546413d82dbb4ea22df2d9cc7e789, type: 3}
   newSprite: {fileID: 21300000, guid: 71b546413d82dbb4ea22df2d9cc7e789, type: 3}
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &585234927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4165,6 +4192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -4315,6 +4343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -4426,13 +4455,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617315034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -8, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.7136335, y: -8.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646743939
 GameObject:
@@ -5073,7 +5102,7 @@ MonoBehaviour:
   - attributeName: "\u52D5\u7269"
     matchScore: 1500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 100000
   isUnlocked: 0
   default_Point: 500
@@ -5085,6 +5114,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &775689375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5097,6 +5127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -5168,7 +5199,7 @@ MonoBehaviour:
   - attributeName: "\u52D5\u7269"
     matchScore: 500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 50000
   isUnlocked: 0
   default_Point: 400
@@ -5180,6 +5211,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &788322910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5192,6 +5224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -5336,6 +5369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -5449,13 +5483,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814625814}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -11, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.7136335, y: -11.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850177469 stripped
 GameObject:
@@ -5509,7 +5543,7 @@ MonoBehaviour:
   - attributeName: "\u52D5\u7269"
     matchScore: 5000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 150000
   isUnlocked: 0
   default_Point: 1000
@@ -5521,6 +5555,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &850177475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,6 +5568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -5618,7 +5654,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 5000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 150000
   isUnlocked: 0
   default_Point: 1000
@@ -5630,6 +5666,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &850632697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5642,6 +5679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -5704,7 +5742,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &860489999
 PrefabInstance:
@@ -6141,7 +6179,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881610736
 GameObject:
@@ -6270,6 +6308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -6383,13 +6422,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884094906}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -8, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.2863665, y: -8.546412, z: -0.6034596}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &904931092
 PrefabInstance:
@@ -6522,7 +6561,7 @@ MonoBehaviour:
   - attributeName: "\u4EBA\u578B"
     matchScore: 500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 200
@@ -6534,6 +6573,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &937816934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6546,6 +6586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -6694,7 +6735,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 100
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 1000
   isUnlocked: 0
   default_Point: 50
@@ -6706,6 +6747,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &973385983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6718,6 +6760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -6768,7 +6811,7 @@ Transform:
   - {fileID: 1461421006}
   - {fileID: 722353738}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011959648
 GameObject:
@@ -7044,6 +7087,53 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7513118542107062593, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
   m_PrefabInstance: {fileID: 2090028481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1024963940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024963942}
+  - component: {fileID: 1024963941}
+  m_Layer: 0
+  m_Name: FadeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024963941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024963940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9423dc1861fd7f418104b06318ce8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 1361651699}
+  fadeDuration: 2
+  fadeFinish: 0
+--- !u!4 &1024963942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024963940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6535883, y: -0.57439, z: -0.09914578}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1035883777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7123,6 +7213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1053748783}
   - component: {fileID: 1053748782}
+  - component: {fileID: 1053748784}
   m_Layer: 0
   m_Name: yo-kaiChangeManager
   m_TagString: Untagged
@@ -7148,13 +7239,10 @@ MonoBehaviour:
   - {fileID: 1278525081}
   - {fileID: 617315038}
   - {fileID: 265577093}
-  - {fileID: 1392572370}
-  - {fileID: 309284629}
-  - {fileID: 1842929056}
-  - {fileID: 1454458668}
-  - {fileID: 814625818}
   spacing: 3
-  startPosition: {x: -6.5, y: -4, z: 0}
+  startPosition: {x: -7, y: -4, z: 0}
+  effectController: {fileID: 1053748784}
+  NextYo_kaiImage: {fileID: 1818991118}
 --- !u!4 &1053748783
 Transform:
   m_ObjectHideFlags: 0
@@ -7168,8 +7256,73 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1053748784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053748781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a6b079b300edd4ba21a7cbe691a01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 5797428246745224015, guid: 24fa55c4f1386e04ea2800527f88c4e1, type: 3}
+--- !u!1 &1055340908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055340909}
+  - component: {fileID: 1055340910}
+  m_Layer: 0
+  m_Name: 2Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055340909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055340908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384332821}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055340910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055340908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8b84c09b5b3fc4fb7f9715ba0c93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 550319098}
+  - {fileID: 973385981}
+  - {fileID: 1914452716}
+  - {fileID: 374725278}
+  - {fileID: 1659836316}
+  Yo_KaiChange: {fileID: 1053748782}
+  NewYo_kai: {fileID: 1392572370}
 --- !u!1001 &1059871573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7239,6 +7392,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
+--- !u!1 &1083112568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083112569}
+  - component: {fileID: 1083112571}
+  - component: {fileID: 1083112570}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1083112569
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083112568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1778776792}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1083112570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083112568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Button
+--- !u!222 &1083112571
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083112568}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1098511649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7602,6 +7835,47 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7513118542107062593, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
   m_PrefabInstance: {fileID: 338626624}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196630154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196630155}
+  m_Layer: 0
+  m_Name: Yo-kaies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196630155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196630154}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20.05, y: 7.67, z: 0.6153936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 884094912}
+  - {fileID: 408850016}
+  - {fileID: 1278525083}
+  - {fileID: 617315040}
+  - {fileID: 265577095}
+  - {fileID: 1392572372}
+  - {fileID: 309284631}
+  - {fileID: 1842929058}
+  - {fileID: 1454458670}
+  - {fileID: 814625820}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230527998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -7878,6 +8152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -7987,14 +8262,66 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278525077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28636652, y: -8.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1285540070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285540071}
+  - component: {fileID: 1285540072}
+  m_Layer: 0
+  m_Name: 4Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285540071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285540070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384332821}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285540072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285540070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8b84c09b5b3fc4fb7f9715ba0c93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 1838367985}
+  - {fileID: 216812302}
+  - {fileID: 483846489}
+  - {fileID: 788322908}
+  - {fileID: 1505711946}
+  Yo_KaiChange: {fileID: 1053748782}
+  NewYo_kai: {fileID: 1842929056}
 --- !u!1 &1312237244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -8149,7 +8476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1345163183
 AudioSource:
@@ -8247,6 +8574,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1361651698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361651701}
+  - component: {fileID: 1361651700}
+  - component: {fileID: 1361651699}
+  m_Layer: 5
+  m_Name: FadeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1361651699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361651698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e0bc6b3cce8e78044869c7870e86aa37, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1361651700
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361651698}
+  m_CullTransparentMesh: 1
+--- !u!224 &1361651701
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361651698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1388057663}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1366153267
 GameObject:
   m_ObjectHideFlags: 0
@@ -8306,7 +8709,7 @@ Transform:
   - {fileID: 850632692}
   - {fileID: 585234922}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388057659
 GameObject:
@@ -8405,6 +8808,9 @@ RectTransform:
   - {fileID: 1955147513}
   - {fileID: 498859446}
   - {fileID: 881610737}
+  - {fileID: 1818991117}
+  - {fileID: 1778776792}
+  - {fileID: 1361651701}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8460,6 +8866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -8573,13 +8980,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392572366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -11, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.2863665, y: -11.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410974890 stripped
 GameObject:
@@ -8653,7 +9060,7 @@ MonoBehaviour:
   - attributeName: "\u77ED\u6C17"
     matchScore: 500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 200
@@ -8665,6 +9072,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1412702022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8677,6 +9085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -8964,6 +9373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -9077,13 +9487,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454458664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -11, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.7136335, y: -11.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461421005
 GameObject:
@@ -9409,7 +9819,7 @@ MonoBehaviour:
   - attributeName: "\u7570\u5F62"
     matchScore: 1000
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 50000
   isUnlocked: 0
   default_Point: 400
@@ -9421,6 +9831,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1505711948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9433,6 +9844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -9504,7 +9916,7 @@ MonoBehaviour:
   - attributeName: "\u7570\u5F62"
     matchScore: 1500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 100000
   isUnlocked: 0
   default_Point: 600
@@ -9516,6 +9928,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1506280378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9528,6 +9941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -9693,6 +10107,58 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7513118542107062593, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
   m_PrefabInstance: {fileID: 1494737063}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1550933238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550933239}
+  - component: {fileID: 1550933240}
+  m_Layer: 0
+  m_Name: 5Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1550933239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550933238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384332821}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550933240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550933238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8b84c09b5b3fc4fb7f9715ba0c93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 312329855}
+  - {fileID: 1754075079}
+  - {fileID: 775689373}
+  - {fileID: 1506280376}
+  - {fileID: 249464475}
+  Yo_KaiChange: {fileID: 1053748782}
+  NewYo_kai: {fileID: 1454458668}
 --- !u!1 &1559507805
 GameObject:
   m_ObjectHideFlags: 0
@@ -9821,7 +10287,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 50
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 10
   isUnlocked: 0
   default_Point: 50
@@ -9833,6 +10299,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1563109354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9845,6 +10312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10052,7 +10520,7 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 50
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 10
   isUnlocked: 0
   default_Point: 50
@@ -10064,6 +10532,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1610710896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10076,6 +10545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10093,6 +10563,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: 5333d74aaff763a4aa01e260c3bdb16f, type: 3}
   audioSourceObject: {fileID: 1104468344}
+--- !u!1 &1642644812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642644813}
+  - component: {fileID: 1642644814}
+  m_Layer: 0
+  m_Name: 6Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642644813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642644812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384332821}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642644814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642644812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8b84c09b5b3fc4fb7f9715ba0c93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 540858728}
+  - {fileID: 222255007}
+  - {fileID: 850177473}
+  - {fileID: 850632695}
+  Yo_KaiChange: {fileID: 1053748782}
+  NewYo_kai: {fileID: 814625818}
 --- !u!1 &1659836312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5330196989318964443, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
@@ -10145,7 +10666,7 @@ MonoBehaviour:
   - attributeName: "\u81C6\u75C5"
     matchScore: 150
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 1000
   isUnlocked: 0
   default_Point: 50
@@ -10157,6 +10678,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1659836318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10169,6 +10691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10406,7 +10929,7 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 1500
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 100000
   isUnlocked: 0
   default_Point: 500
@@ -10418,6 +10941,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1754075081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10430,6 +10954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10447,6 +10972,140 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: 5333d74aaff763a4aa01e260c3bdb16f, type: 3}
   audioSourceObject: {fileID: 1104468344}
+--- !u!1 &1778776791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778776792}
+  - component: {fileID: 1778776795}
+  - component: {fileID: 1778776794}
+  - component: {fileID: 1778776793}
+  m_Layer: 5
+  m_Name: Button (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1778776792
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778776791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1083112569}
+  m_Father: {fileID: 1388057663}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1778776793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778776791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1778776794}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1053748782}
+        m_TargetAssemblyTypeName: CS_Yo_kaiChange, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1778776794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778776791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1778776795
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778776791}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1787557065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10524,6 +11183,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
+--- !u!1 &1818991116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818991117}
+  - component: {fileID: 1818991119}
+  - component: {fileID: 1818991118}
+  m_Layer: 5
+  m_Name: NextYo-kai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1818991117
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818991116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1388057663}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 353, y: -179}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1818991118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818991116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1818991119
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818991116}
+  m_CullTransparentMesh: 1
 --- !u!1 &1838367981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5330196989318964443, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
@@ -10576,7 +11311,7 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 600
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 50000
   isUnlocked: 0
   default_Point: 400
@@ -10588,6 +11323,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1838367987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10600,6 +11336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10664,6 +11401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10777,13 +11515,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842929052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -11, z: 0.011933982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28636652, y: -11.546412, z: -0.6034596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 1196630155}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844121391 stripped
 GameObject:
@@ -10847,7 +11585,7 @@ MonoBehaviour:
   - attributeName: "\u5973\u6027"
     matchScore: 250
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 200
@@ -10859,6 +11597,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1869931660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10871,6 +11610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -10970,6 +11710,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
+--- !u!1 &1880088416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880088418}
+  - component: {fileID: 1880088417}
+  m_Layer: 0
+  m_Name: RoomManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1880088417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880088416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe9d3e6858ebe74591d90f3b6780014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rooms:
+  - {fileID: 1610710894}
+  - {fileID: 1563109352}
+  - {fileID: 347141131}
+  - {fileID: 187436775}
+  - {fileID: 410299523}
+  - {fileID: 550319098}
+  - {fileID: 973385981}
+  - {fileID: 1914452716}
+  - {fileID: 374725278}
+  - {fileID: 1659836316}
+  - {fileID: 1869931658}
+  - {fileID: 2006083563}
+  - {fileID: 1412702020}
+  - {fileID: 475150476}
+  - {fileID: 937816932}
+  - {fileID: 1838367985}
+  - {fileID: 216812302}
+  - {fileID: 483846489}
+  - {fileID: 788322908}
+  - {fileID: 1505711946}
+  - {fileID: 312329855}
+  - {fileID: 1754075079}
+  - {fileID: 775689373}
+  - {fileID: 1506280376}
+  - {fileID: 249464475}
+  - {fileID: 540858728}
+  - {fileID: 222255007}
+  - {fileID: 850177473}
+  - {fileID: 850632695}
+  - {fileID: 585234925}
+  stopRooms: 0
+--- !u!4 &1880088418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880088416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28636652, y: 0.5464127, z: 0.6153936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1889433160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11160,7 +11976,7 @@ MonoBehaviour:
   - attributeName: "\u77ED\u6C17"
     matchScore: 100
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 1000
   isUnlocked: 0
   default_Point: 50
@@ -11172,6 +11988,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &1914452718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11184,6 +12001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -11541,6 +12359,9 @@ MonoBehaviour:
   maxY: 11
   edgeScrollSpeed: 8
   edgeThreshold: 10
+  fade: {fileID: 1024963941}
+  startPhase: 0
+  moveDuration: 3
 --- !u!1 &2006083559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5330196989318964443, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
@@ -11593,7 +12414,7 @@ MonoBehaviour:
   - attributeName: "\u7537\u6027"
     matchScore: 250
   scoreManager: {fileID: 1345163181}
-  roomManager: {fileID: 72089058}
+  roomManager: {fileID: 1880088417}
   unlockCost: 5000
   isUnlocked: 0
   default_Point: 200
@@ -11605,6 +12426,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 722353737}
   soundEffect1: {fileID: 8300000, guid: aca651919a86bb34e8af4ab82b37e318, type: 3}
   soundEffect2: {fileID: 8300000, guid: 2102808bd88b3ed43aad1191e8256cae, type: 3}
+  soundEffect3: {fileID: 8300000, guid: 15d7af9eab4ceb14298fa8f6b96027cf, type: 3}
 --- !u!114 &2006083565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11617,6 +12439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
@@ -12015,7 +12838,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4095032953483231025, guid: 4a38a8372cbf2e14c82e6ba1c41a9d3c, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4095032953483231025, guid: 4a38a8372cbf2e14c82e6ba1c41a9d3c, type: 3}
       propertyPath: m_LocalPosition.x

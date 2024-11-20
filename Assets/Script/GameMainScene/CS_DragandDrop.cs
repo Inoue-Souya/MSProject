@@ -17,6 +17,7 @@ public class CS_DragandDrop : MonoBehaviour
     private Slider gaugeSlider; // ゲージのスライダーコンポーネント
     public float gaugeDuration = 5f; // ゲージの持続時間
     private float gaugeTimer;
+   // private Vector3 gaugeFixedWorldPosition; // ゲージ固定位置を保存する変数
     private CS_Room cp_room;// 判定をとった部屋情報を保存
 
     public List<RoomAttribute> characterAttributes;
@@ -75,6 +76,8 @@ public class CS_DragandDrop : MonoBehaviour
         // ゲージが表示されている場合、時間を減少させる
         if (gaugeInstance != null)
         {
+           // gaugeInstance.transform.position = gaugeFixedWorldPosition; // ゲージの位置を固定
+
             gaugeTimer -= Time.deltaTime;
             gaugeSlider.value = gaugeTimer / gaugeDuration;
 
@@ -85,7 +88,6 @@ public class CS_DragandDrop : MonoBehaviour
                 // 妖怪の補充システムを入れる-----------------------
                 ChangeManager.SwapRandomObject(this.name);
 
-                //ResetToOriginalPosition();
                 // --------------------------------------------------
 
                 Destroy(gaugeInstance); // ゲージを削除
@@ -198,12 +200,6 @@ public class CS_DragandDrop : MonoBehaviour
         {
             Debug.LogWarning("Gauge already exists or prefab is null!");
         }
-    }
-
-    private void ResetToOriginalPosition()
-    {
-        Destroy(gaugeInstance); // ゲージを削除
-        transform.position = originalPosition; // オブジェクトを元の位置に戻す
     }
 
     public void SetPosition(Vector3 vector)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class YoKai
 {
@@ -25,9 +26,14 @@ public class CS_Yo_kaiChange : MonoBehaviour
     public Vector3 startPosition = Vector3.zero;  // 移動開始位置
 
     private List<YoKai> movedObjects = new List<YoKai>();  // 移動済みオブジェクトのリスト
+    private List<CS_DragandDrop> otherObjects;// 妖怪リスト以外のオブジェクト
+    private CS_DragandDrop randomOtherObject;
 
     [Header("召喚時のエフェクト")]
     public CS_Effect effectController;//パーティクル用
+
+    [Header("次の妖怪を出すスプライト")]
+    public Image NextYo_kaiImage;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +43,11 @@ public class CS_Yo_kaiChange : MonoBehaviour
             yo_kaies[i].GetComponent<CS_DragandDrop>();
         }
 
+        // 最初の妖怪をセット
         MoveYoKaies();
+
+        // 次の妖怪を用意
+        NextYo_kai();
     }
 
     void MoveYoKaies()
@@ -79,18 +89,6 @@ public class CS_Yo_kaiChange : MonoBehaviour
             return;
         }
 
-        // 妖怪リスト以外のオブジェクトを抽選対象にする
-        List<CS_DragandDrop> otherObjects = new List<CS_DragandDrop>();
-
-        // YoKaiリスト内のオブジェクトを除いたリストを作成
-        foreach (var obj in yo_kaies)
-        {
-            if (!movedObjects.Exists(movedObj => movedObj.gameObject == obj))
-            {
-                otherObjects.Add(obj);  // 移動していないオブジェクトを追加
-            }
-        }
-
         // その他のオブジェクトがない場合はspecifiedObjec(置いた妖怪)を元の位置に戻す
         if (otherObjects.Count == 0)
         {
@@ -98,9 +96,6 @@ public class CS_Yo_kaiChange : MonoBehaviour
             //Debug.LogWarning("交換可能なオブジェクトが不足しています。");
             return;
         }
-
-        // 他のオブジェクトからランダムに1つ選択
-        CS_DragandDrop randomOtherObject = otherObjects[Random.Range(0, otherObjects.Count)];
 
         // 位置を交換
         Vector3 tempPosition = randomOtherObject.transform.position;  // randomOtherObject の元の位置を一時保存
@@ -121,7 +116,55 @@ public class CS_Yo_kaiChange : MonoBehaviour
         // 新しい妖怪の位置のエフェクトを出す
         PlaceSmallImage(randomOtherObject.transform.position);
 
+        // 次の妖怪をセット
+        NextYo_kai();
+
         Debug.Log("交換しました：" + randomOtherObject.name + " と " + specifiedObject.gameObject.name);
+    }
+
+    private void NextYo_kai()
+    {
+        // 妖怪の情報をリセット
+        otherObjects = new List<CS_DragandDrop>();
+        randomOtherObject = null;
+
+        // YoKaiリスト内のオブジェクトを除いたリストを作成
+        foreach (var obj in yo_kaies)
+        {
+            if (!movedObjects.Exists(movedObj => movedObj.gameObject == obj))
+            {
+                otherObjects.Add(obj);  // 移動していないオブジェクトを追加
+            }
+        }
+
+        if (otherObjects.Count == 0)
+        {
+
+        }
+        else
+        {
+            // 他のオブジェクトからランダムに1つ選択
+            randomOtherObject = otherObjects[Random.Range(0, otherObjects.Count)];
+            Debug.Log("セットしました：" + randomOtherObject.name);
+
+            SpriteRenderer spriteRenderer = randomOtherObject.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                Sprite sprite = spriteRenderer.sprite;
+                Debug.Log("取得したスプライト: " + sprite.name);
+
+                // 必要に応じてスプライトを使用
+                // 例: UI画像に設定する
+                if (NextYo_kaiImage != null)
+                {
+                    NextYo_kaiImage.sprite = sprite;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("指定されたオブジェクトにSpriteRendererがありません: " + randomOtherObject.name);
+            }
+        }
     }
 
     private void PlaceSmallImage(Vector3 position)
@@ -137,6 +180,24 @@ public class CS_Yo_kaiChange : MonoBehaviour
         else
         {
             Debug.LogWarning("Effect controller is not assigned in CS_DragandDrop.");
+        }
+    }
+
+    public void AddYo_kai(CS_DragandDrop Yo_kai)
+    {
+        if (yo_kaies.Exists(obj => obj.name == Yo_kai.gameObject.name))
+        {
+            Debug.Log("すでに追加されています。");
+            return;
+        }
+
+        // 妖怪をリストに追加
+        yo_kaies.Add(Yo_kai);
+
+        // randomOtherObjectがnullの場合はNextYo_kai()を呼び出す
+        if (randomOtherObject == null || string.IsNullOrEmpty(randomOtherObject.name))
+        {
+            NextYo_kai();
         }
     }
 }
