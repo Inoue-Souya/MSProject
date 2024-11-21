@@ -45,7 +45,6 @@ public class CS_ScoreManager : MonoBehaviour
                 audioSource.PlayOneShot(soundEffect1);
             }
         }
-        
     }
 
     public bool SpendScore(int cost)

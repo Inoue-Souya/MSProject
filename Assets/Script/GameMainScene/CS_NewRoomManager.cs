@@ -35,7 +35,7 @@ public class CS_NewRoomManager : MonoBehaviour
         gameObject.SetActive(true);
         if (stopRooms > 2)
         {
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("GameOverScene");
         }
     }
 }

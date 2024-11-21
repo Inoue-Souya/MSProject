@@ -48,9 +48,17 @@ public class CS_Yo_kaiChange : MonoBehaviour
 
         // 次の妖怪を用意
         NextYo_kai();
-    }
 
-    void MoveYoKaies()
+        // 初期化時にNextYo_kaiImageのアルファ値をゼロに設定
+        if (NextYo_kaiImage != null)
+        {
+            Color color = NextYo_kaiImage.color;
+            color.a = 0f; // アルファ値を0に
+            NextYo_kaiImage.color = color;
+
+        }
+    }
+    private void MoveYoKaies()
     {
         // リストの要素を最大5つまで移動
         int count = Mathf.Min(yo_kaies.Count, 5);
@@ -198,6 +206,14 @@ public class CS_Yo_kaiChange : MonoBehaviour
         if (randomOtherObject == null || string.IsNullOrEmpty(randomOtherObject.name))
         {
             NextYo_kai();
+            // 次の妖怪出現時にNextYo_kaiImageのアルファ値を1に設定
+            if (NextYo_kaiImage != null)
+            {
+                Color color = NextYo_kaiImage.color;
+                color.a = 1f; // アルファ値を1に
+                NextYo_kaiImage.color = color;
+
+            }
         }
     }
 }

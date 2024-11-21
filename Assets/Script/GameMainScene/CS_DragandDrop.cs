@@ -17,7 +17,7 @@ public class CS_DragandDrop : MonoBehaviour
     private Slider gaugeSlider; // ゲージのスライダーコンポーネント
     public float gaugeDuration = 5f; // ゲージの持続時間
     private float gaugeTimer;
-   // private Vector3 gaugeFixedWorldPosition; // ゲージ固定位置を保存する変数
+    private Vector3 gaugeFixedWorldPosition; // ゲージ固定位置を保存する変数
     private CS_Room cp_room;// 判定をとった部屋情報を保存
 
     public List<RoomAttribute> characterAttributes;
@@ -76,7 +76,9 @@ public class CS_DragandDrop : MonoBehaviour
         // ゲージが表示されている場合、時間を減少させる
         if (gaugeInstance != null)
         {
-           // gaugeInstance.transform.position = gaugeFixedWorldPosition; // ゲージの位置を固定
+
+            // 毎フレーム、位置を更新
+            UpdateGaugePosition(transform.position);
 
             gaugeTimer -= Time.deltaTime;
             gaugeSlider.value = gaugeTimer / gaugeDuration;
@@ -160,17 +162,16 @@ public class CS_DragandDrop : MonoBehaviour
 
             Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
-            // ゲージの位置を調整
-            Vector3 offset = new Vector3(0, -100, 0); // ここでオフセット値を調整（例: y方向に-100）
+
 
             // ゲージの位置の設定
             if (canvas.renderMode == RenderMode.WorldSpace)
             {
-                gaugeInstance.transform.position = position + offset;
+                gaugeInstance.transform.position = position;
             }
             else
             {
-                gaugeInstance.transform.position = mainCamera.WorldToScreenPoint(position) + offset;
+                gaugeInstance.transform.position = mainCamera.WorldToScreenPoint(position);
             }
 
             // ゲージサイズの設定
@@ -194,11 +195,30 @@ public class CS_DragandDrop : MonoBehaviour
                 Debug.LogWarning("Gauge Slider not found on the instantiated prefab.");
             }
 
+            // タイマー設定
             gaugeTimer = gaugeDuration;
+
+            // 初期位置設定
+            UpdateGaugePosition(position);
         }
         else
         {
             Debug.LogWarning("Gauge already exists or prefab is null!");
+        }
+    }
+
+    private void UpdateGaugePosition(Vector3 worldPosition)
+    {
+        if (gaugeInstance != null)
+        {
+            // ゲージの位置を調整(ワールド座標につき値は少量)
+            Vector3 offsetPos = new Vector3(0, -1, 0); // ここでオフセット値を調整（例: y方向に-1）
+
+            // ワールド座標をスクリーン座標に変換
+            Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition + offsetPos);
+
+            // ゲージの位置をスクリーン座標に設定
+            gaugeInstance.transform.position = screenPosition;
         }
     }
 
