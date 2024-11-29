@@ -21,7 +21,7 @@ public class CS_Room : MonoBehaviour
     private float DurationTime;     // 部屋の占有時間を保存する変数
 
     [SerializeField]
-    private float roomHP;           // 部屋の最大利用時間
+    //private float roomHP;           // 部屋の最大利用時間
     private int totalScore;         // 得られるお金の合計値
     private float elapsedTime = 0f;
 
@@ -38,6 +38,10 @@ public class CS_Room : MonoBehaviour
     private AudioSource audioSource;  // AudioSourceコンポーネント
 
     // 新しいメソッドを追加
+    // コライダーコンポーネントを格納
+    private Collider2D collider2D;
+    // コライダーを無効にする時間（秒）
+    public float disableTime = 2f;
     public void InitializeRoom(bool unlockStatus)
     {
         isUnlocked = unlockStatus;
@@ -55,6 +59,15 @@ public class CS_Room : MonoBehaviour
         {
             audioSource = audioSourceObject.GetComponent<AudioSource>();
         }
+
+        // 初期化: コライダーコンポーネントを取得
+        collider2D = GetComponent<Collider2D>();
+
+        // コライダーを無効化
+        ToggleCollider(false);
+        // 一定時間後にコライダーを再度有効化
+        StartCoroutine(ReenableColliderAfterTime(10.0f));
+
     }
 
     private void Update()
@@ -68,13 +81,18 @@ public class CS_Room : MonoBehaviour
             float hpDecreaseRate = bonus_score / DurationTime; // cp_score reduced over 5 seconds
 
             // Decrease roomHP gradually
-            roomHP -= hpDecreaseRate * Time.deltaTime;
+            //roomHP -= hpDecreaseRate * Time.deltaTime;
 
             // After 5 seconds, stop decreasing and reset the flag
             if (elapsedTime >= DurationTime)
             {
                 inRoomflag = false;
                 elapsedTime = 0f; // Reset timer
+
+                // 条件が満たされた場合、コライダーを無効化
+                ToggleCollider(false);
+                // 一定時間後にコライダーを再度有効化
+                StartCoroutine(ReenableColliderAfterTime(disableTime));
 
                 // サウンドを流す
                 if (audioSource != null && soundEffect1 != null)
@@ -84,29 +102,29 @@ public class CS_Room : MonoBehaviour
             }
         }
 
-        if(roomHP <= 0f)
-        {
-            // 限界部屋数を増やす
-            roomManager.stopRooms++;
+        //if(roomHP <= 0f)
+        //{
+        //    // 限界部屋数を増やす
+        //    roomManager.stopRooms++;
 
-            // 部屋の当たり判定を消去する
-            Collider2D collider = GetComponent<Collider2D>();
-            Destroy(collider);
+        //    // 部屋の当たり判定を消去する
+        //    Collider2D collider = GetComponent<Collider2D>();
+        //    Destroy(collider);
 
-            // 住民を消去したいので、isUnlockedをfalseにする
-            isUnlocked = false;
+        //    // 住民を消去したいので、isUnlockedをfalseにする
+        //    isUnlocked = false;
 
-            // 一度だけ実行したいので
-            // roomHPを1以上にして通らないようにする
-            roomHP = 1;
-            inRoomflag = false;
+        //    // 一度だけ実行したいので
+        //    // roomHPを1以上にして通らないようにする
+        //    roomHP = 1;
+        //    inRoomflag = false;
 
-            // サウンドを流す
-            if (audioSource != null && soundEffect3 != null)
-            {
-                audioSource.PlayOneShot(soundEffect3);
-            }
-        }
+        //    // サウンドを流す
+        //    if (audioSource != null && soundEffect3 != null)
+        //    {
+        //        audioSource.PlayOneShot(soundEffect3);
+        //    }
+        //}
 
         // IsUnlocked が true であれば、子オブジェクトをアクティブにする
         if (isUnlocked)
@@ -196,5 +214,25 @@ public class CS_Room : MonoBehaviour
     public bool GettinRoom()
     {
         return inRoomflag;
+    }
+
+    // コライダーを無効化 / 有効化するメソッド
+    void ToggleCollider(bool isActive)
+    {
+        if (collider2D != null)
+        {
+            collider2D.enabled = isActive;
+        }
+    }
+
+    // 一定時間後にコライダーを再度有効化するコルーチン
+    System.Collections.IEnumerator ReenableColliderAfterTime(float time)
+    {
+        // 指定時間待機
+        yield return new WaitForSeconds(time);
+
+        // コライダーを再度有効化
+        ToggleCollider(true);
+
     }
 }
