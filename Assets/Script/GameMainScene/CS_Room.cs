@@ -94,6 +94,13 @@ public class CS_Room : MonoBehaviour
                 // 一定時間後にコライダーを再度有効化
                 StartCoroutine(ReenableColliderAfterTime(disableTime));
 
+                if (roomManager.inResident > 0)
+                {
+                    roomManager.inResident--;
+                }
+
+
+
                 // サウンドを流す
                 if (audioSource != null && soundEffect1 != null)
                 {
@@ -133,6 +140,7 @@ public class CS_Room : MonoBehaviour
             {
                 childObject.SetActive(true); // 子オブジェクトをアクティブにする
             }
+
         }
         else
         {
@@ -233,6 +241,8 @@ public class CS_Room : MonoBehaviour
 
         // コライダーを再度有効化
         ToggleCollider(true);
+
+        roomManager.inResident++;
 
     }
 }

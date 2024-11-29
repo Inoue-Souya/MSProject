@@ -15,6 +15,8 @@ public class CS_ReleaseRoom : MonoBehaviour
     public Camera mainCamera; // 2Dカメラ
     [Header("スコアマネージャー")]
     public CS_ScoreManager scoreManager;
+    [Header("ルームマネージャー")]
+    public CS_NewRoomManager roomManager;
 
     private int releaseCost = 0; // 部屋開放コスト
     private CS_Room selectedRoom; // ヒットしたRoomオブジェクトの参照
@@ -161,6 +163,9 @@ public class CS_ReleaseRoom : MonoBehaviour
 
         // 解放済みにする
         selectedRoom.InitializeRoom(true);
+
+        //RoomManagerのopenRoom変数に1プラスする
+        roomManager.openRoom++;
 
         CS_MouseHoverDisplayText.SetOtherPanelActive(false);
 

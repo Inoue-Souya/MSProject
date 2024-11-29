@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CS_NewRoomManager : MonoBehaviour
 {
     public CS_Room[] rooms; // シーン内の部屋の配列
-    public int stopRooms;
+    public int inResident;  //ゲームオーバー用変数
+    public int openRoom;    //　解放済みの部屋数
 
     void Start()
     {
-        stopRooms = 0;
         InitializeRooms();
+        inResident = 0;
+        openRoom = 5;
     }
 
     private void InitializeRooms()
@@ -33,7 +36,7 @@ public class CS_NewRoomManager : MonoBehaviour
     private void Update()
     {
         gameObject.SetActive(true);
-        if (stopRooms > 2)
+        if (inResident >= openRoom)
         {
             SceneManager.LoadScene("GameOverScene");
         }
