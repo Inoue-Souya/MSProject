@@ -11,6 +11,7 @@ public class CS_DragandDrop : MonoBehaviour
     private bool isDragging;
     private bool inRoom;
     private Vector3 originalPosition;
+    private Sprite originalSprite;
 
     public GameObject gaugePrefab; // ゲージのプレハブ
     private GameObject gaugeInstance; // ゲージのインスタンス
@@ -31,11 +32,25 @@ public class CS_DragandDrop : MonoBehaviour
 
     public CS_Yo_kaiChange ChangeManager;// 妖怪補充用
 
+    public Sprite IkonSprite;// アイコン用画像保存する変数
+
 
     void Start()
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
+
+        // スプライトの保存
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+        if (sprite != null)
+        {
+            originalSprite = sprite.sprite;
+        }
+        else
+        {
+            Debug.LogWarning("SpriteRenderer component not found on the GameObject.");
+        }
+
         inRoom = false;
 
         // 指定されたゲームオブジェクトからAudioSourceコンポーネントを取得
@@ -95,6 +110,9 @@ public class CS_DragandDrop : MonoBehaviour
                 Destroy(gaugeInstance); // ゲージを削除
                 cp_room.finishPhase();
                 inRoom = false;
+
+                SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+                sprite.sprite = originalSprite;
             }
         }
     }
@@ -225,5 +243,20 @@ public class CS_DragandDrop : MonoBehaviour
     public void SetPosition(Vector3 vector)
     {
         originalPosition = vector;
+    }
+
+    public bool GetisDragging()
+    {
+        return isDragging;
+    }
+
+    public bool GetinRoom()
+    {
+        return inRoom;
+    }
+
+    public Sprite GetSprite()
+    {
+        return originalSprite;
     }
 }

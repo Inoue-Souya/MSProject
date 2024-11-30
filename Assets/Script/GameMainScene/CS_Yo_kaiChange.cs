@@ -5,19 +5,25 @@ using UnityEngine.UI;
 
 public class YoKai
 {
-    public CS_DragandDrop gameObject;  // 妖怪オブジェクト
-    public Vector3 initialPosition;  // 初期位置
+    public CS_DragandDrop gameObject;   // 妖怪オブジェクト
+    public Vector3 initialPosition;     // 初期位置
+    public GameObject Ikonobject;       // アイコン用オブジェクト
 
-    public YoKai(CS_DragandDrop obj, Vector3 position)
+    public YoKai(CS_DragandDrop obj, Vector3 position, GameObject gameobj)
     {
         gameObject = obj;
         initialPosition = position;
+        Ikonobject = gameobj;
+
     }
 }
 public class CS_Yo_kaiChange : MonoBehaviour
 {
     [Header("妖怪のリスト")]
     public List<CS_DragandDrop> yo_kaies;  // 移動対象のリスト
+
+    [Header("妖怪アイコンのリスト")]
+    public List<GameObject> yo_kaiesIkon;
 
     [Header("移動間隔")]
     public float spacing = 2.0f;  // オブジェクト間のスペース
@@ -28,9 +34,6 @@ public class CS_Yo_kaiChange : MonoBehaviour
     private List<YoKai> movedObjects = new List<YoKai>();  // 移動済みオブジェクトのリスト
     private List<CS_DragandDrop> otherObjects;// 妖怪リスト以外のオブジェクト
     private CS_DragandDrop randomOtherObject;
-
-    [Header("召喚時のエフェクト")]
-    public CS_Effect effectController;//パーティクル用
 
     [Header("次の妖怪を出すスプライト")]
     public Image NextYo_kaiImage;
@@ -43,21 +46,23 @@ public class CS_Yo_kaiChange : MonoBehaviour
             yo_kaies[i].GetComponent<CS_DragandDrop>();
         }
 
+        // 初期更新 
+        Init();
+    }
+
+    private void Init()
+    {
         // 最初の妖怪をセット
         MoveYoKaies();
 
-        // 次の妖怪を用意
+        // 次の妖怪を設定
         NextYo_kai();
 
-        // 初期化時にNextYo_kaiImageのアルファ値をゼロに設定
-        if (NextYo_kaiImage != null)
-        {
-            Color color = NextYo_kaiImage.color;
-            color.a = 0f; // アルファ値を0に
-            NextYo_kaiImage.color = color;
-
-        }
+        // 最初だけrandomOtherObjectのスプライトを直接入れる
+        SpriteRenderer sprite = randomOtherObject.GetComponent<SpriteRenderer>();
+        NextYo_kaiImage.sprite = sprite.sprite;
     }
+
     private void MoveYoKaies()
     {
         // リストの要素を最大5つまで移動
@@ -74,10 +79,17 @@ public class CS_Yo_kaiChange : MonoBehaviour
                 yo_kaies[i].GetComponent<CS_DragandDrop>();
                 yo_kaies[i].transform.position = newPosition;
                 yo_kaies[i].SetPosition(yo_kaies[i].transform.position);
-                
+
+                // アイコンの初期設定
+                // アイコン画像
+                SpriteRenderer IkonSprite= yo_kaiesIkon[i].gameObject.GetComponent<SpriteRenderer>();
+                IkonSprite.sprite = yo_kaies[i].IkonSprite;
+
+                // アイコンの位置
+                yo_kaiesIkon[i].transform.position = newPosition;
 
                 // 移動したオブジェクトをリストに追加
-                movedObjects.Add(new YoKai(yo_kaies[i], newPosition));
+                movedObjects.Add(new YoKai(yo_kaies[i], newPosition, yo_kaiesIkon[i]));
             }
         }
     }
@@ -101,7 +113,6 @@ public class CS_Yo_kaiChange : MonoBehaviour
         if (otherObjects.Count == 0)
         {
             specifiedObject.gameObject.transform.position = specifiedObject.initialPosition;
-            //Debug.LogWarning("交換可能なオブジェクトが不足しています。");
             return;
         }
 
@@ -115,14 +126,18 @@ public class CS_Yo_kaiChange : MonoBehaviour
         specifiedObject.initialPosition = specifiedObject.gameObject.transform.position;  // 指定オブジェクトの新しい位置を initialPosition に設定
 
         // randomOtherObject の新しい位置情報を持つ YoKai インスタンスを作成
-        YoKai randomOtherYoKai = new YoKai(randomOtherObject, randomOtherObject.transform.position);
+        YoKai randomOtherYoKai = new YoKai(randomOtherObject, randomOtherObject.transform.position,specifiedObject.Ikonobject);
 
+        // Yokaiインスタンスからスプライト情報を取得し、画像を入れ替える
+        SpriteRenderer renderer = randomOtherYoKai.Ikonobject.GetComponent<SpriteRenderer>();
+        if(renderer!=null)
+        {
+            renderer.sprite = randomOtherObject.IkonSprite;
+        }
+        
         // movedObjectsリストを更新
         movedObjects.Remove(specifiedObject);       // specifiedObjectをリストから削除
         movedObjects.Add(randomOtherYoKai);         // 新たに選択されたオブジェクトを追加
-
-        // 新しい妖怪の位置のエフェクトを出す
-        PlaceSmallImage(randomOtherObject.transform.position);
 
         // 次の妖怪をセット
         NextYo_kai();
@@ -147,47 +162,21 @@ public class CS_Yo_kaiChange : MonoBehaviour
 
         if (otherObjects.Count == 0)
         {
-
+            // 補充する妖怪がない分岐
         }
         else
         {
             // 他のオブジェクトからランダムに1つ選択
             randomOtherObject = otherObjects[Random.Range(0, otherObjects.Count)];
-            Debug.Log("セットしました：" + randomOtherObject.name);
 
-            SpriteRenderer spriteRenderer = randomOtherObject.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
+            Sprite sprite = randomOtherObject.GetSprite();
+
+            // 必要に応じてスプライトを使用
+            // 例: UI画像に設定する
+            if (NextYo_kaiImage != null)
             {
-                Sprite sprite = spriteRenderer.sprite;
-                Debug.Log("取得したスプライト: " + sprite.name);
-
-                // 必要に応じてスプライトを使用
-                // 例: UI画像に設定する
-                if (NextYo_kaiImage != null)
-                {
-                    NextYo_kaiImage.sprite = sprite;
-                }
+                NextYo_kaiImage.sprite = sprite;
             }
-            else
-            {
-                Debug.LogWarning("指定されたオブジェクトにSpriteRendererがありません: " + randomOtherObject.name);
-            }
-        }
-    }
-
-    private void PlaceSmallImage(Vector3 position)
-    {
-        Vector3 offsetPos = new Vector3(0.0f, 0.0f, 0.0f);
-        gameObject.transform.position = position + offsetPos;
-
-        // エフェクト再生
-        if (effectController != null)
-        {
-            effectController.PlayPlacementEffect(gameObject.transform.position);
-        }
-        else
-        {
-            Debug.LogWarning("Effect controller is not assigned in CS_DragandDrop.");
         }
     }
 
@@ -212,7 +201,6 @@ public class CS_Yo_kaiChange : MonoBehaviour
                 Color color = NextYo_kaiImage.color;
                 color.a = 1f; // アルファ値を1に
                 NextYo_kaiImage.color = color;
-
             }
         }
     }

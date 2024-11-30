@@ -242,7 +242,7 @@ public class CS_Room : MonoBehaviour
         // コライダーを再度有効化
         ToggleCollider(true);
 
-        roomManager.inResident++;
+        //roomManager.inResident++;
 
     }
 }
