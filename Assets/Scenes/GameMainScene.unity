@@ -931,7 +931,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187436771 stripped
 GameObject:
@@ -1011,10 +1011,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &187436780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,7 +1230,7 @@ Transform:
   - {fileID: 229199024}
   - {fileID: 1725717490}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216812298 stripped
 GameObject:
@@ -1306,10 +1310,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &216812306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,10 +1410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &222255011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,6 +1477,82 @@ Transform:
   m_Father: {fileID: 199530783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &232252849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232252850}
+  - component: {fileID: 232252852}
+  - component: {fileID: 232252851}
+  m_Layer: 5
+  m_Name: NameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &232252850
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232252849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.82322, y: 0.82322, z: 0.82322}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1388057663}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -184.5, y: -160.5}
+  m_SizeDelta: {x: 100, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &232252851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232252849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 47c681e44ab098348ab8a911fe9bf097, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &232252852
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232252849}
+  m_CullTransparentMesh: 1
 --- !u!1 &249464471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5330196989318964443, guid: 252f0e58ffac2864c9c7a6aaeb2d8835, type: 3}
@@ -1545,10 +1633,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &249464479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,10 +1860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u3067\u3044\u3060\u3089\u307C\u3063\u3061"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &265577092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2188,10 +2284,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u89AA\u5B50\u304A\u5316\u3051"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &309284628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2408,10 +2508,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &312329859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2583,10 +2687,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &347141135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,10 +2863,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &374725282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,7 +2918,7 @@ Transform:
   - {fileID: 1550933239}
   - {fileID: 1642644813}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395360538
 PrefabInstance:
@@ -2943,10 +3055,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u5929\u72D7"
+  additionalTextOffset: {x: 1, y: 0.2, z: 0}
 --- !u!61 &408850013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3159,10 +3275,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &410299527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3280,7 +3400,7 @@ Transform:
   - {fileID: 544626975}
   - {fileID: 189016635}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427974069
 GameObject:
@@ -3336,6 +3456,90 @@ MonoBehaviour:
   NewYo_kai: {fileID: 309284629}
   CutInAnimator: {fileID: 742358754}
   image: {fileID: 891756064}
+--- !u!1 &428492185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428492187}
+  - component: {fileID: 428492186}
+  m_Layer: 0
+  m_Name: BackGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &428492186
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428492185}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 7a5b65c40be74d74a9467cef412ca73f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &428492187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428492185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 11.78, z: 0.03}
+  m_LocalScale: {x: 1.7465626, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &429334256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645316869527144969, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
@@ -3424,10 +3628,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &475150480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,10 +3797,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &483846493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4207,10 +4419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &540858732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,10 +4750,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &550319102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4650,10 +4870,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &585234928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4802,10 +5026,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u304A\u83CA"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &617315037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5589,7 +5817,7 @@ RectTransform:
   - {fileID: 1732749455}
   - {fileID: 891756063}
   m_Father: {fileID: 1388057663}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5803,10 +6031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &775689377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5901,10 +6133,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &788322912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6047,10 +6283,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u96EA\u5973"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &814625817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6267,10 +6507,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &850177478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6379,10 +6623,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &850632699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6442,7 +6690,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &860489999
 PrefabInstance:
@@ -6879,7 +7127,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879546160
 GameObject:
@@ -6913,7 +7161,7 @@ RectTransform:
   m_Children:
   - {fileID: 1818991117}
   m_Father: {fileID: 1388057663}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7086,10 +7334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u306C\u3089\u308A\u3072\u3087\u3093"
+  additionalTextOffset: {x: 0, y: 0, z: 0}
 --- !u!61 &884094909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7461,10 +7713,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &937816936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7636,10 +7892,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &973385985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7687,7 +7947,7 @@ Transform:
   - {fileID: 1461421006}
   - {fileID: 722353738}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011959648
 GameObject:
@@ -8008,7 +8268,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1035883777
 PrefabInstance:
@@ -8138,7 +8398,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1053748784
 MonoBehaviour:
@@ -8721,7 +8981,7 @@ Transform:
   - {fileID: 1454458670}
   - {fileID: 814625820}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230527998 stripped
 GameObject:
@@ -9000,10 +9260,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u76EE\u7389\u5C0F\u50E7"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &1278525080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9268,7 +9532,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331615752 stripped
 GameObject:
@@ -9291,6 +9555,7 @@ GameObject:
   - component: {fileID: 1345163182}
   - component: {fileID: 1345163181}
   - component: {fileID: 1345163183}
+  - component: {fileID: 1345163184}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -9333,6 +9598,7 @@ MonoBehaviour:
   audioSourceObject: {fileID: 1345163180}
   soundEffect1: {fileID: 8300000, guid: 891ebc328b46bdc4492bdc90c0a49971, type: 3}
   soundEffect2: {fileID: 8300000, guid: f99b0b4adfd371542ad781a52de478c0, type: 3}
+  scoreDisplay: {fileID: 1345163184}
 --- !u!4 &1345163182
 Transform:
   m_ObjectHideFlags: 0
@@ -9346,7 +9612,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1345163183
 AudioSource:
@@ -9444,6 +9710,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1345163184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345163180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4c08e6796b53c4fb670c7c03159e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayTextPrefab: {fileID: 3142730374084063606, guid: fead1d32f5a7516448d43943c0355a3c, type: 3}
+  canvasTransform: {fileID: 1388057663}
+  offset: {x: -30, y: 420, z: 0}
+  fontSize: 30
+  fadeDuration: 2
+  riseDistance: 50
+  textSaturation: 1
+  textBrightness: 1
 --- !u!1 &1361651698
 GameObject:
   m_ObjectHideFlags: 0
@@ -9513,7 +9799,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1388057663}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9579,7 +9865,7 @@ Transform:
   - {fileID: 850632692}
   - {fileID: 585234922}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388057659
 GameObject:
@@ -9678,11 +9964,13 @@ RectTransform:
   - {fileID: 1955147513}
   - {fileID: 498859446}
   - {fileID: 881610737}
+  - {fileID: 232252850}
+  - {fileID: 2123391191}
   - {fileID: 879546161}
   - {fileID: 742358753}
   - {fileID: 1361651701}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9737,10 +10025,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u30B8\u30D0\u30CB\u30E3\u30F3"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &1392572369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9977,10 +10269,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1412702024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10266,10 +10562,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u4E5D\u5C3E"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &1454458667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10758,10 +11058,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1505711950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10856,10 +11160,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1506280380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11230,10 +11538,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1563109356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11464,10 +11776,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1610710900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11613,10 +11929,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1659836320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12012,10 +12332,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1754075083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12261,10 +12585,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1838367989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12327,10 +12655,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
-  offset: {x: 1.8, y: 0, z: 0}
+  offset: {x: 1.8, y: -0.2, z: 0}
+  hoverImage: {fileID: 232252851}
+  imageOffset: {x: 1.8, y: 0.8, z: 0}
+  additionalText: {fileID: 2123391192}
+  additionalTextContent: "\u5B50\u3069\u3082\u304A\u5316\u3051"
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!61 &1842929055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12557,10 +12889,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1869931662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12732,7 +13068,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1889433160
 PrefabInstance:
@@ -12950,10 +13286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &1914452720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13305,7 +13645,7 @@ MonoBehaviour:
   zoomSpeed: 1
   minZoom: 2
   minY: 0
-  maxY: 11
+  maxY: 17
   edgeScrollSpeed: 8
   edgeThreshold: 10
   fade: {fileID: 1024963941}
@@ -13389,10 +13729,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1d65e68eef3294087b69341caad2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1971130415}
   sharedDisplayText: {fileID: 881610738}
   sharedPanel: {fileID: 498859446}
   offset: {x: 0, y: 1.2, z: 0}
+  hoverImage: {fileID: 0}
+  imageOffset: {x: 0, y: -1.2, z: 0}
+  additionalText: {fileID: 0}
+  additionalTextContent: 
+  additionalTextOffset: {x: 1, y: -0.5, z: 0}
 --- !u!114 &2006083567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13779,6 +14123,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47678bc33ddb2ce43932e852aa17ddfb, type: 3}
+--- !u!1 &2123391190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123391191}
+  - component: {fileID: 2123391193}
+  - component: {fileID: 2123391192}
+  m_Layer: 5
+  m_Name: NameText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2123391191
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123391190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.63474226, y: 0.63474226, z: 0.63474226}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1388057663}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -88, y: -174.9}
+  m_SizeDelta: {x: 114.3476, y: 90.2485}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2123391192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123391190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &2123391193
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123391190}
+  m_CullTransparentMesh: 1
 --- !u!1001 &4095032952301477745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13788,7 +14212,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4095032953483231025, guid: 4a38a8372cbf2e14c82e6ba1c41a9d3c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4095032953483231025, guid: 4a38a8372cbf2e14c82e6ba1c41a9d3c, type: 3}
       propertyPath: m_LocalPosition.x
