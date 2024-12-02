@@ -75,6 +75,7 @@ public class CS_CameraZoom : MonoBehaviour
         {
             HandleZoom();  // ズーム処理
             HandleMouseEdgeScroll();  // 画面端のスクロール処理
+            HandleMove();
             HandleReset();  // リセット処理
         }
     }
@@ -149,6 +150,21 @@ public class CS_CameraZoom : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))  // Rキーでリセット
         {
             mainCamera.transform.position = initialPosition;
+            mainCamera.orthographicSize = initialZoom;
+        }
+    }
+
+    void HandleMove()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))  // 1キーでリセット
+        {
+            mainCamera.transform.position = initialPosition + new Vector3(0, 9.7f, 0);
+            mainCamera.orthographicSize = initialZoom;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))  // 2キーでリセット
+        {
+            mainCamera.transform.position = initialPosition + new Vector3(0, 14.8f, 0);
             mainCamera.orthographicSize = initialZoom;
         }
     }

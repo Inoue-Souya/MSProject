@@ -4,10 +4,34 @@ using UnityEngine;
 
 public class CS_MyStateMachineBehaviour : StateMachineBehaviour
 {
+    public string audioSourceObjectName = "";
+    public AudioClip soundEffect; // 効果音のAudioClip(ボーナスあり)
+    private AudioSource audioSource; // AudioSourceコンポーネント
+
     // アニメーションステートが開始する時
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log("アニメーション開始時に呼ばれる関数");
+
+        // AnimatorのGameObjectからAudioSourceObjectを探す
+        if (audioSource == null)
+        {
+            GameObject audioSourceObject = GameObject.Find(audioSourceObjectName);
+            if (audioSourceObject != null)
+            {
+                audioSource = audioSourceObject.GetComponent<AudioSource>();
+            }
+            else
+            {
+                Debug.LogWarning("AudioSourceオブジェクトが見つかりません: " + audioSourceObjectName);
+            }
+        }
+
+        // 効果音を再生
+        if (audioSource != null && soundEffect != null)
+        {
+            audioSource.PlayOneShot(soundEffect);
+        }
 
         if (stateInfo.IsName("CutIn"))
         {
