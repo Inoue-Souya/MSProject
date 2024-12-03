@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CS_Room : MonoBehaviour
 {
     public List<RoomAttribute> attributes; // 部屋の特性リスト
     public CS_ScoreManager scoreManager;
     public CS_NewRoomManager roomManager;
+    [SerializeField]
+    private CS_Compare compare;
+
+    // 変更する属性名の候補リスト
+    private List<string> nameOptions = new List<string> { "動物嫌い", "子供嫌い", "引きこもり",
+        "臆病", "女好き" ,"寒がり","若い","おおざっぱ","頭が悪い","親嫌い"};
 
     [Header("部屋解放に関する情報")]
     public int unlockCost = 10;     // 部屋を解放するためのスコアコスト
@@ -17,7 +25,7 @@ public class CS_Room : MonoBehaviour
     private bool bonus_flag;        // ボーナスを得られるフラグ
 
     [Header("素点")]
-    public int default_Point;       // 最低限得られるお金
+    //public int default_Point;       // 最低限得られるお金
     private float DurationTime;     // 部屋の占有時間を保存する変数
 
     [SerializeField]
@@ -41,10 +49,23 @@ public class CS_Room : MonoBehaviour
     // コライダーコンポーネントを格納
     private Collider2D collider2D;
     // コライダーを無効にする時間（秒）
-    public float disableTime = 2f;
+    public float disableTime = 10f;
+
+    private string nowState = "動物嫌い";
+    private bool typeFlg;   //効果があるかどうかの判定処理
+
+    //色ガイド用オブジェクト参照
+    public GameObject guideObj;
+    // インスタンス用変数
+    private GameObject instance;
+    private List<GameObject> instances = new List<GameObject>(); // 複数のインスタンスを管理するリスト
+
+
     public void InitializeRoom(bool unlockStatus)
     {
-        isUnlocked = unlockStatus;
+        // ランダムな時間でコライダーを再有効化
+        float randomTime = Random.Range(20f, disableTime);
+        StartCoroutine(ReenableColliderAfterTime(randomTime));
     }
 
     private void Start()
@@ -53,6 +74,9 @@ public class CS_Room : MonoBehaviour
         scoreManager.Init();
         inRoomflag = false;
         bonus_flag = false;
+        typeFlg = false;
+
+        ReSetIsUnlocked();
 
         // 指定されたゲームオブジェクトからAudioSourceコンポーネントを取得
         if (audioSourceObject != null)
@@ -60,13 +84,35 @@ public class CS_Room : MonoBehaviour
             audioSource = audioSourceObject.GetComponent<AudioSource>();
         }
 
-        // 初期化: コライダーコンポーネントを取得
+        // コライダーを初期化し、部屋が解放されていない場合は有効にしておく
         collider2D = GetComponent<Collider2D>();
+        if (collider2D != null)
+        {
+            collider2D.enabled = !isUnlocked;
+        }
 
-        // コライダーを無効化
-        ToggleCollider(false);
-        // 一定時間後にコライダーを再度有効化
-        StartCoroutine(ReenableColliderAfterTime(10.0f));
+        if (isUnlocked)
+        {
+            // 条件が満たされた場合、コライダーを無効化
+            ToggleCollider(false);
+
+            // 住民を消去したいので、isUnlockedをfalseにする
+            isUnlocked = false;
+
+            //子オブジェクトを非アクティブにする
+            if (childObject != null)
+            {
+                childObject.SetActive(isUnlocked);
+            }
+
+
+            // ランダムな時間でコライダーを再有効化
+            float randomTime = Random.Range(10f, disableTime);
+            StartCoroutine(ReenableColliderAfterTime(randomTime));
+
+            typeFlg = false;
+
+        }
 
     }
 
@@ -89,16 +135,20 @@ public class CS_Room : MonoBehaviour
                 inRoomflag = false;
                 elapsedTime = 0f; // Reset timer
 
-                // 条件が満たされた場合、コライダーを無効化
-                ToggleCollider(false);
-                // 一定時間後にコライダーを再度有効化
-                StartCoroutine(ReenableColliderAfterTime(disableTime));
-
-                if (roomManager.inResident > 0)
+                if (typeFlg)
                 {
-                    roomManager.inResident--;
-                }
+                    // 条件が満たされた場合、コライダーを無効化
+                    ToggleCollider(false);
 
+                    // 住民を消去したいので、isUnlockedをfalseにする
+                    isUnlocked = false;
+
+                    // ランダムな時間でコライダーを再有効化
+                    float randomTime = Random.Range(40f, disableTime);
+                    StartCoroutine(ReenableColliderAfterTime(randomTime));
+
+                    typeFlg = false;
+                }
 
 
                 // サウンドを流す
@@ -108,30 +158,6 @@ public class CS_Room : MonoBehaviour
                 }
             }
         }
-
-        //if(roomHP <= 0f)
-        //{
-        //    // 限界部屋数を増やす
-        //    roomManager.stopRooms++;
-
-        //    // 部屋の当たり判定を消去する
-        //    Collider2D collider = GetComponent<Collider2D>();
-        //    Destroy(collider);
-
-        //    // 住民を消去したいので、isUnlockedをfalseにする
-        //    isUnlocked = false;
-
-        //    // 一度だけ実行したいので
-        //    // roomHPを1以上にして通らないようにする
-        //    roomHP = 1;
-        //    inRoomflag = false;
-
-        //    // サウンドを流す
-        //    if (audioSource != null && soundEffect3 != null)
-        //    {
-        //        audioSource.PlayOneShot(soundEffect3);
-        //    }
-        //}
 
         // IsUnlocked が true であれば、子オブジェクトをアクティブにする
         if (isUnlocked)
@@ -150,7 +176,7 @@ public class CS_Room : MonoBehaviour
             }
         }
 
-        if (inRoomflag && childSpriteRenderer != null && newSprite != null)
+        if (inRoomflag && childSpriteRenderer != null && newSprite != null && typeFlg)
         {
             childSpriteRenderer.sprite = newSprite;
         }
@@ -170,8 +196,8 @@ public class CS_Room : MonoBehaviour
         }
 
         // 初期化しておく
-        bonus_score = default_Point; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
-        totalScore = default_Point;
+        //bonus_score = default_Point; // 新しい住民を追加するたびにスコアをリセットする（累積するため）
+        //totalScore = default_Point;
         bonus_flag = false;
 
         // 妖怪の部屋占有時間を記録
@@ -182,16 +208,36 @@ public class CS_Room : MonoBehaviour
         {
             foreach (var characterAttribute in character.characterAttributes)
             {
-                if (roomAttribute.attributeName == characterAttribute.attributeName)
+                //相性を照合する
+                switch (compare.CompareCharactor(nameOptions.IndexOf(nowState), characterAttribute.attributeName))
                 {
-                    // マッチした場合、スコアを累積する
-                    bonus_score += roomAttribute.matchScore;  // cp_score に加算
-                    totalScore += roomAttribute.matchScore;  // totalScore に加算
+                    case 0:
+                        // マッチした場合、スコアを累積する
+                        bonus_score += roomAttribute.matchScore / 2 * 3;  // bonus_score に加算
+                        totalScore += roomAttribute.matchScore / 2 * 3;  // totalScore に加算
+                        bonus_flag = true;
+                        typeFlg = true;
+                        if (roomManager.inResident > 0)
+                        {
+                            roomManager.inResident--;
+                        }
+                        break;
+                    case 1:
+                        // マッチした場合、スコアを累積する
+                        bonus_score += roomAttribute.matchScore;  // cp_score に加算
+                        totalScore += roomAttribute.matchScore;  // totalScore に加算
+                        bonus_flag = true;
+                        typeFlg = true;
+                        if (roomManager.inResident > 0)
+                        {
+                            roomManager.inResident--;
+                        }
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
 
-                    bonus_flag = true;
-
-                    Debug.Log("Matched Attribute: " + roomAttribute.attributeName);
-                    Debug.Log("Match Score: " + roomAttribute.matchScore);
                 }
             }
         }
@@ -200,6 +246,23 @@ public class CS_Room : MonoBehaviour
         Debug.Log($"{character.name} matched with room {gameObject.name}, total score: {totalScore}");
     }
 
+    private void ReSetIsUnlocked()
+    {
+
+        // 変更する数を10に設定
+        int changeCount = Mathf.Min(10, attributes.Count); // 属性の数が5より少ない場合はそれを優先
+
+        for (int i = 0; i < changeCount; i++)
+        {
+            // ランダムにリストから属性名を選択
+            string randomName = nameOptions[Random.Range(0, nameOptions.Count)];
+
+            // ランダムにRoomAttributeを選択してその属性名を変更
+            RoomAttribute randomRoom = attributes[Random.Range(0, attributes.Count)];
+            randomRoom.attributeName = randomName;
+            nowState = randomName;
+        }
+    }
     public void finishPhase()
     {
         if (scoreManager != null)
@@ -242,7 +305,68 @@ public class CS_Room : MonoBehaviour
         // コライダーを再度有効化
         ToggleCollider(true);
 
-        //roomManager.inResident++;
+        roomManager.inResident++;
 
+        isUnlocked = true;
+
+        ReSetIsUnlocked();
+    }
+
+    public void GuideType(CS_DragandDrop character)
+    {
+        if (isUnlocked)
+        {
+            // キャラクターの特性とマッチするスコアを計算
+            foreach (var roomAttribute in attributes)
+            {
+                foreach (var characterAttribute in character.characterAttributes)
+                {
+                    //instance = Instantiate(guideObj);
+                    //Instantiate(instance, this.transform.position, Quaternion.identity);
+
+                    instance = Instantiate(guideObj);  // インスタンスを生成
+                    instance.transform.position = this.transform.position;
+                    instances.Add(instance);  // リストにインスタンスを追加
+                    SpriteRenderer spriteRenderer = instance.GetComponent<SpriteRenderer>();
+
+                    //相性を照合する
+                    switch (compare.CompareCharactor(nameOptions.IndexOf(nowState), characterAttribute.attributeName))
+                    {
+                        //相性抜群の場合
+                        case 0:
+                            spriteRenderer.color = new Color(0f, 1f, 0f, 0.2f); // 青色にする
+                            break;
+                        //相性普通の場合
+                        case 1:
+                            spriteRenderer.color = new Color(0f, 0f, 0f, 0.2f); // 緑色にする
+                            break;
+                        //効果なしの場合
+                        case 2:
+                            spriteRenderer.color = new Color(0f, 0.3f, 1f, 0.2f); // 赤色にする
+                            break;
+                        default:
+                            break;
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    public void ResetGuide()
+    {
+        if (isUnlocked)
+        {
+            if (instance != null)
+            {
+                // リストに保持されている全てのインスタンスを削除
+                foreach (var inst in instances)
+                {
+                    Destroy(inst);  // インスタンスを削除
+                }
+                instances.Clear();  // リストをクリア            
+            }
+        }
     }
 }

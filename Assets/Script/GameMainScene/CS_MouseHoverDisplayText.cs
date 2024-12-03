@@ -190,7 +190,7 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
             }
             else
             {
-                text += $"{attribute.attributeName}Å{{attribute.matchScore}\n";
+                text += $"{attribute.attributeName}\n";
             }
         }
         return text.TrimEnd();

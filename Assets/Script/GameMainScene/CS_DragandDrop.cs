@@ -8,7 +8,7 @@ public class CS_DragandDrop : MonoBehaviour
 {
     private Vector3 offset;
     private Camera mainCamera;
-    private bool isDragging;
+    public  bool isDragging;
     private bool inRoom;
     private Vector3 originalPosition;
     private Sprite originalSprite;
@@ -20,6 +20,7 @@ public class CS_DragandDrop : MonoBehaviour
     private float gaugeTimer;
     private Vector3 gaugeFixedWorldPosition; // ゲージ固定位置を保存する変数
     private CS_Room cp_room;// 判定をとった部屋情報を保存
+    public CS_NewRoomManager roomManager;
 
     public List<RoomAttribute> characterAttributes;
 
@@ -34,12 +35,11 @@ public class CS_DragandDrop : MonoBehaviour
 
     public Sprite IkonSprite;// アイコン用画像保存する変数
 
-
     void Start()
     {
         mainCamera = Camera.main;
         originalPosition = transform.position;
-
+        cp_room = GetComponent<CS_Room>();
         // スプライトの保存
         SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
         if (sprite != null)
@@ -65,11 +65,14 @@ public class CS_DragandDrop : MonoBehaviour
     {
         isDragging = true;
         offset = transform.position - GetMouseWorldPosition();
-        Debug.Log("Dragging started on: " + gameObject.name);
         // 音を再生
         if (audioSource != null && soundEffect != null)
         {
             audioSource.PlayOneShot(soundEffect);
+        }
+        for(int i = 0; i < roomManager.openRoom; i++)
+        {
+            roomManager.rooms[i].GuideType(this);
         }
     }
 
@@ -77,8 +80,11 @@ public class CS_DragandDrop : MonoBehaviour
     {
         isDragging = false;
         CheckRoom();
-        Debug.Log("Dragging ended on: " + gameObject.name);
         audioSource.Stop();
+        for (int i = 0; i < roomManager.openRoom; i++)
+        {
+            roomManager.rooms[i].ResetGuide();
+        }
     }
 
     void Update()
@@ -126,6 +132,7 @@ public class CS_DragandDrop : MonoBehaviour
 
     private void CheckRoom()
     {
+
         Debug.Log("Start CheckRoom.");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
         foreach (var collider in colliders)

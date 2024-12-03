@@ -6,5 +6,6 @@ using UnityEngine;
 public class RoomAttribute
 {
     public string attributeName;
+    public int attributeNumber;
     public int matchScore; // マッチした際のスコア
 }
