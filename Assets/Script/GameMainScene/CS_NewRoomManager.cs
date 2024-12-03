@@ -36,7 +36,7 @@ public class CS_NewRoomManager : MonoBehaviour
     private void Update()
     {
         gameObject.SetActive(true);
-        if (inResident >= openRoom)
+        if (inResident >= openRoom && openRoom >= 6)
         {
             SceneManager.LoadScene("GameOverScene");
         }

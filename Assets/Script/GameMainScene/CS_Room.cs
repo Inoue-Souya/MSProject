@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 
 public class CS_Room : MonoBehaviour
@@ -63,15 +64,15 @@ public class CS_Room : MonoBehaviour
 
     public void InitializeRoom(bool unlockStatus)
     {
-        if (roomManager.openRoom == 29)
+        if (roomManager.openRoom == roomManager.rooms.Length - 1)
+        {
+            SceneManager.LoadScene("GameClearScene");
+        }
+        else
         {
             // ランダムな時間でコライダーを再有効化
             float randomTime = Random.Range(20f, disableTime);
             StartCoroutine(ReenableColliderAfterTime(randomTime));
-        }
-        else
-        {
-            isUnlocked = unlockStatus;
         }
     }
 

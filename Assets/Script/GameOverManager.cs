@@ -12,6 +12,6 @@ public class GameOverManager : MonoBehaviour
     // ゲームメインシーンに戻る（再スタート）
     public void RetryGame()
     {
-        SceneManager.LoadScene("GameMainScene"); // GameMainSceneの名前が違う場合は、正しい名前に変更してください
+        SceneManager.LoadScene("Stage1"); // GameMainSceneの名前が違う場合は、正しい名前に変更してください
     }
 }
