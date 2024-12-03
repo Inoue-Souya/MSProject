@@ -186,7 +186,14 @@ public class CS_DragandDrop : MonoBehaviour
             gaugeInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
 
             Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            if (canvas != null)
+            {
+                // ゲージをCanvasの子に設定
+                gaugeInstance.transform.SetParent(canvas.transform, false);
 
+                // ゲージの表示順を最背面に設定
+                gaugeInstance.transform.SetSiblingIndex(0); // 一番後ろに設定
+            }
 
 
             // ゲージの位置の設定
