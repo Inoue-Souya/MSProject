@@ -9738,7 +9738,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 66cab8efdcec883408ef610c47f52431, type: 3}
   - {fileID: 21300000, guid: d9eee76b312b455499c80e2e736098d6, type: 3}
   - {fileID: 21300000, guid: f2c1488dd823280418131816b49db1d6, type: 3}
-  currentScore: 0
+  currentScore: 1500000
   scoreImages:
   - {fileID: 710662746}
   - {fileID: 368732404}

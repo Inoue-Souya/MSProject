@@ -63,9 +63,16 @@ public class CS_Room : MonoBehaviour
 
     public void InitializeRoom(bool unlockStatus)
     {
-        // ランダムな時間でコライダーを再有効化
-        float randomTime = Random.Range(20f, disableTime);
-        StartCoroutine(ReenableColliderAfterTime(randomTime));
+        if (roomManager.openRoom == 29)
+        {
+            // ランダムな時間でコライダーを再有効化
+            float randomTime = Random.Range(20f, disableTime);
+            StartCoroutine(ReenableColliderAfterTime(randomTime));
+        }
+        else
+        {
+            isUnlocked = unlockStatus;
+        }
     }
 
     private void Start()
@@ -242,6 +249,8 @@ public class CS_Room : MonoBehaviour
             }
         }
 
+        ResetGuide();
+
         // 結果をログに表示
         Debug.Log($"{character.name} matched with room {gameObject.name}, total score: {totalScore}");
     }
@@ -314,7 +323,7 @@ public class CS_Room : MonoBehaviour
 
     public void GuideType(CS_DragandDrop character)
     {
-        if (isUnlocked)
+        if (isUnlocked && !inRoomflag)
         {
             // キャラクターの特性とマッチするスコアを計算
             foreach (var roomAttribute in attributes)
@@ -334,15 +343,15 @@ public class CS_Room : MonoBehaviour
                     {
                         //相性抜群の場合
                         case 0:
-                            spriteRenderer.color = new Color(0f, 1f, 0f, 0.2f); // 青色にする
+                            spriteRenderer.color = new Color(0f, 1f, 0f, 0.2f); // 緑色にする
                             break;
                         //相性普通の場合
                         case 1:
-                            spriteRenderer.color = new Color(0f, 0f, 0f, 0.2f); // 緑色にする
+                            spriteRenderer.color = new Color(0f, 0f, 0f, 0f); // 何もしない
                             break;
                         //効果なしの場合
                         case 2:
-                            spriteRenderer.color = new Color(0f, 0.3f, 1f, 0.2f); // 赤色にする
+                            spriteRenderer.color = new Color(0.4f, 0.3f, 1f, 0.4f); // 青色にする
                             break;
                         default:
                             break;

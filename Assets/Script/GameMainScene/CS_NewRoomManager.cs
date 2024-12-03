@@ -35,10 +35,10 @@ public class CS_NewRoomManager : MonoBehaviour
 
     private void Update()
     {
-        //gameObject.SetActive(true);
-        //if (inResident >= openRoom)
-        //{
-        //    SceneManager.LoadScene("GameOverScene");
-        //}
+        gameObject.SetActive(true);
+        if (inResident >= openRoom)
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
     }
 }

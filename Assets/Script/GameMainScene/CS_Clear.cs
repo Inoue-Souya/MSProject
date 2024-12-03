@@ -18,7 +18,7 @@ public class CS_Clear : MonoBehaviour
     {
         if(room.isUnlocked)
         {
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("GameClearScene");
         }
     }
 }
