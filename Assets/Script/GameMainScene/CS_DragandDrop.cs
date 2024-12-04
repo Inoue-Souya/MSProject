@@ -146,6 +146,7 @@ public class CS_DragandDrop : MonoBehaviour
                     cp_room.AddResident(this, gaugeDuration);      // 妖怪情報を記録
                     inRoom = true;                  // 入室フラグを立てる
                     cp_room.setinRoomflag(inRoom);  // 部屋の限界使用時間の消費フラグを立てる
+                    ChangeManager.UsedYo_kai(this.name);// 使用済みのアイコンにする
                     PlaceSmallImage(room.transform.position);
                     StartGaugeCountdown(this.transform.position);
                 }

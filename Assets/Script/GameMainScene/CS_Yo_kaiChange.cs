@@ -35,8 +35,11 @@ public class CS_Yo_kaiChange : MonoBehaviour
     private List<CS_DragandDrop> otherObjects;// 妖怪リスト以外のオブジェクト
     private CS_DragandDrop randomOtherObject;
 
-    [Header("次の妖怪を出すスプライト")]
+    [Header("次の妖怪を出すイメージUI")]
     public Image NextYo_kaiImage;
+
+    [Header("使用済み妖怪スプライト")]
+    public Sprite usedYo_kaiImage;
 
     // Start is called before the first frame update
     void Start()
@@ -203,5 +206,31 @@ public class CS_Yo_kaiChange : MonoBehaviour
                 NextYo_kaiImage.color = color;
             }
         }
+    }
+
+    public void UsedYo_kai(string objectName)
+    {
+        // 入力された名前を持つオブジェクトの参照を取得
+        YoKai specifiedObject = movedObjects.Find(obj => obj.gameObject.name == objectName);
+
+        // 入力された名前を持つオブジェクトのインデックスを取得
+        int specifiedIndex = movedObjects.FindIndex(obj => obj.gameObject.name == objectName);
+
+        // 指定されたオブジェクトが見つからない場合は終了
+        if (specifiedObject == null)
+        {
+            Debug.LogWarning("指定された名前のオブジェクトが見つかりません。");
+            return;
+        }
+
+        YoKai used = new YoKai(specifiedObject.gameObject, specifiedObject.initialPosition, specifiedObject.Ikonobject);
+
+        // Yokaiインスタンスからスプライト情報を取得し、画像を入れ替える
+        SpriteRenderer renderer = used.Ikonobject.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.sprite = usedYo_kaiImage;
+        }
+
     }
 }
