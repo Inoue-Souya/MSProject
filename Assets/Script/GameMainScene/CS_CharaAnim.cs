@@ -39,7 +39,7 @@ public class CS_CharaAnim : MonoBehaviour
 
     private void Update()
     {
-        if (dragandDrop.GetisDragging())
+        if (dragandDrop.GetisDragging() && !dragandDrop.GetinRoom())
         {// ドラッグ時はキャラをアニメーションする
             spriteRenderer.enabled = true;
             // 経過時間を更新
