@@ -123,6 +123,7 @@
     <Compile Include="Assets\Script\CS_CameraZoom.cs" />
     <Compile Include="Assets\Script\GameMainScene\CS_Yo_kaiChange.cs" />
     <Compile Include="Assets\Script\CS_EventSceneController.cs" />
+    <Compile Include="Assets\Script\GameMainScene\CS_AlwaysOnScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
