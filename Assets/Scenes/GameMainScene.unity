@@ -14058,6 +14058,7 @@ MonoBehaviour:
   soundEffect1: {fileID: 8300000, guid: 891ebc328b46bdc4492bdc90c0a49971, type: 3}
   soundEffect2: {fileID: 8300000, guid: f99b0b4adfd371542ad781a52de478c0, type: 3}
   scoreDisplay: {fileID: 1345163184}
+  mainCamera: {fileID: 1971130413}
 --- !u!4 &1345163182
 Transform:
   m_ObjectHideFlags: 0
@@ -14183,7 +14184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayTextPrefab: {fileID: 3142730374084063606, guid: fead1d32f5a7516448d43943c0355a3c, type: 3}
   canvasTransform: {fileID: 1388057663}
-  offset: {x: -30, y: 420, z: 0}
+  offset: {x: 50, y: 0, z: 0}
   fontSize: 30
   fadeDuration: 2
   riseDistance: 50
@@ -18851,6 +18852,7 @@ GameObject:
   - component: {fileID: 1880088418}
   - component: {fileID: 1880088417}
   - component: {fileID: 1880088419}
+  - component: {fileID: 1880088420}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -18903,6 +18905,9 @@ MonoBehaviour:
   - {fileID: 585234925}
   inResident: 0
   openRoom: 0
+  vignette: {fileID: 1971130416}
+  audioSource: {fileID: 1880088420}
+  warningSE: {fileID: 8300000, guid: 6f2b3349487d0cc48a22533547407422, type: 3}
 --- !u!4 &1880088418
 Transform:
   m_ObjectHideFlags: 0
@@ -18930,6 +18935,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fdd8a4593921944bf16b3326e9f771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1880088420
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880088416}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6f2b3349487d0cc48a22533547407422, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1889433160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19647,6 +19748,7 @@ GameObject:
   - component: {fileID: 1971130413}
   - component: {fileID: 1971130412}
   - component: {fileID: 1971130415}
+  - component: {fileID: 1971130416}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19742,6 +19844,22 @@ MonoBehaviour:
   fade: {fileID: 1024963941}
   startPhase: 0
   moveDuration: 3
+--- !u!114 &1971130416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971130411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0012e9ce778bef240ae309022513be83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vignetteMaterial: {fileID: 2100000, guid: 1858f8de9fdfcb54fa0752033f798d0c, type: 2}
+  maxIntensity: 0
+  minIntensity: 0.25
+  pulseSpeed: 3.7
 --- !u!1001 &1975907524
 PrefabInstance:
   m_ObjectHideFlags: 0
