@@ -18,6 +18,16 @@ public class CS_Room : MonoBehaviour
     private List<string> nameOptions = new List<string> { "動物嫌い", "子供嫌い", "引きこもり",
         "臆病", "女好き" ,"寒がり","若い","おおざっぱ","頭が悪い","親嫌い"};
 
+    //住民画像リスト
+    public List<Sprite> residentBeforeImages = new List<Sprite>();
+    public List<Sprite> residentAfterImages = new List<Sprite>();
+
+    // リアクション吹き出し用配列
+    public List<GameObject> reactionImage = new List<GameObject> { };
+    private int reactionImageNum;
+    private Vector3 imagePos;
+
+
     [Header("部屋解放に関する情報")]
     public int unlockCost = 10;     // 部屋を解放するためのスコアコスト
     public bool isUnlocked = false; // 部屋が解放されているか
@@ -36,8 +46,8 @@ public class CS_Room : MonoBehaviour
 
     public GameObject childObject;      // 子オブジェクトの参照
     public SpriteRenderer childSpriteRenderer;      // 子オブジェクトのスプライトRenderer
-    public Sprite oldSprite;        // 変更前のスプライト
-    public Sprite newSprite;        // 変更後のスプライト
+    //public Sprite oldSprite;        // 変更前のスプライト
+    //public Sprite newSprite;        // 変更後のスプライト
 
     [Header("サウンド関連")]
     public GameObject audioSourceObject;  // SEを再生するためのAudioSourceがアタッチされたゲームオブジェクト
@@ -60,8 +70,7 @@ public class CS_Room : MonoBehaviour
     // インスタンス用変数
     private GameObject instance;
     private List<GameObject> instances = new List<GameObject>(); // 複数のインスタンスを管理するリスト
-
-
+    
     public void InitializeRoom(bool unlockStatus)
     {
         if (roomManager.openRoom == roomManager.rooms.Length - 1)
@@ -83,8 +92,19 @@ public class CS_Room : MonoBehaviour
         inRoomflag = false;
         bonus_flag = false;
         typeFlg = false;
+        reactionImageNum = 0;
 
         ReSetIsUnlocked();
+        imagePos = this.transform.position;
+        imagePos.x -= 1.2f;
+        imagePos.y += 0.75f;
+        imagePos.z = -3.0f;
+        //座標をリセットする
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    reactionImage[i].transform.position = imagePos;
+        //    reactionImage[i].SetActive(false);
+        //}
 
         // 指定されたゲームオブジェクトからAudioSourceコンポーネントを取得
         if (audioSourceObject != null)
@@ -126,6 +146,7 @@ public class CS_Room : MonoBehaviour
 
     private void Update()
     {
+
         if (inRoomflag)
         {
             // Increase elapsed time by the time since the last frame
@@ -134,14 +155,21 @@ public class CS_Room : MonoBehaviour
             // Calculate the HP decrease rate
             float hpDecreaseRate = bonus_score / DurationTime; // cp_score reduced over 5 seconds
 
-            // Decrease roomHP gradually
-            //roomHP -= hpDecreaseRate * Time.deltaTime;
+            reactionImage[reactionImageNum].transform.position = imagePos;
+            //リアクション用吹き出しをtrueにする
+            reactionImage[reactionImageNum].SetActive(true);
 
             // After 5 seconds, stop decreasing and reset the flag
             if (elapsedTime >= DurationTime)
             {
                 inRoomflag = false;
                 elapsedTime = 0f; // Reset timer
+
+                // サウンドを流す
+                if (audioSource != null && soundEffect1 != null && typeFlg)
+                {
+                    audioSource.PlayOneShot(soundEffect1);
+                }
 
                 if (typeFlg)
                 {
@@ -152,18 +180,17 @@ public class CS_Room : MonoBehaviour
                     isUnlocked = false;
 
                     // ランダムな時間でコライダーを再有効化
-                    float randomTime = Random.Range(40f, disableTime);
+                    float randomTime = Random.Range(30f, disableTime);
                     StartCoroutine(ReenableColliderAfterTime(randomTime));
 
                     typeFlg = false;
+
                 }
-
-
-                // サウンドを流す
-                if (audioSource != null && soundEffect1 != null)
+                if (reactionImage != null)
                 {
-                    audioSource.PlayOneShot(soundEffect1);
+                    reactionImage[reactionImageNum].SetActive(false);
                 }
+
             }
         }
 
@@ -184,13 +211,13 @@ public class CS_Room : MonoBehaviour
             }
         }
 
-        if (inRoomflag && childSpriteRenderer != null && newSprite != null && typeFlg)
+        if (inRoomflag && childSpriteRenderer != null && typeFlg)
         {
-            childSpriteRenderer.sprite = newSprite;
+            childSpriteRenderer.sprite = residentAfterImages[nameOptions.IndexOf(nowState)];
         }
         else
         {
-            childSpriteRenderer.sprite = oldSprite;
+            childSpriteRenderer.sprite = residentBeforeImages[nameOptions.IndexOf(nowState)];
         }
 
     }
@@ -225,6 +252,7 @@ public class CS_Room : MonoBehaviour
                         totalScore += roomAttribute.matchScore / 2 * 3;  // totalScore に加算
                         bonus_flag = true;
                         typeFlg = true;
+                        reactionImageNum = 0;
                         if (roomManager.inResident > 0)
                         {
                             roomManager.inResident--;
@@ -240,8 +268,11 @@ public class CS_Room : MonoBehaviour
                         {
                             roomManager.inResident--;
                         }
+                        reactionImageNum = 1;
                         break;
                     case 2:
+                        reactionImageNum = 2;
+                        typeFlg = false;
                         break;
                     default:
                         break;
@@ -277,7 +308,7 @@ public class CS_Room : MonoBehaviour
     {
         if (scoreManager != null)
         {
-            scoreManager.AddScore(totalScore, bonus_flag);
+            scoreManager.AddScore(totalScore, bonus_flag,transform.position);
         }
     }
 
@@ -286,7 +317,7 @@ public class CS_Room : MonoBehaviour
         inRoomflag = room;
 
         // サウンドを流す
-        if (audioSource != null && soundEffect2 != null)
+        if (audioSource != null && soundEffect2 != null && typeFlg)
         {
             audioSource.PlayOneShot(soundEffect2);
         }
@@ -348,11 +379,11 @@ public class CS_Room : MonoBehaviour
                             break;
                         //相性普通の場合
                         case 1:
-                            spriteRenderer.color = new Color(0f, 0f, 0f, 0f); // 何もしない
+                            spriteRenderer.color = new Color(0.4f, 0.4f, 0f, 0.4f); // 青色にする
                             break;
                         //効果なしの場合
                         case 2:
-                            spriteRenderer.color = new Color(0.4f, 0.3f, 1f, 0.4f); // 青色にする
+                            spriteRenderer.color = new Color(1f, 0f, 0f, 0.4f); // 青色にする
                             break;
                         default:
                             break;

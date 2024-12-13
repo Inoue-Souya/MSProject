@@ -17,7 +17,7 @@ public class CS_ScoreDisplay : MonoBehaviour
 
     private List<GameObject> activeTexts = new List<GameObject>(); // 表示中のテキストを管理
 
-    public void ShowText(int addedPoints)
+    public void ShowText(int addedPoints,Vector3 position)
     {
         GameObject newTextObject = Instantiate(displayTextPrefab.gameObject, canvasTransform);
         Text newText = newTextObject.GetComponent<Text>();
@@ -64,7 +64,8 @@ public class CS_ScoreDisplay : MonoBehaviour
 
         // 表示位置をオフセットに基づいて設定
         RectTransform rectTransform = newText.GetComponent<RectTransform>();
-        rectTransform.position = new Vector3(Screen.width / 2, Screen.height / 2, 0) + offset;
+        //rectTransform.position = new Vector3(Screen.width / 2, Screen.height / 2, 0) + offset;
+        rectTransform.position = position + offset;
 
         // リストに追加
         activeTexts.Add(newTextObject);

@@ -25,8 +25,8 @@ public class CS_AlwaysOnScreen : MonoBehaviour
 
         worldPos.x = ikonPosition.x;
 
-        // Z軸の位置を保持（2DなのでZ軸は変えない）
-        worldPos.z = targetObject.transform.position.z;
+        // Z軸の位置を保持
+        worldPos.z = ikonPosition.z;
 
         // オブジェクトの位置を更新
         targetObject.transform.position = worldPos;
