@@ -18,6 +18,7 @@ public class CS_AddYo_kai : MonoBehaviour
     [Header("カットインアニメーション関連の情報")]
     public Animator CutInAnimator; // Animatorコンポーネントをアタッチ
     public Image image;
+    public bool cutinflag;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class CS_AddYo_kai : MonoBehaviour
 
                     Yo_KaiChange.AddYo_kai(NewYo_kai);
                     chargeFlag = true;
+                    
                     return;
                 }
             }
@@ -60,5 +62,6 @@ public class CS_AddYo_kai : MonoBehaviour
         {
             Debug.LogWarning("CutInAnimatorが設定されていません");
         }
+        cutinflag = true;
     }
 }
