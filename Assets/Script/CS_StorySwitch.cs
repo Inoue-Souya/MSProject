@@ -200,7 +200,7 @@ public class CS_StorySwitch : MonoBehaviour
     {
         UnityEngine.Debug.Log("シーン遷移: " + nextSceneName);
         // 次のシーンをロード
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("GameMainScene");
     }
 
     // ボタン上にカーソルが乗ったときにスライドを無効化し、ボタンを点滅させる
