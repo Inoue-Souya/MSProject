@@ -6,6 +6,7 @@ Shader "Custom/VerticalGradientBlink"
         _GlowColor ("Glow Color", Color) = (1, 0, 0, 1) // 発光の色
         _Intensity ("Max Intensity", Range(0, 1)) = 0.5 // 最大エフェクトの強さ（上部）
         _MinIntensity ("Min Intensity", Range(0, 1)) = 0.1 // 最小エフェクトの強さ（下部）
+        _Sharpness ("Gradient Sharpness", Range(1, 10)) = 5 // グラデーションの鋭さ
     }
     SubShader
     {
@@ -33,6 +34,7 @@ Shader "Custom/VerticalGradientBlink"
             float4 _GlowColor;
             float _Intensity;
             float _MinIntensity;
+            float _Sharpness;
 
             v2f vert (appdata v)
             {
@@ -44,8 +46,9 @@ Shader "Custom/VerticalGradientBlink"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // UV座標のy成分を基準に強度を計算
-                float gradient = lerp(_MinIntensity, _Intensity, i.uv.y);
+                // UV座標のy成分を基準に鋭いグラデーションを作成
+                float gradient = pow(saturate(i.uv.y), _Sharpness);
+                gradient = lerp(_MinIntensity, _Intensity, gradient);
 
                 // テクスチャを取得
                 fixed4 color = tex2D(_MainTex, i.uv);

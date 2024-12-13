@@ -277,7 +277,7 @@ public class CS_Room : MonoBehaviour
     {
         if (scoreManager != null)
         {
-            scoreManager.AddScore(totalScore, bonus_flag);
+            scoreManager.AddScore(totalScore, bonus_flag,transform.position);
         }
     }
 

@@ -87,6 +87,7 @@ public class CS_ScoreManager : MonoBehaviour
     private AudioSource audioSource; // AudioSourceコンポーネント
 
     public CS_ScoreDisplay scoreDisplay; // テキスト表示用のスクリプト
+    public Camera mainCamera;
 
     public void Init()
     {
@@ -100,7 +101,7 @@ public class CS_ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int score, bool soundflag)
+    public void AddScore(int score, bool soundflag, Vector3 position)
     {
         Debug.Log("AddScore called");
 
@@ -109,9 +110,11 @@ public class CS_ScoreManager : MonoBehaviour
 
         // スコア増加分を表示
         if (scoreDisplay != null)
-        {
+        { 
+            Vector3 pos = transform.position;
+            pos = mainCamera.WorldToScreenPoint(position);
             Debug.Log($"Calling ShowText with score: {score}");
-            scoreDisplay.ShowText(score); // スコアの増加分を渡す
+            scoreDisplay.ShowText(score,pos); // スコアの増加分を渡す
         }
         else
         {
