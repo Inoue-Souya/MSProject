@@ -22,6 +22,9 @@ public class CS_Yo_kaiChange : MonoBehaviour
     [Header("妖怪のリスト")]
     public List<CS_DragandDrop> yo_kaies;  // 移動対象のリスト
 
+    private int count;
+    private int MaxReSource;
+
     [Header("妖怪アイコンのリスト")]
     public List<GameObject> yo_kaiesIkon;
 
@@ -34,6 +37,7 @@ public class CS_Yo_kaiChange : MonoBehaviour
     private List<YoKai> movedObjects = new List<YoKai>();  // 移動済みオブジェクトのリスト
     private List<CS_DragandDrop> otherObjects;// 妖怪リスト以外のオブジェクト
     private CS_DragandDrop randomOtherObject;
+    
 
     [Header("次の妖怪を出すイメージUI")]
     public Image NextYo_kaiImage;
@@ -46,8 +50,18 @@ public class CS_Yo_kaiChange : MonoBehaviour
     {
         for (int i = 0; i < yo_kaies.Count; i++)
         {
-            yo_kaies[i].GetComponent<CS_DragandDrop>();
+            if(yo_kaies[i] != null)
+            {
+                yo_kaies[i].GetComponent<CS_DragandDrop>();
+            }
         }
+
+        // 初期妖怪の数の記録
+        count = yo_kaies.Count;
+        // 手持ちの最大数を保存
+        MaxReSource = 5;
+
+        Debug.Log(count);
 
         // 初期更新 
         Init();
@@ -62,34 +76,36 @@ public class CS_Yo_kaiChange : MonoBehaviour
         NextYo_kai();
 
         // 最初だけrandomOtherObjectのスプライトを直接入れる
-        SpriteRenderer sprite = randomOtherObject.GetComponent<SpriteRenderer>();
-        NextYo_kaiImage.sprite = sprite.sprite;
+        if(randomOtherObject != null)
+        {
+            SpriteRenderer sprite = randomOtherObject.GetComponent<SpriteRenderer>();
+            NextYo_kaiImage.sprite = sprite.sprite;
+        }
     }
 
     private void MoveYoKaies()
     {
-        // リストの要素を最大5つまで移動
-        int count = Mathf.Min(yo_kaies.Count, 5);
-
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < MaxReSource; i++)
         {
-            if (yo_kaies[i] != null)  // オブジェクトが存在するか確認
-            {
-                // 新しい位置を計算
-                Vector3 newPosition = startPosition + new Vector3(i * spacing, 0, 0);
+            // 新しい位置を計算
+            Vector3 newPosition = startPosition + new Vector3(i * spacing, 0, 0);
 
+            // 最初の妖怪アイコンの初期設定
+            // アイコンの位置
+            yo_kaiesIkon[i].transform.position = newPosition;
+            // アイコン画像
+            SpriteRenderer IkonSprite = yo_kaiesIkon[i].gameObject.GetComponent<SpriteRenderer>();
+            if (i < yo_kaies.Count)
+                IkonSprite.sprite = yo_kaies[i].IkonSprite;
+            else
+                IkonSprite.sprite = usedYo_kaiImage;
+
+            if (i < yo_kaies.Count)  // オブジェクトが存在するか確認
+            {
                 // オブジェクトを新しい位置に移動
                 yo_kaies[i].GetComponent<CS_DragandDrop>();
                 yo_kaies[i].transform.position = newPosition;
                 yo_kaies[i].SetPosition(yo_kaies[i].transform.position);
-
-                // アイコンの初期設定
-                // アイコン画像
-                SpriteRenderer IkonSprite= yo_kaiesIkon[i].gameObject.GetComponent<SpriteRenderer>();
-                IkonSprite.sprite = yo_kaies[i].IkonSprite;
-
-                // アイコンの位置
-                yo_kaiesIkon[i].transform.position = newPosition;
 
                 // 移動したオブジェクトをリストに追加
                 movedObjects.Add(new YoKai(yo_kaies[i], newPosition, yo_kaiesIkon[i]));
@@ -194,6 +210,20 @@ public class CS_Yo_kaiChange : MonoBehaviour
         // 妖怪をリストに追加
         yo_kaies.Add(Yo_kai);
 
+        // 手札が埋まっていない状態で、妖怪が追加されたときの処理
+        {
+            if(yo_kaies.Count<=MaxReSource)
+            {
+                movedObjects.Add(new YoKai(Yo_kai, yo_kaiesIkon[count].transform.position, yo_kaiesIkon[count]));
+                
+                Yo_kai.gameObject.transform.position = yo_kaiesIkon[count].transform.position;
+
+                SpriteRenderer sprite = yo_kaiesIkon[count].GetComponent<SpriteRenderer>();
+                sprite.sprite = Yo_kai.IkonSprite;
+            }
+
+            count++;
+        }
         // randomOtherObjectがnullの場合はNextYo_kai()を呼び出す
         if (randomOtherObject == null || string.IsNullOrEmpty(randomOtherObject.name))
         {
@@ -205,6 +235,7 @@ public class CS_Yo_kaiChange : MonoBehaviour
                 color.a = 1f; // アルファ値を1に
                 NextYo_kaiImage.color = color;
             }
+            return;
         }
     }
 

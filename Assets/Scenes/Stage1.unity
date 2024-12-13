@@ -5887,6 +5887,7 @@ MonoBehaviour:
   spacing: 3.5
   startPosition: {x: -8, y: -4, z: 0}
   NextYo_kaiImage: {fileID: 1818991118}
+  usedYo_kaiImage: {fileID: 0}
 --- !u!4 &1053748783
 Transform:
   m_ObjectHideFlags: 0
@@ -10437,8 +10438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -177.5, y: -160.7}
-  m_SizeDelta: {x: 114.3476, y: 90.2485}
+  m_AnchoredPosition: {x: -179.9, y: -160.44}
+  m_SizeDelta: {x: 114.3476, y: 26.3765}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123391192
 MonoBehaviour:

@@ -18,7 +18,6 @@ public class CS_DragandDrop : MonoBehaviour
     private Slider gaugeSlider; // ゲージのスライダーコンポーネント
     public float gaugeDuration = 5f; // ゲージの持続時間
     private float gaugeTimer;
-    private Vector3 gaugeFixedWorldPosition; // ゲージ固定位置を保存する変数
     private CS_Room cp_room;// 判定をとった部屋情報を保存
     public CS_NewRoomManager roomManager;
 
@@ -70,7 +69,7 @@ public class CS_DragandDrop : MonoBehaviour
         {
             audioSource.PlayOneShot(soundEffect);
         }
-        for(int i = 0; i < roomManager.openRoom; i++)
+        for (int i = 0; i < roomManager.openRoom; i++)
         {
             roomManager.rooms[i].GuideType(this);
         }
@@ -79,12 +78,15 @@ public class CS_DragandDrop : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        CheckRoom();
-        audioSource.Stop();
-        for (int i = 0; i < roomManager.openRoom; i++)
+        if(!inRoom)
         {
-            roomManager.rooms[i].ResetGuide();
-        }
+            CheckRoom();
+            audioSource.Stop();
+            for (int i = 0; i < roomManager.openRoom; i++)
+            {
+                roomManager.rooms[i].ResetGuide();
+            }
+        }  
     }
 
     void Update()

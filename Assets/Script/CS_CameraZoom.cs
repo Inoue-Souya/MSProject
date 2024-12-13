@@ -75,7 +75,6 @@ public class CS_CameraZoom : MonoBehaviour
         {
             HandleZoom();  // ズーム処理
             HandleMouseEdgeScroll();  // 画面端のスクロール処理
-            HandleMove();
             HandleReset();  // リセット処理
         }
     }
@@ -91,39 +90,19 @@ public class CS_CameraZoom : MonoBehaviour
 
     void HandleZoom()
     {
+        // マウスホイールで上下移動
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0.0f)
         {
-            float currentZoom = mainCamera.orthographicSize;
-            float newZoom = Mathf.Clamp(currentZoom - scroll * zoomSpeed, minZoom, initialZoom);
+            Vector3 cameraPosition = mainCamera.transform.position;
 
-            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 direction = mouseWorldPos - mainCamera.transform.position;
+            // マウスホイールの方向に応じてカメラを上下移動
+            cameraPosition.y += scroll * edgeScrollSpeed;
 
-            mainCamera.transform.position += direction * (currentZoom - newZoom) / currentZoom;
-            mainCamera.orthographicSize = newZoom;
-
-            // ズーム後の位置をX軸とY軸の範囲内に制限
-            mainCamera.transform.position = ClampPosition(mainCamera.transform.position);
+            // 移動後の位置を範囲内に制限
+            mainCamera.transform.position = ClampPosition(cameraPosition);
         }
     }
-
-    //void HandleDrag()
-    //{
-    //    if (Input.GetMouseButtonDown(0))  // ドラッグ開始時にワールド座標を記録
-    //    {
-    //        dragOrigin = GetMouseWorldPosition();
-    //    }
-
-    //    if (Input.GetMouseButton(0))  // ドラッグ中
-    //    {
-    //        Vector3 difference = dragOrigin - GetMouseWorldPosition();
-    //        Vector3 newPosition = mainCamera.transform.position + new Vector3(difference.x, difference.y, 0);
-
-    //        // X軸とY軸の移動範囲を制限
-    //        mainCamera.transform.position = ClampPosition(newPosition);
-    //    }
-    //}
 
     void HandleMouseEdgeScroll()
     {
@@ -150,21 +129,6 @@ public class CS_CameraZoom : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))  // Rキーでリセット
         {
             mainCamera.transform.position = initialPosition;
-            mainCamera.orthographicSize = initialZoom;
-        }
-    }
-
-    void HandleMove()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))  // 1キーでリセット
-        {
-            mainCamera.transform.position = initialPosition + new Vector3(0, 9.7f, 0);
-            mainCamera.orthographicSize = initialZoom;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))  // 2キーでリセット
-        {
-            mainCamera.transform.position = initialPosition + new Vector3(0, 14.8f, 0);
             mainCamera.orthographicSize = initialZoom;
         }
     }
