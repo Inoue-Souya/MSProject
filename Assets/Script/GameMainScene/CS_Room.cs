@@ -34,6 +34,8 @@ public class CS_Room : MonoBehaviour
     private bool inRoomflag;        // 部屋の占有フラグ
     private int bonus_score;        // 特徴一致で得られるボーナス
     private bool bonus_flag;        // ボーナスを得られるフラグ
+    public bool isResidents;       // 住民の入居に関するフラグ
+
 
     [Header("素点")]
     //public int default_Point;       // 最低限得られるお金
@@ -79,8 +81,9 @@ public class CS_Room : MonoBehaviour
         }
         else
         {
+            isUnlocked = true;
             // ランダムな時間でコライダーを再有効化
-            float randomTime = Random.Range(20f, disableTime);
+            float randomTime = Random.Range(5f, disableTime);
             StartCoroutine(ReenableColliderAfterTime(randomTime));
         }
     }
@@ -94,7 +97,7 @@ public class CS_Room : MonoBehaviour
         typeFlg = false;
         reactionImageNum = 0;
 
-        ReSetIsUnlocked();
+        ReSetIsResidents();
         imagePos = this.transform.position;
         imagePos.x -= 1.2f;
         imagePos.y += 0.75f;
@@ -116,16 +119,16 @@ public class CS_Room : MonoBehaviour
         collider2D = GetComponent<Collider2D>();
         if (collider2D != null)
         {
-            collider2D.enabled = !isUnlocked;
+            collider2D.enabled = !isResidents;
         }
 
-        if (isUnlocked)
+        if (isResidents)
         {
             // 条件が満たされた場合、コライダーを無効化
             ToggleCollider(false);
 
             // 住民を消去したいので、isUnlockedをfalseにする
-            isUnlocked = false;
+            isResidents = false;
 
             //子オブジェクトを非アクティブにする
             if (childObject != null)
@@ -135,7 +138,7 @@ public class CS_Room : MonoBehaviour
 
 
             // ランダムな時間でコライダーを再有効化
-            float randomTime = Random.Range(10f, disableTime);
+            float randomTime = Random.Range(5f, disableTime);
             StartCoroutine(ReenableColliderAfterTime(randomTime));
 
             typeFlg = false;
@@ -177,10 +180,10 @@ public class CS_Room : MonoBehaviour
                     ToggleCollider(false);
 
                     // 住民を消去したいので、isUnlockedをfalseにする
-                    isUnlocked = false;
+                    isResidents = false;
 
                     // ランダムな時間でコライダーを再有効化
-                    float randomTime = Random.Range(30f, disableTime);
+                    float randomTime = Random.Range(5f, disableTime);
                     StartCoroutine(ReenableColliderAfterTime(randomTime));
 
                     typeFlg = false;
@@ -195,7 +198,7 @@ public class CS_Room : MonoBehaviour
         }
 
         // IsUnlocked が true であれば、子オブジェクトをアクティブにする
-        if (isUnlocked)
+        if (isResidents)
         {
             if (childObject != null)
             {
@@ -287,7 +290,7 @@ public class CS_Room : MonoBehaviour
         Debug.Log($"{character.name} matched with room {gameObject.name}, total score: {totalScore}");
     }
 
-    private void ReSetIsUnlocked()
+    private void ReSetIsResidents()
     {
 
         // 変更する数を10に設定
@@ -348,14 +351,14 @@ public class CS_Room : MonoBehaviour
 
         roomManager.inResident++;
 
-        isUnlocked = true;
+        isResidents = true;
 
-        ReSetIsUnlocked();
+        ReSetIsResidents();
     }
 
     public void GuideType(CS_DragandDrop character)
     {
-        if (isUnlocked && !inRoomflag)
+        if (isResidents && !inRoomflag)
         {
             // キャラクターの特性とマッチするスコアを計算
             foreach (var roomAttribute in attributes)
@@ -397,7 +400,7 @@ public class CS_Room : MonoBehaviour
 
     public void ResetGuide()
     {
-        if (isUnlocked)
+        if (isResidents)
         {
             if (instance != null)
             {
