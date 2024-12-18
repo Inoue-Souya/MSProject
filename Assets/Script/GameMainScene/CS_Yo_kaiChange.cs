@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class YoKai
 {
     public CS_DragandDrop gameObject;   // 妖怪オブジェクト
-    public Vector3 initialPosition;     // 初期位置
+    //public Vector3 initialPosition;     // 初期位置
     public GameObject Ikonobject;       // アイコン用オブジェクト
 
-    public YoKai(CS_DragandDrop obj, Vector3 position, GameObject gameobj)
+    public YoKai(CS_DragandDrop obj, GameObject gameobj)
     {
         gameObject = obj;
-        initialPosition = position;
+        //initialPosition = position;
         Ikonobject = gameobj;
 
     }
@@ -83,6 +83,17 @@ public class CS_Yo_kaiChange : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < movedObjects.Count; i++)
+        {
+            if(!yo_kaies[i].GetinRoom())
+            {
+                yo_kaies[i].SetPosition(yo_kaiesIkon[i].transform.position);
+            }
+        }
+    }
+
     private void MoveYoKaies()
     {
         for (int i = 0; i < MaxReSource; i++)
@@ -107,8 +118,10 @@ public class CS_Yo_kaiChange : MonoBehaviour
                 yo_kaies[i].transform.position = newPosition;
                 yo_kaies[i].SetPosition(yo_kaies[i].transform.position);
 
+                yo_kaies[i].transform.SetParent(yo_kaiesIkon[i].transform);
+
                 // 移動したオブジェクトをリストに追加
-                movedObjects.Add(new YoKai(yo_kaies[i], newPosition, yo_kaiesIkon[i]));
+                movedObjects.Add(new YoKai(yo_kaies[i], yo_kaiesIkon[i]));
             }
         }
     }
@@ -131,21 +144,31 @@ public class CS_Yo_kaiChange : MonoBehaviour
         // その他のオブジェクトがない場合はspecifiedObjec(置いた妖怪)を元の位置に戻す
         if (otherObjects.Count == 0)
         {
-            specifiedObject.gameObject.transform.position = specifiedObject.initialPosition;
+            specifiedObject.gameObject.transform.position = yo_kaiesIkon[specifiedIndex].transform.position;
+
+            specifiedObject.gameObject.transform.SetParent(yo_kaiesIkon[specifiedIndex].transform);
+
+            // アイコンも元に戻す
+            SpriteRenderer sprite = yo_kaiesIkon[specifiedIndex].GetComponent<SpriteRenderer>();
+            CS_DragandDrop Ikon = specifiedObject.gameObject.GetComponent<CS_DragandDrop>();
+            sprite.sprite = Ikon.IkonSprite;
+
             return;
         }
 
+       // specifiedObject.gameObject.transform.SetParent(null);
+
         // 位置を交換
         Vector3 tempPosition = randomOtherObject.transform.position;  // randomOtherObject の元の位置を一時保存
-        randomOtherObject.transform.position = specifiedObject.initialPosition;  // randomOtherObject を specifiedObject の元の位置に移動
+        randomOtherObject.transform.position = yo_kaiesIkon[specifiedIndex].transform.position;  // randomOtherObject を specifiedObject の元の位置に移動
         specifiedObject.gameObject.transform.position = tempPosition;  // specifiedObject を randomOtherObject の元の位置に移動
 
         // 位置を更新
         randomOtherObject.SetPosition(randomOtherObject.transform.position);
-        specifiedObject.initialPosition = specifiedObject.gameObject.transform.position;  // 指定オブジェクトの新しい位置を initialPosition に設定
+        //specifiedObject.initialPosition = specifiedObject.gameObject.transform.position;  // 指定オブジェクトの新しい位置を initialPosition に設定
 
         // randomOtherObject の新しい位置情報を持つ YoKai インスタンスを作成
-        YoKai randomOtherYoKai = new YoKai(randomOtherObject, randomOtherObject.transform.position,specifiedObject.Ikonobject);
+        YoKai randomOtherYoKai = new YoKai(randomOtherObject, specifiedObject.Ikonobject);
 
         // Yokaiインスタンスからスプライト情報を取得し、画像を入れ替える
         SpriteRenderer renderer = randomOtherYoKai.Ikonobject.GetComponent<SpriteRenderer>();
@@ -157,6 +180,8 @@ public class CS_Yo_kaiChange : MonoBehaviour
         // movedObjectsリストを更新
         movedObjects.Remove(specifiedObject);       // specifiedObjectをリストから削除
         movedObjects.Add(randomOtherYoKai);         // 新たに選択されたオブジェクトを追加
+
+        randomOtherObject.transform.SetParent(yo_kaiesIkon[specifiedIndex].transform);
 
         // 次の妖怪をセット
         NextYo_kai();
@@ -214,9 +239,12 @@ public class CS_Yo_kaiChange : MonoBehaviour
         {
             if(yo_kaies.Count<=MaxReSource)
             {
-                movedObjects.Add(new YoKai(Yo_kai, yo_kaiesIkon[count].transform.position, yo_kaiesIkon[count]));
+                movedObjects.Add(new YoKai(Yo_kai, yo_kaiesIkon[count]));
                 
                 Yo_kai.gameObject.transform.position = yo_kaiesIkon[count].transform.position;
+                Yo_kai.SetPosition(Yo_kai.transform.position);
+
+                Yo_kai.transform.SetParent(yo_kaiesIkon[count].transform);
 
                 SpriteRenderer sprite = yo_kaiesIkon[count].GetComponent<SpriteRenderer>();
                 sprite.sprite = Yo_kai.IkonSprite;
@@ -254,7 +282,7 @@ public class CS_Yo_kaiChange : MonoBehaviour
             return;
         }
 
-        YoKai used = new YoKai(specifiedObject.gameObject, specifiedObject.initialPosition, specifiedObject.Ikonobject);
+        YoKai used = new YoKai(specifiedObject.gameObject, specifiedObject.Ikonobject);
 
         // Yokaiインスタンスからスプライト情報を取得し、画像を入れ替える
         SpriteRenderer renderer = used.Ikonobject.GetComponent<SpriteRenderer>();

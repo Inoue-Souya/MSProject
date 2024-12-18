@@ -8,7 +8,7 @@ public class CS_DragandDrop : MonoBehaviour
 {
     private Vector3 offset;
     private Camera mainCamera;
-    public  bool isDragging;
+    public bool isDragging;
     private bool inRoom;
     private Vector3 originalPosition;
     private Sprite originalSprite;
@@ -78,7 +78,7 @@ public class CS_DragandDrop : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        if(!inRoom)
+        if (!inRoom)
         {
             CheckRoom();
             audioSource.Stop();
@@ -86,7 +86,7 @@ public class CS_DragandDrop : MonoBehaviour
             {
                 roomManager.rooms[i].ResetGuide();
             }
-        }  
+        }
     }
 
     void Update()
@@ -99,7 +99,9 @@ public class CS_DragandDrop : MonoBehaviour
         // ゲージが表示されている場合、時間を減少させる
         if (gaugeInstance != null)
         {
-
+            transform.position = originalPosition;
+            SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+            sprite.sortingOrder = 2;
             // 毎フレーム、位置を更新
             UpdateGaugePosition(transform.position);
 
@@ -119,8 +121,12 @@ public class CS_DragandDrop : MonoBehaviour
                 cp_room.finishPhase();
                 inRoom = false;
 
-                SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
                 sprite.sprite = originalSprite;
+                sprite.sortingOrder = 3;
+
+                //Vector3 pos = transform.position;
+                ////pos.z = 0;
+                //transform.position = pos;
             }
         }
     }
@@ -151,10 +157,16 @@ public class CS_DragandDrop : MonoBehaviour
                     ChangeManager.UsedYo_kai(this.name);// 使用済みのアイコンにする
                     PlaceSmallImage(room.transform.position);
                     StartGaugeCountdown(this.transform.position);
+                    Transform parent = transform.parent;
+                    if(parent!=null)
+                    {
+                        parent.transform.SetParent(null);
+                    }
                 }
                 else
                 {
                     Debug.Log("Room is locked. Cannot drag here.");
+                    transform.position = originalPosition;
                 }
                 break;
             }
@@ -169,6 +181,7 @@ public class CS_DragandDrop : MonoBehaviour
     {
         Vector3 offsetPos = new Vector3(0.5f, 0.0f, 0.0f);
         gameObject.transform.position = position + offsetPos;
+        SetPosition(transform.position);
 
         // エフェクト再生
         if (effectController != null)

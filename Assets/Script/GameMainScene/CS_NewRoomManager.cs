@@ -18,7 +18,13 @@ public class CS_NewRoomManager : MonoBehaviour
     {
         //InitializeRooms();
         inResident = 0;
-        openRoom = 5;
+        for(int i=0;i<rooms.Length; i++)
+        {
+            if(rooms[i].isUnlocked)
+            {
+                openRoom++;
+            }
+        }
 
         if (vignette != null)
         {
@@ -65,7 +71,7 @@ public class CS_NewRoomManager : MonoBehaviour
         // ゲームオーバー条件
         if (inResident >= openRoom && openRoom >= 6)
         {
-            SceneManager.LoadScene("GameOverScene");
+           // SceneManager.LoadScene("GameOverScene");
         }
     }
 

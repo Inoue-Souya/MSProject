@@ -87,7 +87,7 @@ public class CS_MouseHoverDisplayText : MonoBehaviour
             additionalText.gameObject.SetActive(false);
         }
 
-        if (sharedDisplayText != null && sharedPanel != null && room.isResidents)
+        if (sharedDisplayText != null && sharedPanel != null)
         {
             sharedDisplayText.text = GetAttributesText();
             sharedDisplayText.alignment = TextAnchor.MiddleCenter;
